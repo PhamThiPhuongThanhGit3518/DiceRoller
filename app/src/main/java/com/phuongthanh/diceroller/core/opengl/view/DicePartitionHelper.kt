@@ -25,48 +25,15 @@ object DicePartitionHelper {
         val isCardRatio = (totalH / totalW) < 1.35f
 
         when (clampedCount) {
-            1 -> {
-                rects.add(RectF(0f, 0f, totalW, totalH))
-            }
-            2 -> {
-                if (isCardRatio) {
-                    val w2 = totalW / 2f
-                    rects.add(RectF(0f, 0f, w2, totalH))
-                    rects.add(RectF(w2, 0f, totalW, totalH))
-                } else {
-                    val h2 = totalH / 2f
-                    rects.add(RectF(0f, 0f, totalW, h2))
-                    rects.add(RectF(0f, h2, totalW, totalH))
-                }
-            }
-            3 -> {
-                if (isCardRatio) {
-                    val cx = totalW / 2f
-                    val cy = totalH / 2f
-                    val dx = totalW * SPACING_3_DICE_HORIZONTAL
-                    val dy = totalH * SPACING_3_DICE_VERTICAL
-                    val cellW = totalW * CELL_SIZE_3_DICE_RATIO
-                    val cellH = totalH * CELL_SIZE_3_DICE_RATIO
-
-                    // Top-Left die (viên trên bên trái)
-                    val c0x = cx - dx
-                    val c0y = cy - dy
-                    rects.add(RectF(c0x - cellW / 2f, c0y - cellH / 2f, c0x + cellW / 2f, c0y + cellH / 2f))
-
-                    // Top-Right die (viên trên bên phải)
-                    val c1x = cx + dx
-                    val c1y = cy - dy
-                    rects.add(RectF(c1x - cellW / 2f, c1y - cellH / 2f, c1x + cellW / 2f, c1y + cellH / 2f))
-
-                    // Bottom-Center die (viên dưới ở giữa)
-                    val c2x = cx
-                    val c2y = cy + dy
-                    rects.add(RectF(c2x - cellW / 2f, c2y - cellH / 2f, c2x + cellW / 2f, c2y + cellH / 2f))
-                } else {
-                    val h3 = totalH / 3f
-                    rects.add(RectF(0f, 0f, totalW, h3))
-                    rects.add(RectF(0f, h3, totalW, 2f * h3))
-                    rects.add(RectF(0f, 2f * h3, totalW, totalH))
+            1, 2, 3 -> {
+                // Khi số xúc xắc <= 3, hiển thị trên cùng 1 hàng ngang ở giữa màn hình / thẻ
+                val cellW = totalW / clampedCount.toFloat()
+                val cy = totalH / 2f
+                val cellH = minOf(totalH, cellW * 1.35f)
+                val top = cy - cellH / 2f
+                val bottom = cy + cellH / 2f
+                for (i in 0 until clampedCount) {
+                    rects.add(RectF(i * cellW, top, (i + 1) * cellW, bottom))
                 }
             }
             4 -> {

@@ -12,4 +12,8 @@
     <attr name="border" format="color" />
     <attr name="colorSuccess" format="color" />
     <attr name="tableFeltColor" format="color" />
+
+    <declare-styleable name="FigmaCardView">
+        <attr name="cardCornerRadius" format="dimension" />
+    </declare-styleable>
 </resources>

@@ -59,7 +59,7 @@ class PartyViewModel : ViewModel() {
                     drawnChallenge = challenge
                 )
             }
-            _uiEffect.send(PartyUiEffect.ShowChallenge(pack.name, challenge))
+            _uiEffect.send(PartyUiEffect.ShowChallenge(pack.nameRes, challenge))
         }
     }
 

@@ -25,14 +25,14 @@ class Dice3DRenderer(
         /**
          * Kích thước scale của xúc xắc 3D theo số lượng xúc xắc hiển thị:
          * - SCALE_1_DICE: Khi có 1 xúc xắc (mặc định 0.95f)
-         * - SCALE_2_DICE: Khi có 2 xúc xắc (mặc định 0.68f) -> tạo khoảng cách tự nhiên giữa 2 xúc xắc, không chạm nhau
-         * - SCALE_3_DICE: Khi có 3 xúc xắc (mặc định 0.9f)
-         * - SCALE_4_DICE: Khi có 4 xúc xắc (mặc định 0.58f)
+         * - SCALE_2_DICE: Khi có 2 xúc xắc trên 1 hàng (mặc định 0.78f)
+         * - SCALE_3_DICE: Khi có 3 xúc xắc trên 1 hàng (mặc định 0.65f)
+         * - SCALE_4_DICE: Khi có 4 xúc xắc lưới 2x2 (mặc định 0.58f)
          * - SCALE_MANY_DICE: Khi có từ 5 xúc xắc trở lên (mặc định 0.52f)
          */
         const val SCALE_1_DICE = 0.95f
-        const val SCALE_2_DICE = 0.68f
-        const val SCALE_3_DICE = 0.9f
+        const val SCALE_2_DICE = 0.78f
+        const val SCALE_3_DICE = 0.65f
         const val SCALE_4_DICE = 0.58f
         const val SCALE_MANY_DICE = 0.52f
     }
@@ -59,17 +59,17 @@ class Dice3DRenderer(
     var diceColor: Int = 0xFFC4EA7E.toInt()
 
     @Volatile
-    var dotColor: Int = 0xFFF7D4D5.toInt()
+    var dotColor: Int = 0xFFFFFFFF.toInt()
 
     @Volatile
     var sameColorsAllDice: Boolean = true
 
     // Elegant deep contrasting tabletop / board background color (not matching the dice)
     @Volatile
-    var tableBgColor: Int = 0xFF141D28.toInt()
+    var tableBgColor: Int = 0x00000000 // Default transparent
 
     @Volatile
-    var tableSeparatorColor: Int = 0xFF222E3E.toInt()
+    var tableSeparatorColor: Int = 0x00000000
 
     @Volatile
     var showDividers: Boolean = false
@@ -94,12 +94,12 @@ class Dice3DRenderer(
     }
 
     private val dicePalette = listOf(
-        0xFF80EACE.toInt(),
-        0xFFE9807F.toInt(),
-        0xFFE9E880.toInt(),
-        0xFFF79371.toInt(),
-        0xFF7F8BE9.toInt(),
-        0xFFC4EA7E.toInt()
+        0xFFE53935.toInt(), // Red (matches Figma 3D die 1)
+        0xFF0075FF.toInt(), // Royal Blue (matches Figma 3D die 2)
+        0xFF10B981.toInt(), // Emerald Green (matches Figma 3D die 3)
+        0xFFF59E0B.toInt(), // Amber / Gold
+        0xFF8B5CF6.toInt(), // Purple
+        0xFF06B6D4.toInt()  // Cyan
     )
 
     private val projMatrix = FloatArray(16)
@@ -198,10 +198,11 @@ class Dice3DRenderer(
         // 1. Clear full canvas with separator border color or table background
         GLES20.glDisable(GLES20.GL_SCISSOR_TEST)
         val clearColor = if (showDividers) tableSeparatorColor else tableBgColor
+        val clearA = Color.alpha(clearColor) / 255f
         val clearR = Color.red(clearColor) / 255f
         val clearG = Color.green(clearColor) / 255f
         val clearB = Color.blue(clearColor) / 255f
-        GLES20.glClearColor(clearR, clearG, clearB, 1f)
+        GLES20.glClearColor(clearR, clearG, clearB, clearA)
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT or GLES20.GL_DEPTH_BUFFER_BIT)
         GLES20.glEnable(GLES20.GL_SCISSOR_TEST)
 
@@ -227,10 +228,11 @@ class Dice3DRenderer(
 
             // 2. Clear depth buffer for this die (and color buffer if dividers are shown)
             if (showDividers) {
-                val bgR = ((tableBgColor shr 16) and 0xFF) / 255f
-                val bgG = ((tableBgColor shr 8) and 0xFF) / 255f
-                val bgB = (tableBgColor and 0xFF) / 255f
-                GLES20.glClearColor(bgR, bgG, bgB, 1f)
+                val bgA = Color.alpha(tableBgColor) / 255f
+                val bgR = Color.red(tableBgColor) / 255f
+                val bgG = Color.green(tableBgColor) / 255f
+                val bgB = Color.blue(tableBgColor) / 255f
+                GLES20.glClearColor(bgR, bgG, bgB, bgA)
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT or GLES20.GL_DEPTH_BUFFER_BIT)
             } else {
                 GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT)

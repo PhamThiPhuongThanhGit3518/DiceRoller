@@ -32,8 +32,8 @@ class PartyRecentAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        holder.binding.tvRecentTitle.text = item.name
-        holder.binding.tvRecentSubtitle.text = item.description
+        holder.binding.tvRecentTitle.setText(item.nameRes)
+        holder.binding.tvRecentSubtitle.setText(item.descRes)
         holder.binding.ivRecentIcon.setImageResource(item.iconRes)
 
         holder.itemView.setOnDebouncedClickListener {
@@ -66,11 +66,16 @@ class PartyRecommendedAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        holder.binding.tvRecTitle.text = item.name
-        holder.binding.tvRecSubtitle.text = item.description
+        holder.binding.tvRecTitle.setText(item.nameRes)
+        holder.binding.tvRecSubtitle.setText(item.descRes)
         holder.binding.ivRecIcon.setImageResource(item.iconRes)
 
-        if (item.tags.isNotEmpty()) {
+        val context = holder.itemView.context
+        if (item.tagResList.isNotEmpty()) {
+            holder.binding.tvTag1.setText(item.tagResList[0])
+            holder.binding.tvTag2.text = item.playersRange
+            holder.binding.tvTag3.setText(item.tagResList.getOrElse(1) { com.phuongthanh.diceroller.R.string.difficulty_easy })
+        } else if (item.tags.isNotEmpty()) {
             holder.binding.tvTag1.text = item.tags.getOrNull(0) ?: ""
             holder.binding.tvTag2.text = item.tags.getOrNull(1) ?: ""
             holder.binding.tvTag3.text = item.tags.getOrNull(2) ?: ""

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.StringRes
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.phuongthanh.diceroller.core.utils.setOnDebouncedClickListener
 import com.phuongthanh.diceroller.databinding.BottomSheetPartyQuestionBinding
@@ -17,7 +18,7 @@ class PartyQuestionBottomSheet : BottomSheetDialogFragment() {
     private var _binding: BottomSheetPartyQuestionBinding? = null
     private val binding get() = _binding!!
 
-    var packName: String = ""
+    @StringRes var packNameRes: Int = 0
     var challenge: PartyChallenge? = null
     var onRollAgain: (() -> Unit)? = null
 
@@ -33,7 +34,9 @@ class PartyQuestionBottomSheet : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.tvPackName.text = packName.uppercase()
+        if (packNameRes != 0) {
+            binding.tvPackName.text = getString(packNameRes).uppercase()
+        }
 
         val c = challenge ?: return
         binding.tvQuestionBadge.setText(c.type.titleRes)
@@ -50,7 +53,7 @@ class PartyQuestionBottomSheet : BottomSheetDialogFragment() {
         binding.tvQuestionBadge.background = badgeBg
         binding.tvQuestionBadge.setTextColor(Color.WHITE)
 
-        binding.tvQuestionText.text = c.text
+        binding.tvQuestionText.setText(c.textRes)
 
         binding.btnRollAgain.setOnDebouncedClickListener {
             dismiss()
@@ -71,12 +74,12 @@ class PartyQuestionBottomSheet : BottomSheetDialogFragment() {
         const val TAG = "PartyQuestionBottomSheet"
 
         fun newInstance(
-            packName: String,
+            @StringRes packNameRes: Int,
             challenge: PartyChallenge,
             onRollAgain: (() -> Unit)? = null
         ): PartyQuestionBottomSheet {
             return PartyQuestionBottomSheet().apply {
-                this.packName = packName
+                this.packNameRes = packNameRes
                 this.challenge = challenge
                 this.onRollAgain = onRollAgain
             }

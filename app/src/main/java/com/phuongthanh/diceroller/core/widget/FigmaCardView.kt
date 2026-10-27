@@ -29,23 +29,21 @@ class FigmaCardView @JvmOverloads constructor(
         style = Paint.Style.STROKE
     }
 
-    var cornerRadiusPx: Float = 20f * resources.displayMetrics.density
-    var insets: RectF = RectF(
-        12f * resources.displayMetrics.density,
-        8f * resources.displayMetrics.density,
-        12f * resources.displayMetrics.density,
-        22f * resources.displayMetrics.density
-    )
-    var strokeWidthPx: Float = 1f * resources.displayMetrics.density
-    var strokeColors: IntArray? = intArrayOf(
-        ContextCompat.getColor(context, R.color.ui_banner_stroke_top),
-        ContextCompat.getColor(context, R.color.ui_banner_stroke_bottom)
-    )
+    var cornerRadiusPx: Float = 22f * resources.displayMetrics.density
+    var insets: RectF = RectF(0f, 0f, 0f, 0f)
+    var strokeWidthPx: Float = 0f
+    var strokeColors: IntArray? = null
 
     init {
         setWillNotDraw(false)
         clipChildren = false
         clipToPadding = false
+
+        if (attrs != null) {
+            val a = context.obtainStyledAttributes(attrs, R.styleable.FigmaCardView, defStyleAttr, 0)
+            cornerRadiusPx = a.getDimension(R.styleable.FigmaCardView_cardCornerRadius, cornerRadiusPx)
+            a.recycle()
+        }
     }
 
     override fun dispatchDraw(canvas: Canvas) {

@@ -34,7 +34,7 @@ class PartyRollPlayFragment : BaseFragment<FragmentPartyRollPlayBinding>(Fragmen
         currentPack = PartyPacksBank.getPackById(packId)
 
         // 1. Pack Title
-        binding.tvPackTitle.text = currentPack.name
+        binding.tvPackTitle.setText(currentPack.nameRes)
 
         // 2. Setup Top Bar Actions
         binding.btnBack.setOnDebouncedClickListener {
@@ -133,7 +133,7 @@ class PartyRollPlayFragment : BaseFragment<FragmentPartyRollPlayBinding>(Fragmen
 
     private fun showResultOverlay(rolledNumber: Int, challenge: PartyChallenge) {
         binding.tvResultNumber.text = rolledNumber.toString()
-        binding.tvChallengeText.text = "\"${challenge.text}\""
+        binding.tvChallengeText.text = "\"${getString(challenge.textRes)}\""
 
         binding.layoutResultContainer.alpha = 0f
         binding.layoutResultContainer.visibility = View.VISIBLE
@@ -145,7 +145,7 @@ class PartyRollPlayFragment : BaseFragment<FragmentPartyRollPlayBinding>(Fragmen
 
     private fun showHelpDialog() {
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle(currentPack.name)
+            .setTitle(currentPack.nameRes)
             .setMessage(getString(R.string.custom_play_help_message))
             .setPositiveButton(android.R.string.ok, null)
             .show()

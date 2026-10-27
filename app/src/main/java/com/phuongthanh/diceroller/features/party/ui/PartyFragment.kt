@@ -69,8 +69,8 @@ class PartyFragment : BaseFragment<FragmentPartyBinding>(FragmentPartyBinding::i
     }
 
     private fun bindFeaturedCard(pack: PartyChallengePack) {
-        binding.tvFeaturedTitle.text = pack.name
-        binding.tvFeaturedDesc.text = pack.description
+        binding.tvFeaturedTitle.setText(pack.nameRes)
+        binding.tvFeaturedDesc.setText(pack.descRes)
 
         binding.tvFeaturedTag1.text = getString(R.string.challenges_count_format, pack.challengesCount)
         binding.tvFeaturedTag2.text = getString(R.string.players_range_format, pack.playersRange)

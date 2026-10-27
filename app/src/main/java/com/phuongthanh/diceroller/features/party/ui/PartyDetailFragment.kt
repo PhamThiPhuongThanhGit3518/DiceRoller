@@ -54,9 +54,9 @@ class PartyDetailFragment : BaseFragment<FragmentPartyDetailBinding>(FragmentPar
     }
 
     private fun bindPackDetails(pack: PartyChallengePack) {
-        binding.tvHeaderSubtitle.text = pack.name
-        binding.tvPackTitle.text = pack.name
-        binding.tvPackDesc.text = pack.description
+        binding.tvHeaderSubtitle.setText(pack.nameRes)
+        binding.tvPackTitle.setText(pack.nameRes)
+        binding.tvPackDesc.setText(pack.descRes)
 
         binding.tvStatChallengesCount.text = pack.challengesCount.toString()
         binding.tvStatPlayersRange.text = pack.playersRange

@@ -3,12 +3,12 @@ package com.phuongthanh.diceroller.features.settings.ui
 import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.phuongthanh.diceroller.DiceRollerApplication
 import com.phuongthanh.diceroller.R
 import com.phuongthanh.diceroller.core.base.BaseFragment
 import com.phuongthanh.diceroller.core.model.DiceFaceStyle
 import com.phuongthanh.diceroller.core.utils.collectWithLifecycle
+import com.phuongthanh.diceroller.core.utils.safeNavigate
 import com.phuongthanh.diceroller.core.utils.setOnDebouncedClickListener
 import com.phuongthanh.diceroller.databinding.FragmentDiceSettingsBinding
 import com.phuongthanh.diceroller.features.freeroll.model.DiceType
@@ -32,19 +32,23 @@ class DiceSettingsFragment : BaseFragment<FragmentDiceSettingsBinding>(FragmentD
         }
     }
 
-    private var isProgrammaticUpdate = false
-
     override fun initViews() {
-        binding.btnBack.setOnClickListener {
-            findNavController().popBackStack()
+        binding.btnBack.setOnDebouncedClickListener {
+            findNavController().navigateUp()
+        }
+
+        binding.btnVip.setOnDebouncedClickListener {
+            findNavController().safeNavigate(R.id.action_diceSettingsFragment_to_premiumFragment)
+        }
+
+        binding.btnSettings.setOnDebouncedClickListener {
+            findNavController().safeNavigate(R.id.action_diceSettingsFragment_to_settingsFragment)
         }
 
         if (isClassic) {
             binding.cardRange.visibility = View.GONE
-            binding.cardTotal.visibility = View.GONE
         } else {
             binding.cardRange.visibility = View.VISIBLE
-            binding.cardTotal.visibility = View.VISIBLE
         }
 
         setupClickListeners()
@@ -69,89 +73,19 @@ class DiceSettingsFragment : BaseFragment<FragmentDiceSettingsBinding>(FragmentD
             showAnimationBottomSheet()
         }
 
-        // 4. Lăn (Roll Mode)
-        binding.swShake.setOnCheckedChangeListener { _, isChecked ->
-            if (!isProgrammaticUpdate) {
-                viewLifecycleOwner.lifecycleScope.launch {
-                    appContainer.appPreferences.setShakeEnabled(isChecked)
-                }
-            }
-        }
-        binding.cardRoll.setOnDebouncedClickListener {
-            binding.swShake.toggle()
+        // 4. Cách gieo xúc xắc (How to Roll)
+        binding.cardHowToRoll.setOnDebouncedClickListener {
+            showHowToRollBottomSheet()
         }
 
-        // 5. Âm thanh (Sound)
-        binding.swSound.setOnCheckedChangeListener { _, isChecked ->
-            if (!isProgrammaticUpdate) {
-                viewLifecycleOwner.lifecycleScope.launch {
-                    appContainer.appPreferences.setSoundEnabled(isChecked)
-                }
-            }
-        }
-        binding.cardSound.setOnDebouncedClickListener {
-            binding.swSound.toggle()
-        }
-
-        // 6. Rung (Vibrate)
-        binding.swVibrate.setOnCheckedChangeListener { _, isChecked ->
-            if (!isProgrammaticUpdate) {
-                viewLifecycleOwner.lifecycleScope.launch {
-                    appContainer.appPreferences.setHapticEnabled(isChecked)
-                }
-            }
-        }
-        binding.cardVibrate.setOnDebouncedClickListener {
-            binding.swVibrate.toggle()
-        }
-
-        // 7. Hiển thị tổng (Display Total)
-        if (!isClassic) {
-            binding.swTotal.setOnCheckedChangeListener { _, isChecked ->
-                if (!isProgrammaticUpdate) {
-                    viewLifecycleOwner.lifecycleScope.launch {
-                        appContainer.appPreferences.setShowTotalScore(isChecked)
-                    }
-                }
-            }
-            binding.cardTotal.setOnDebouncedClickListener {
-                binding.swTotal.toggle()
-            }
+        // Bottom CTA: Create new game
+        binding.btnCreateNewGame.setOnDebouncedClickListener {
+            findNavController().safeNavigate(R.id.action_diceSettingsFragment_to_customRollHomeFragment)
         }
     }
 
     private fun observePreferences() {
         val prefs = appContainer.appPreferences
-
-        // Sound
-        prefs.soundEnabledFlow.collectWithLifecycle(viewLifecycleOwner) { enabled ->
-            isProgrammaticUpdate = true
-            binding.swSound.isChecked = enabled
-            isProgrammaticUpdate = false
-        }
-
-        // Vibrate
-        prefs.hapticEnabledFlow.collectWithLifecycle(viewLifecycleOwner) { enabled ->
-            isProgrammaticUpdate = true
-            binding.swVibrate.isChecked = enabled
-            isProgrammaticUpdate = false
-        }
-
-        // Shake
-        prefs.shakeEnabledFlow.collectWithLifecycle(viewLifecycleOwner) { enabled ->
-            isProgrammaticUpdate = true
-            binding.swShake.isChecked = enabled
-            isProgrammaticUpdate = false
-        }
-
-        // Total score display
-        if (!isClassic) {
-            prefs.showTotalScoreFlow.collectWithLifecycle(viewLifecycleOwner) { show ->
-                isProgrammaticUpdate = true
-                binding.swTotal.isChecked = show
-                isProgrammaticUpdate = false
-            }
-        }
 
         // Animation type & speed summary
         combine(
@@ -224,6 +158,25 @@ class DiceSettingsFragment : BaseFragment<FragmentDiceSettingsBinding>(FragmentD
                 binding.tvRangeSubtitle.text = summary
             }
         }
+
+        // How to roll summary (Shake, Sound, Haptic)
+        combine(
+            prefs.shakeEnabledFlow,
+            prefs.soundEnabledFlow,
+            prefs.hapticEnabledFlow
+        ) { shake, sound, haptic ->
+            val shakeStatus = if (shake) "Shake: ON" else "Shake: OFF"
+            val soundStatus = if (sound) "Sound" else ""
+            val hapticStatus = if (haptic) "Vibrate" else ""
+            val extras = listOf(soundStatus, hapticStatus).filter { it.isNotEmpty() }.joinToString(", ")
+            if (extras.isNotEmpty()) {
+                "$shakeStatus • $extras"
+            } else {
+                shakeStatus
+            }
+        }.collectWithLifecycle(viewLifecycleOwner) { summary ->
+            binding.tvRollSubtitle.text = summary
+        }
     }
 
     private fun showDiceTypeSelector() {
@@ -273,5 +226,10 @@ class DiceSettingsFragment : BaseFragment<FragmentDiceSettingsBinding>(FragmentD
     private fun showAnimationBottomSheet() {
         val sheet = AnimationBottomSheet.newInstance()
         sheet.show(childFragmentManager, AnimationBottomSheet.TAG)
+    }
+
+    private fun showHowToRollBottomSheet() {
+        val sheet = HowToRollBottomSheet.newInstance(isClassic = isClassic)
+        sheet.show(childFragmentManager, HowToRollBottomSheet.TAG)
     }
 }

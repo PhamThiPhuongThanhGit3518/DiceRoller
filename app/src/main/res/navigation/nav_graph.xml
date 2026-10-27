@@ -102,6 +102,9 @@
         <action
             android:id="@+id/action_freeRollFragment_to_diceSettingsFragment"
             app:destination="@id/diceSettingsFragment" />
+        <action
+            android:id="@+id/action_freeRollFragment_to_premiumFragment"
+            app:destination="@id/premiumFragment" />
     </fragment>
 
     <fragment
@@ -112,6 +115,9 @@
         <action
             android:id="@+id/action_classicPlayerFragment_to_diceSettingsFragment"
             app:destination="@id/diceSettingsFragment" />
+        <action
+            android:id="@+id/action_classicPlayerFragment_to_premiumFragment"
+            app:destination="@id/premiumFragment" />
     </fragment>
 
     <fragment
@@ -222,6 +228,15 @@
             android:name="isClassic"
             android:defaultValue="false"
             app:argType="boolean" />
+        <action
+            android:id="@+id/action_diceSettingsFragment_to_premiumFragment"
+            app:destination="@id/premiumFragment" />
+        <action
+            android:id="@+id/action_diceSettingsFragment_to_customRollHomeFragment"
+            app:destination="@id/customRollHomeFragment" />
+        <action
+            android:id="@+id/action_diceSettingsFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
 
     <fragment

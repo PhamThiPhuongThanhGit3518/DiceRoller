@@ -1,5 +1,6 @@
 package com.phuongthanh.diceroller.data.repository
 
+import android.content.Context
 import com.phuongthanh.diceroller.data.local.room.PartyQuestionDao
 import com.phuongthanh.diceroller.data.local.room.PartyQuestionEntity
 import com.phuongthanh.diceroller.features.party.model.PartyQuestionsBank
@@ -9,7 +10,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 import java.util.UUID
 
-class PartyQuestionRepository(private val dao: PartyQuestionDao) {
+class PartyQuestionRepository(
+    private val dao: PartyQuestionDao,
+    private val context: Context
+) {
 
     val allQuestionsFlow: Flow<List<PartyQuestionEntity>> = dao.getAllQuestionsFlow()
 
@@ -58,7 +62,7 @@ class PartyQuestionRepository(private val dao: PartyQuestionDao) {
             PartyQuestionEntity(
                 id = UUID.randomUUID().toString(),
                 type = if (q.type == QuestionType.TRUTH) "TRUTH" else "DARE",
-                text = q.text,
+                text = context.getString(q.textRes),
                 isCustom = false
             )
         }

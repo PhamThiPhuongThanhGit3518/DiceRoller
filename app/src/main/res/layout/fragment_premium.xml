@@ -4,13 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_premium_midnight"
+    android:background="@drawable/bg_gradient_midnight"
+    android:clipChildren="false"
+    android:clipToPadding="false"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="20dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingStart="20dp"
         android:paddingTop="36dp"
         android:paddingBottom="28dp">
 
@@ -25,15 +29,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Soft Fading Glow behind Crown & Dice (Code thuần XML Shape Gradient, tùy chỉnh thông số trực tiếp) -->
+        <View
+            android:id="@+id/viewCrownDiceGlow"
+            android:layout_width="320dp"
+            android:layout_height="320dp"
+            android:background="@drawable/bg_premium_dice_glow"
+            app:layout_constraintBottom_toBottomOf="@+id/imgCrownDice"
+            app:layout_constraintEnd_toEndOf="@+id/imgCrownDice"
+            app:layout_constraintStart_toStartOf="@+id/imgCrownDice"
+            app:layout_constraintTop_toTopOf="@+id/imgCrownDice" />
+
         <!-- 3D Illustration: Crown & Dice -->
         <ImageView
             android:id="@+id/imgCrownDice"
             android:layout_width="0dp"
-            android:layout_height="210dp"
+            android:layout_height="268dp"
             android:adjustViewBounds="true"
             android:contentDescription="Crown and Dice 3D Illustration"
             android:scaleType="fitCenter"
-            android:src="@drawable/img_premium_crown_dice"
+            android:src="@drawable/png_pro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/layoutHeroText"
             app:layout_constraintTop_toTopOf="parent"
@@ -74,12 +89,13 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
-        <!-- Premium Benefits Bar (Unlimited rolls, Custom dice, Ad-free) -->
+        <!-- Premium Benefits Bar -->
         <LinearLayout
             android:id="@+id/cardBenefits"
             android:layout_width="match_parent"
             android:layout_height="72dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/bg_premium_benefits"
             android:gravity="center_vertical"
             android:orientation="horizontal"
@@ -258,6 +274,7 @@
                 android:id="@+id/cardPlanFree"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/bg_plan_card_selected"
                 android:clickable="true"
                 android:focusable="true"
@@ -316,6 +333,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/bg_plan_card_unselected"
                 android:clickable="true"
                 android:focusable="true"
@@ -373,6 +391,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/bg_plan_card_unselected"
                 android:clickable="true"
                 android:focusable="true"
@@ -460,6 +479,7 @@
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/bg_btn_upgrade_gradient"
             android:clickable="true"
             android:elevation="4dp"

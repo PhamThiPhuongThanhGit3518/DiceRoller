@@ -79,8 +79,8 @@ class DiceShader {
 
                     // Dual-lobe specular for glossy acrylic / resin shine
                     vec3 halfVec = normalize(keyLight + viewVec);
-                    float specPrimary = pow(max(dot(normal, halfVec), 0.0), 38.0) * 0.95;
-                    float specSoft = pow(max(dot(normal, halfVec), 0.0), 10.0) * 0.22;
+                    float specPrimary = pow(max(dot(normal, halfVec), 0.0), 38.0) * 0.35;
+                    float specSoft = pow(max(dot(normal, halfVec), 0.0), 24.0) * 0.06;
 
                     // Fresnel edge glow: vibrant cyan/blue rim light on right edge
                     float fresnel = pow(1.0 - max(dot(normal, viewVec), 0.0), 2.8);

@@ -1,5 +1,6 @@
 package com.phuongthanh.diceroller.features.party.viewmodel
 
+import androidx.annotation.StringRes
 import com.phuongthanh.diceroller.features.party.model.PartyChallenge
 import com.phuongthanh.diceroller.features.party.model.PartyChallengePack
 
@@ -19,5 +20,5 @@ data class PartyUiState(
 
 sealed interface PartyUiEffect {
     object PlayRollSoundAndHaptic : PartyUiEffect
-    data class ShowChallenge(val packName: String, val challenge: PartyChallenge) : PartyUiEffect
+    data class ShowChallenge(@StringRes val packNameRes: Int, val challenge: PartyChallenge) : PartyUiEffect
 }

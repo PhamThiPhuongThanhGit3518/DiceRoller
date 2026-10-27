@@ -25,6 +25,8 @@ import com.phuongthanh.diceroller.features.freeroll.model.DiceItem
 import com.phuongthanh.diceroller.features.freeroll.model.DiceType
 import kotlinx.coroutines.flow.combine
 
+import androidx.core.content.ContextCompat
+
 class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(FragmentClassicPlayerBinding::inflate) {
 
     private val viewModel: ClassicPlayerViewModel by viewModels()
@@ -64,7 +66,7 @@ class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(Fragmen
         }
 
         binding.btnVip.setOnDebouncedClickListener {
-            // Future VIP modal / entry point
+            findNavController().safeNavigate(R.id.action_classicPlayerFragment_to_premiumFragment)
         }
 
         // 2. Mode Toggle
@@ -82,18 +84,30 @@ class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(Fragmen
     }
 
     private fun setupModeToggle() {
-        binding.toggleGroupMode.addOnButtonCheckedListener { _, checkedId, isChecked ->
-            if (!isChecked) return@addOnButtonCheckedListener
-            val mode = when (checkedId) {
-                R.id.btnMode2P -> PlayerMode.TWO_PLAYERS
-                R.id.btnMode3P -> PlayerMode.THREE_PLAYERS
-                R.id.btnMode4P -> PlayerMode.FOUR_PLAYERS
-                else -> PlayerMode.FOUR_PLAYERS
-            }
-            if (viewModel.uiState.value.mode != mode) {
-                viewModel.processIntent(ClassicPlayerIntent.SetMode(mode))
-            }
+        binding.btnMode2P.setOnDebouncedClickListener {
+            viewModel.processIntent(ClassicPlayerIntent.SetMode(PlayerMode.TWO_PLAYERS))
         }
+        binding.btnMode3P.setOnDebouncedClickListener {
+            viewModel.processIntent(ClassicPlayerIntent.SetMode(PlayerMode.THREE_PLAYERS))
+        }
+        binding.btnMode4P.setOnDebouncedClickListener {
+            viewModel.processIntent(ClassicPlayerIntent.SetMode(PlayerMode.FOUR_PLAYERS))
+        }
+    }
+
+    private fun updateSegmentedMode(mode: PlayerMode) {
+        val activeBg = ContextCompat.getDrawable(requireContext(), R.drawable.bg_segmented_active_item)
+        val inactiveText = ContextCompat.getColor(requireContext(), R.color.segmented_ctrl_inactive_text)
+        val activeText = Color.WHITE
+
+        binding.btnMode2P.background = if (mode == PlayerMode.TWO_PLAYERS) activeBg else null
+        binding.btnMode2P.setTextColor(if (mode == PlayerMode.TWO_PLAYERS) activeText else inactiveText)
+
+        binding.btnMode3P.background = if (mode == PlayerMode.THREE_PLAYERS) activeBg else null
+        binding.btnMode3P.setTextColor(if (mode == PlayerMode.THREE_PLAYERS) activeText else inactiveText)
+
+        binding.btnMode4P.background = if (mode == PlayerMode.FOUR_PLAYERS || mode == PlayerMode.ONE_PLAYER) activeBg else null
+        binding.btnMode4P.setTextColor(if (mode == PlayerMode.FOUR_PLAYERS || mode == PlayerMode.ONE_PLAYER) activeText else inactiveText)
     }
 
     private fun setupDiceStepper() {
@@ -135,15 +149,8 @@ class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(Fragmen
 
     private fun observeViewModel() {
         viewModel.uiState.collectWithLifecycle(viewLifecycleOwner) { state ->
-            // Update toggle mode button if external or init
-            val checkedBtnId = when (state.mode) {
-                PlayerMode.TWO_PLAYERS -> R.id.btnMode2P
-                PlayerMode.THREE_PLAYERS -> R.id.btnMode3P
-                PlayerMode.FOUR_PLAYERS, PlayerMode.ONE_PLAYER -> R.id.btnMode4P
-            }
-            if (binding.toggleGroupMode.checkedButtonId != checkedBtnId) {
-                binding.toggleGroupMode.check(checkedBtnId)
-            }
+            // Update segmented toggle mode
+            updateSegmentedMode(state.mode)
 
             // Stepper controls
             binding.tvDiceCount.text = state.diceCountPerPlayer.toString()
@@ -325,7 +332,35 @@ class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(Fragmen
         // 1. Player Label
         slotBinding.tvPlayerName.text = "P${player.id}"
 
-        // 2. Winner trophy, Locked badge & Card background
+        // 2. Compute Player Theme Assets (P1..P4)
+        val (cardBg, avatarBg, scorePillBg, scoreColor) = when (player.id) {
+            1 -> listOf(
+                R.drawable.bg_card_player_p1,
+                R.drawable.bg_avatar_player_p1,
+                R.drawable.bg_score_pill_player_p1,
+                ContextCompat.getColor(requireContext(), R.color.player_p1_pink)
+            )
+            2 -> listOf(
+                R.drawable.bg_card_player_p2,
+                R.drawable.bg_avatar_player_p2,
+                R.drawable.bg_score_pill_player_p2,
+                ContextCompat.getColor(requireContext(), R.color.player_p2_score)
+            )
+            3 -> listOf(
+                R.drawable.bg_card_player_p3,
+                R.drawable.bg_avatar_player_p3,
+                R.drawable.bg_score_pill_player_p3,
+                ContextCompat.getColor(requireContext(), R.color.player_p3_orange)
+            )
+            else -> listOf(
+                R.drawable.bg_card_player_p4,
+                R.drawable.bg_avatar_player_p4,
+                R.drawable.bg_score_pill_player_p4,
+                ContextCompat.getColor(requireContext(), R.color.player_p4_purple)
+            )
+        }
+
+        // Winner trophy, Locked badge & Card background
         val isLockedThisRound = player.isLocked && !state.isRoundOver
 
         when {
@@ -342,9 +377,13 @@ class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(Fragmen
             else -> {
                 slotBinding.ivWinnerTrophy.visibility = View.GONE
                 slotBinding.layoutLockedBadge.visibility = View.GONE
-                slotBinding.cardPlayerRoot.setBackgroundResource(R.drawable.bg_player_card)
+                slotBinding.cardPlayerRoot.setBackgroundResource(cardBg as Int)
             }
         }
+
+        slotBinding.layoutPlayerPill.setBackgroundResource(avatarBg as Int)
+        slotBinding.cardScorePill.setBackgroundResource(scorePillBg as Int)
+        slotBinding.tvPlayerScore.setTextColor(scoreColor as Int)
 
         // 3. Score Pill
         slotBinding.tvPlayerScore.text = if (player.isRolling) "..." else player.score.toString()
@@ -360,13 +399,13 @@ class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(Fragmen
         // 5. Configure Table / Card Colors and Theme Colors for 3D View
         slotBinding.diceCanvas.setShowDividers(false)
         slotBinding.diceCanvas.setTableColors(
-            bgColor = Color.parseColor("#F1F5F9"),
-            separatorColor = Color.parseColor("#F1F5F9")
+            bgColor = Color.TRANSPARENT,
+            separatorColor = Color.TRANSPARENT
         )
         slotBinding.diceCanvas.setThemeColors(
-            sameColors = true,
+            sameColors = false,
             diceColor = dieBgColor,
-            dotColor = dieDotColor
+            dotColor = Color.WHITE
         )
 
         // 6. Map to DiceItem list and update 3D Canvas

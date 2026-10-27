@@ -4,23 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
+    android:background="@drawable/bg_gradient_midnight"
     android:clipToPadding="false"
-    android:paddingBottom="96dp"
-    android:background="#020C26">
+    android:fillViewport="true"
+    android:paddingBottom="96dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:paddingTop="16dp">
+        android:orientation="vertical">
 
         <!-- Header -->
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="16dp">
 
             <TextView
                 android:id="@+id/tvAppName"
@@ -29,7 +28,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:text="@string/app_name"
-                android:textColor="?attr/colorOnSurface"
+                android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -39,310 +38,654 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:orientation="horizontal">
+
+                <!-- VIP Crown Button -->
                 <FrameLayout
                     android:id="@+id/btnCrown"
                     android:layout_width="44dp"
                     android:layout_height="44dp"
-                    android:background="@drawable/bg_squircle_icon"
+                    android:background="@drawable/bg_squircle_crown_btn"
                     android:foreground="?attr/selectableItemBackgroundBorderless">
 
                     <ImageView
                         android:layout_width="22dp"
                         android:layout_height="22dp"
                         android:layout_gravity="center"
+                        android:contentDescription="@null"
                         android:src="@drawable/ic_crown"
-                        app:tint="#F59E0B" />
+                        app:tint="#FFC107" />
                 </FrameLayout>
 
+                <!-- Settings Button -->
                 <FrameLayout
                     android:id="@+id/btnSettings"
                     android:layout_width="44dp"
                     android:layout_height="44dp"
                     android:layout_marginStart="10dp"
-                    android:background="@drawable/bg_squircle_icon"
+                    android:background="@drawable/bg_squircle_settings_btn"
                     android:foreground="?attr/selectableItemBackgroundBorderless">
 
                     <ImageView
                         android:layout_width="22dp"
                         android:layout_height="22dp"
                         android:layout_gravity="center"
+                        android:contentDescription="@string/tab_settings"
                         android:src="@drawable/ic_settings"
-                        app:tint="?attr/colorOnSurface" />
+                        app:tint="#A8B8DF" />
                 </FrameLayout>
             </LinearLayout>
         </RelativeLayout>
 
-        <!-- Banner Hero Card -->
-        <androidx.cardview.widget.CardView
+        <!-- Hero Banner ("Roll the Dice!") -->
+        <com.phuongthanh.diceroller.core.widget.FigmaCardView
+            android:id="@+id/bannerHero"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="2dp"
-            app:cardBackgroundColor="#344054">
+            android:layout_height="265dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/bg_home_hero_banner"
+            app:cardCornerRadius="22dp">
 
+            <!-- Left Text Column -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:paddingStart="20dp"
+                android:paddingEnd="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivBannerDice"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
+                <!-- HOT badge -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/home_heading"
+                    android:background="@drawable/bg_hot_badge"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="2dp"
+                    android:text="@string/home_hot_badge"
                     android:textColor="@color/white"
-                    android:textSize="20sp"
+                    android:textSize="10sp"
                     android:textStyle="bold" />
 
+                <!-- Heading -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="@string/home_sub_heading"
-                    android:textColor="#D0D5DD"
-                    android:textSize="13sp"
-                    android:lineSpacingExtra="2dp" />
+                    android:lineSpacingMultiplier="0.95"
+                    android:text="@string/home_roll_dice_title"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
-                <com.google.android.material.button.MaterialButton
+                <!-- Subheading -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:lineSpacingExtra="1dp"
+                    android:maxLines="3"
+                    android:text="@string/home_roll_dice_sub"
+                    android:textColor="#A8B8DF"
+                    android:textSize="11sp" />
+
+                <!-- Let's play CTA button -->
+                <LinearLayout
                     android:id="@+id/btnCtaPlay"
                     android:layout_width="wrap_content"
-                    android:layout_height="44dp"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/home_cta"
-                    android:textColor="#101828"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:backgroundTint="@color/white"
-                    app:cornerRadius="22dp"
-                    app:elevation="0dp" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    android:layout_height="38dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_btn_continue_language"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp">
 
-        <!-- Danh Mục (Categories) -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_lets_play"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_marginStart="6dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_chevron_right"
+                        app:tint="@color/white" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 3D Dice Artwork -->
+            <ImageView
+                android:id="@+id/ivBannerDice"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_marginEnd="-10dp"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/png_dice_home"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </com.phuongthanh.diceroller.core.widget.FigmaCardView>
+
+        <!-- Category Section Header -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="24dp"
             android:text="@string/home_categories"
-            android:textColor="?attr/colorOnSurface"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <LinearLayout
+        <!-- Category Cards Horizontal Scroll Container -->
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:orientation="horizontal">
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingStart="20dp"
+            android:paddingEnd="10dp"
+            android:scrollbars="none">
 
-            <!-- Category 1: Customize the dice -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardCategoryCustomDice"
-                android:layout_width="0dp"
-                android:layout_height="108dp"
-                android:layout_weight="1"
-                android:layout_marginEnd="6dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:cardBackgroundColor="#F2F4F7"
-                android:foreground="?attr/selectableItemBackground">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="8dp">
+                <!-- Category 1: Customize the dice (Blue Wave) -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardCategoryCustomDice"
+                    android:layout_width="114dp"
+                    android:layout_height="154dp"
+                    android:layout_marginEnd="10dp"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="0dp">
 
-                    <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/ic_dice_d6"
-                        app:tint="#1D2939" />
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center"
-                        android:text="@string/cat_custom_dice"
-                        android:textColor="#344054"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@null"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/bg_category_custom_dice" />
 
-            <!-- Category 2: Play with friends -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardCategoryPlayWithFriends"
-                android:layout_width="0dp"
-                android:layout_height="108dp"
-                android:layout_weight="1"
-                android:layout_marginStart="3dp"
-                android:layout_marginEnd="3dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:cardBackgroundColor="#F2F4F7"
-                android:foreground="?attr/selectableItemBackground">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="12dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="8dp">
+                            <FrameLayout
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:background="@drawable/bg_circle_translucent_white">
 
-                    <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/ic_dice_multi"
-                        app:tint="#1D2939" />
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="@null"
+                                    android:src="@drawable/ic_dice_d6"
+                                    app:tint="@color/white" />
+                            </FrameLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center"
-                        android:text="@string/cat_play_with_friends"
-                        android:textColor="#344054"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
 
-            <!-- Category 3: Party challenge -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardCategoryPartyChallenge"
-                android:layout_width="0dp"
-                android:layout_height="108dp"
-                android:layout_weight="1"
-                android:layout_marginStart="6dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:cardBackgroundColor="#F2F4F7"
-                android:foreground="?attr/selectableItemBackground">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cat_custom_dice"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </androidx.cardview.widget.CardView>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="8dp">
+                <!-- Category 2: Play with friends (Purple Wave) -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardCategoryPlayWithFriends"
+                    android:layout_width="114dp"
+                    android:layout_height="154dp"
+                    android:layout_marginEnd="10dp"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="0dp">
 
-                    <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/ic_nav_party"
-                        app:tint="#1D2939" />
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center"
-                        android:text="@string/cat_party_challenge"
-                        android:textColor="#344054"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@null"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/bg_category_play_friends" />
 
-        <!-- Recommended Section -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <FrameLayout
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:background="@drawable/bg_circle_translucent_white">
+
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="@null"
+                                    android:src="@drawable/ic_dice_multi"
+                                    app:tint="@color/white" />
+                            </FrameLayout>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cat_play_with_friends"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Category 3: Party challenge (Green Wave) -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardCategoryPartyChallenge"
+                    android:layout_width="114dp"
+                    android:layout_height="154dp"
+                    android:layout_marginEnd="20dp"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="0dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@null"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/bg_category_party_challenge" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <FrameLayout
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:background="@drawable/bg_circle_translucent_white">
+
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="@null"
+                                    android:src="@drawable/ic_nav_party"
+                                    app:tint="@color/white" />
+                            </FrameLayout>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cat_party_challenge"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Recommended Section Header -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="24dp"
             android:text="@string/home_recommended"
-            android:textColor="?attr/colorOnSurface"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <!-- Recommended Card 1: Drinking Night -->
-        <androidx.cardview.widget.CardView
+        <FrameLayout
             android:id="@+id/cardRecDrinkingNight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="12dp"
-            app:cardCornerRadius="18dp"
-            app:cardElevation="0dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardUseCompatPadding="true"
-            android:foreground="?attr/selectableItemBackground">
+            android:background="@drawable/bg_card_recommended"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="14dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                <!-- Placeholder banner area -->
+                <!-- Thumbnail Placeholder -->
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="110dp"
-                    android:background="#F2F4F7" />
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:background="@drawable/bg_thumbnail_placeholder" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <!-- Text Content -->
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/rec_drinking_night"
-                    android:textColor="#1D2939"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="@string/rec_drinking_desc"
-                    android:textColor="#667085"
-                    android:textSize="13sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rec_drinking_night"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/rec_drinking_desc"
+                        android:textColor="#8E9DC4"
+                        android:textSize="12sp" />
+
+                    <!-- Tags Row -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <!-- Tag: Party -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/bg_tag_pill"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="8dp">
+
+                            <ImageView
+                                android:layout_width="6dp"
+                                android:layout_height="6dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_bullet_circle" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="@string/tag_party"
+                                android:textColor="#97A8D2"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <!-- Tag: 2-4 -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/bg_tag_pill"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="8dp">
+
+                            <ImageView
+                                android:layout_width="6dp"
+                                android:layout_height="6dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_bullet_circle" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="@string/tag_2_4"
+                                android:textColor="#97A8D2"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <!-- Tag: Easy -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:background="@drawable/bg_tag_pill"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="8dp">
+
+                            <ImageView
+                                android:layout_width="6dp"
+                                android:layout_height="6dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_bullet_circle" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="@string/tag_easy"
+                                android:textColor="#97A8D2"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Circle Arrow Action Button -->
+                <FrameLayout
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_circle_arrow_btn">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_arrow_forward"
+                        app:tint="@color/white" />
+                </FrameLayout>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </FrameLayout>
 
         <!-- Recommended Card 2: Classic Party -->
-        <androidx.cardview.widget.CardView
+        <FrameLayout
             android:id="@+id/cardRecClassicParty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            app:cardCornerRadius="18dp"
-            app:cardElevation="0dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardUseCompatPadding="true"
-            android:foreground="?attr/selectableItemBackground">
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_card_recommended"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="14dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                <!-- Placeholder banner area -->
+                <!-- Thumbnail Placeholder -->
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="110dp"
-                    android:background="#F2F4F7" />
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:background="@drawable/bg_thumbnail_placeholder" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <!-- Text Content -->
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/rec_classic_party"
-                    android:textColor="#1D2939"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="@string/rec_classic_desc"
-                    android:textColor="#667085"
-                    android:textSize="13sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rec_classic_party"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/rec_classic_desc"
+                        android:textColor="#8E9DC4"
+                        android:textSize="12sp" />
+
+                    <!-- Tags Row -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="22dp"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <!-- Tag: Party -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/bg_tag_pill"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="8dp">
+
+                            <ImageView
+                                android:layout_width="6dp"
+                                android:layout_height="6dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_bullet_circle" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="@string/tag_party"
+                                android:textColor="#97A8D2"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <!-- Tag: 2-6 -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/bg_tag_pill"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="8dp">
+
+                            <ImageView
+                                android:layout_width="6dp"
+                                android:layout_height="6dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_bullet_circle" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="@string/tag_2_6"
+                                android:textColor="#97A8D2"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <!-- Tag: Fun -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:background="@drawable/bg_tag_pill"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="8dp">
+
+                            <ImageView
+                                android:layout_width="6dp"
+                                android:layout_height="6dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_bullet_circle" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="@string/tag_fun"
+                                android:textColor="#97A8D2"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Circle Arrow Action Button -->
+                <FrameLayout
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_circle_arrow_btn">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_arrow_forward"
+                        app:tint="@color/white" />
+                </FrameLayout>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </FrameLayout>
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

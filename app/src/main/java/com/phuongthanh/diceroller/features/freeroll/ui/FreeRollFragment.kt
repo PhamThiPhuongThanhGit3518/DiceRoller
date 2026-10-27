@@ -18,6 +18,8 @@ import com.phuongthanh.diceroller.features.freeroll.viewmodel.FreeRollUiEffect
 import com.phuongthanh.diceroller.features.freeroll.viewmodel.FreeRollViewModel
 import kotlinx.coroutines.flow.combine
 
+import com.phuongthanh.diceroller.core.utils.safeNavigate
+
 class FreeRollFragment : BaseFragment<FragmentFreeRollBinding>(FragmentFreeRollBinding::inflate) {
 
     private val viewModel: FreeRollViewModel by viewModels()
@@ -34,23 +36,43 @@ class FreeRollFragment : BaseFragment<FragmentFreeRollBinding>(FragmentFreeRollB
             findNavController().navigateUp()
         }
 
-        // Help Information Dialog
-        binding.btnHelp.setOnDebouncedClickListener {
-            showHelpDialog()
+        // Top Bar: VIP Crown Navigation
+        binding.btnVip.setOnDebouncedClickListener {
+            findNavController().safeNavigate(R.id.action_freeRollFragment_to_premiumFragment)
         }
 
         // Dice Settings Navigation
         binding.btnSettings.setOnDebouncedClickListener {
             val args = Bundle().apply { putBoolean("isClassic", false) }
-            findNavController().navigate(
+            findNavController().safeNavigate(
                 R.id.action_freeRollFragment_to_diceSettingsFragment,
                 args
             )
         }
 
+        // Configure Canvas for Midnight background
+        binding.diceCanvas.setShowDividers(false)
+        binding.diceCanvas.setTableColors(
+            bgColor = android.graphics.Color.TRANSPARENT,
+            separatorColor = android.graphics.Color.TRANSPARENT
+        )
+
         // Roll Button
         binding.btnRoll.setOnDebouncedClickListener {
             viewModel.processIntent(FreeRollIntent.Roll)
+        }
+
+        // Action Button Right: Unlock all or Roll
+        binding.btnActionRight.setOnDebouncedClickListener {
+            val diceList = viewModel.uiState.value.diceList
+            val lockedDice = diceList.filter { it.isLocked }
+            if (lockedDice.isNotEmpty()) {
+                lockedDice.forEach { die ->
+                    viewModel.processIntent(FreeRollIntent.ToggleLock(die.id))
+                }
+            } else {
+                viewModel.processIntent(FreeRollIntent.Roll)
+            }
         }
 
         // Stepper: Minus & Plus (1 to 9 dice)

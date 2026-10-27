@@ -32,6 +32,7 @@ class CustomBottomBar @JvmOverloads constructor(
     init {
         orientation = HORIZONTAL
         gravity = Gravity.CENTER
+        setBackgroundColor(Color.TRANSPARENT)
         renderTabs()
     }
 
@@ -101,23 +102,23 @@ class CustomBottomBar @JvmOverloads constructor(
     private fun renderTabs() {
         removeAllViews()
         val density = resources.displayMetrics.density
-        val dp8 = (8 * density).toInt()
+        val dp12 = (12 * density).toInt()
 
         when (currentTab) {
             BottomTab.HOME -> {
                 // Home active (Circle on left) + Pill with Dice & Roulette on right
                 addView(createActiveCircle(BottomTab.HOME))
-                addView(createPillContainer(listOf(BottomTab.DICE, BottomTab.ROULETTE), marginStart = dp8))
+                addView(createPillContainer(listOf(BottomTab.DICE, BottomTab.ROULETTE), marginStart = dp12))
             }
             BottomTab.DICE -> {
                 // Pill with Home on left + Circle Dice in center + Pill with Roulette on right
-                addView(createPillContainer(listOf(BottomTab.HOME), marginEnd = dp8))
+                addView(createPillContainer(listOf(BottomTab.HOME), marginEnd = dp12))
                 addView(createActiveCircle(BottomTab.DICE))
-                addView(createPillContainer(listOf(BottomTab.ROULETTE), marginStart = dp8))
+                addView(createPillContainer(listOf(BottomTab.ROULETTE), marginStart = dp12))
             }
             BottomTab.ROULETTE -> {
                 // Pill with Home & Dice on left + Circle Roulette on right
-                addView(createPillContainer(listOf(BottomTab.HOME, BottomTab.DICE), marginEnd = dp8))
+                addView(createPillContainer(listOf(BottomTab.HOME, BottomTab.DICE), marginEnd = dp12))
                 addView(createActiveCircle(BottomTab.ROULETTE))
             }
         }
@@ -125,11 +126,11 @@ class CustomBottomBar @JvmOverloads constructor(
 
     private fun createActiveCircle(tab: BottomTab): View {
         val density = resources.displayMetrics.density
-        val size52dp = (52 * density).toInt()
+        val size56dp = (56 * density).toInt()
         val iconSize26dp = (26 * density).toInt()
 
         val frame = FrameLayout(context).apply {
-            layoutParams = LayoutParams(size52dp, size52dp)
+            layoutParams = LayoutParams(size56dp, size56dp)
             background = ContextCompat.getDrawable(context, R.drawable.bg_circle_nav_active)
             elevation = 6 * density
         }
@@ -146,18 +147,18 @@ class CustomBottomBar @JvmOverloads constructor(
 
     private fun createPillContainer(tabs: List<BottomTab>, marginStart: Int = 0, marginEnd: Int = 0): View {
         val density = resources.displayMetrics.density
-        val height52dp = (52 * density).toInt()
-        val padHorizontal = (12 * density).toInt()
+        val height56dp = (56 * density).toInt()
+        val padHorizontal = (18 * density).toInt()
 
         val pill = LinearLayout(context).apply {
             orientation = HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, height52dp).apply {
+            layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, height56dp).apply {
                 this.marginStart = marginStart
                 this.marginEnd = marginEnd
             }
             background = ContextCompat.getDrawable(context, R.drawable.bg_bottom_nav_pill)
-            elevation = 3 * density
+            elevation = 6 * density
             setPadding(padHorizontal, 0, padHorizontal, 0)
         }
 
@@ -171,15 +172,15 @@ class CustomBottomBar @JvmOverloads constructor(
 
     private fun createInactiveTabItem(tab: BottomTab): View {
         val density = resources.displayMetrics.density
-        val pad8dp = (8 * density).toInt()
-        val iconSize22dp = (22 * density).toInt()
+        val padHorizontal = (12 * density).toInt()
+        val iconSize24dp = (24 * density).toInt()
 
         val itemLayout = LinearLayout(context).apply {
             orientation = VERTICAL
             gravity = Gravity.CENTER
             layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT).apply {
-                marginStart = pad8dp
-                marginEnd = pad8dp
+                marginStart = padHorizontal
+                marginEnd = padHorizontal
             }
             setOnClickListener {
                 setSelectedTab(tab, notify = true)
@@ -187,18 +188,19 @@ class CustomBottomBar @JvmOverloads constructor(
         }
 
         val icon = ImageView(context).apply {
-            layoutParams = LayoutParams(iconSize22dp, iconSize22dp)
+            layoutParams = LayoutParams(iconSize24dp, iconSize24dp)
             setImageResource(getIconRes(tab))
-            setColorFilter(Color.parseColor("#667085"))
+            setColorFilter(Color.parseColor("#344054"))
         }
 
         val label = TextView(context).apply {
             layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
-                topMargin = (2 * density).toInt()
+                topMargin = (3 * density).toInt()
             }
             text = getTitle(tab)
-            textSize = 10.5f
-            setTextColor(Color.parseColor("#475467"))
+            textSize = 11.5f
+            paint.isFakeBoldText = true
+            setTextColor(Color.parseColor("#344054"))
             isSingleLine = true
         }
 

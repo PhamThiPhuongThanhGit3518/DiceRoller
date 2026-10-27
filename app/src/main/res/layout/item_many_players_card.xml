@@ -5,14 +5,14 @@
     android:id="@+id/cardPlayerRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_player_card"
+    android:background="@drawable/bg_card_player_p1"
     android:clickable="true"
     android:focusable="true"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="12dp">
 
-    <!-- Header: Player Badge (P1) on Left, Winner Trophy on Right -->
+    <!-- Header: Player Badge (P1) on Left, Winner Trophy / Locked on Right -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -24,27 +24,27 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/bg_player_pill_badge"
-            android:elevation="1dp"
+            android:background="@drawable/bg_avatar_player_p1"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingHorizontal="10dp"
-            android:paddingVertical="5dp">
+            android:paddingVertical="4dp">
 
             <ImageView
+                android:id="@+id/ivPlayerIcon"
                 android:layout_width="14dp"
                 android:layout_height="14dp"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_nav_people"
-                app:tint="#374151" />
+                app:tint="@color/white" />
 
             <TextView
                 android:id="@+id/tvPlayerName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:textColor="#374151"
-                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:textSize="13sp"
                 android:textStyle="bold"
                 tools:text="P1" />
         </LinearLayout>
@@ -79,7 +79,7 @@
                 android:layout_gravity="center"
                 android:contentDescription="Locked"
                 android:src="@drawable/ic_lock"
-                app:tint="#64748B" />
+                app:tint="@color/white" />
         </FrameLayout>
     </RelativeLayout>
 
@@ -88,8 +88,8 @@
         android:id="@+id/containerDice"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginVertical="6dp">
+        android:layout_marginVertical="4dp"
+        android:layout_weight="1">
 
         <com.phuongthanh.diceroller.core.widget.Dice3DView
             android:id="@+id/diceCanvas"
@@ -98,24 +98,34 @@
     </FrameLayout>
 
     <!-- Bottom: Score Pill (Total sum) -->
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/cardScorePill"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:minWidth="96dp"
-        android:background="@drawable/bg_player_score_pill"
-        android:elevation="1dp"
-        android:paddingHorizontal="16dp">
+        android:background="@drawable/bg_score_pill_player_p1"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="14dp">
+
+        <TextView
+            android:id="@+id/tvTotalLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_label_colon"
+            android:textColor="#BCDDFF"
+            android:textSize="13sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvPlayerScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="#111827"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/player_p1_pink"
             android:textSize="16sp"
             android:textStyle="bold"
-            tools:text="7" />
-    </FrameLayout>
+            tools:text="6" />
+    </LinearLayout>
 
 </LinearLayout>

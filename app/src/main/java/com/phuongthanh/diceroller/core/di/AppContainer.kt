@@ -16,7 +16,7 @@ class AppContainer(val context: Context) {
     val scoreboardRepository by lazy { com.phuongthanh.diceroller.data.repository.ScoreboardRepository(appPreferences) }
     val historyRepository by lazy { com.phuongthanh.diceroller.data.repository.HistoryRepository(appPreferences) }
     val database by lazy { com.phuongthanh.diceroller.data.local.room.AppDatabase.getInstance(context) }
-    val partyQuestionRepository by lazy { com.phuongthanh.diceroller.data.repository.PartyQuestionRepository(database.partyQuestionDao()) }
+    val partyQuestionRepository by lazy { com.phuongthanh.diceroller.data.repository.PartyQuestionRepository(database.partyQuestionDao(), context) }
     val drinkingRuleRepository by lazy { com.phuongthanh.diceroller.data.repository.DrinkingRuleRepository(database.drinkingRuleDao()) }
     val rouletteRepository by lazy { com.phuongthanh.diceroller.data.repository.RouletteRepository(appPreferences) }
     val billingManager by lazy { com.phuongthanh.diceroller.core.billing.BillingManager(appPreferences) }

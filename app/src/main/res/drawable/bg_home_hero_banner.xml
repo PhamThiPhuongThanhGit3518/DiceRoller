@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Border Layer: 1.2dp Gradient Stroke -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:startColor="#6345F8"
+                android:endColor="#1C4BD9" />
+            <corners android:radius="22dp" />
+        </shape>
+    </item>
+    <!-- Fill Layer: Diagonal Gradient Inset by 1.2dp -->
+    <item
+        android:bottom="1.2dp"
+        android:left="1.2dp"
+        android:right="1.2dp"
+        android:top="1.2dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="315"
+                android:startColor="#091354"
+                android:centerColor="#070E3A"
+                android:endColor="#15108A" />
+            <corners android:radius="21dp" />
+        </shape>
+    </item>
+</layer-list>

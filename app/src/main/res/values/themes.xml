@@ -1,0 +1,58 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme (Force Light Theme). -->
+    <style name="Base.Theme.DiceRoller" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Fullscreen / Hide System Status Bar -->
+        <item name="android:windowFullscreen">true</item>
+
+        <!-- Brand Colors -->
+        <item name="colorPrimary">@color/primary_brand</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/accent_gold</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <!-- Base Surface & Background -->
+        <item name="android:colorBackground">@color/bg_light</item>
+        <item name="colorOnBackground">@color/text_primary_light</item>
+        <item name="colorSurface">@color/surface_light</item>
+        <item name="colorOnSurface">@color/text_primary_light</item>
+        <item name="colorSurfaceVariant">@color/surface_variant_light</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary_light</item>
+
+        <!-- Semantic Custom Tokens (AGENTS.md) -->
+        <item name="surfaceCardContainer">@color/surface_light</item>
+        <item name="onSurfaceCardContainer">@color/text_primary_light</item>
+        <item name="surfaceDialogContainer">@color/surface_light</item>
+        <item name="onSurfaceDialogContainer">@color/text_primary_light</item>
+        <item name="surfaceTextField">@color/surface_variant_light</item>
+        <item name="onSurfaceTextField">@color/text_primary_light</item>
+        <item name="primaryText">@color/text_primary_light</item>
+        <item name="secondaryText">@color/text_secondary_light</item>
+        <item name="border">@color/border_light</item>
+        <item name="colorSuccess">@color/color_success</item>
+        <item name="colorError">@color/color_error</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="tableFeltColor">@color/felt_green</item>
+    </style>
+
+    <style name="Theme.DiceRoller" parent="Base.Theme.DiceRoller" />
+
+    <!-- Style for Language Screen Header (Lib-Ads-Meta) -->
+    <style name="LanguageTitleStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary_dark</item>
+    </style>
+
+    <!-- Dice Count Chip Style (Clean, high-contrast, gold when checked, no white overlay) -->
+    <style name="Widget.DiceRoller.DiceCountChip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/selector_dice_count_chip_bg</item>
+        <item name="chipStrokeColor">@color/selector_dice_count_chip_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipSurfaceColor">@android:color/transparent</item>
+        <item name="android:textColor">@color/selector_dice_count_chip_text</item>
+        <item name="android:textStyle">bold</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipCornerRadius">14dp</item>
+        <item name="chipMinHeight">36dp</item>
+    </style>
+</resources>

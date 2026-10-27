@@ -1,0 +1,36 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Tạm thời comment toàn bộ theme tối, ứng dụng chỉ dùng 1 theme sáng duy nhất
+    <style name="Base.Theme.DiceRoller" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="colorPrimary">@color/primary_brand</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/accent_gold</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:colorBackground">@color/bg_dark</item>
+        <item name="colorOnBackground">@color/text_primary_night</item>
+        <item name="colorSurface">@color/surface_dark</item>
+        <item name="colorOnSurface">@color/text_primary_night</item>
+        <item name="colorSurfaceVariant">@color/surface_variant_dark</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary_night</item>
+        <item name="surfaceCardContainer">@color/surface_dark</item>
+        <item name="onSurfaceCardContainer">@color/text_primary_night</item>
+        <item name="surfaceDialogContainer">@color/surface_dark</item>
+        <item name="onSurfaceDialogContainer">@color/text_primary_night</item>
+        <item name="surfaceTextField">@color/surface_variant_dark</item>
+        <item name="onSurfaceTextField">@color/text_primary_night</item>
+        <item name="primaryText">@color/text_primary_night</item>
+        <item name="secondaryText">@color/text_secondary_night</item>
+        <item name="border">@color/border_dark</item>
+        <item name="colorSuccess">@color/color_success</item>
+        <item name="colorError">@color/color_error</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="tableFeltColor">@color/felt_dark</item>
+    </style>
+
+    <style name="LanguageTitleStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary_night</item>
+    </style>
+    -->
+</resources>

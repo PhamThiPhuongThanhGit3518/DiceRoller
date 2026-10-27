@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Brand Casino Palette -->
+    <color name="primary_brand">#008E4C</color>
+    <color name="primary_brand_dark">#006837</color>
+    <color name="primary_brand_light">#E6F4EA</color>
+    <color name="accent_gold">#F59E0B</color>
+    <color name="accent_gold_light">#FEF3C7</color>
+
+    <!-- Table Felt Colors -->
+    <color name="felt_green">#0D3B2E</color>
+    <color name="felt_wood">#3E2723</color>
+    <color name="felt_dark">#121820</color>
+    <color name="felt_red">#4A0E17</color>
+
+    <!-- Neutral & Surface (Light) -->
+    <color name="bg_light">#F8FAFC</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="surface_variant_light">#F1F5F9</color>
+    <color name="text_primary_light">#0F172A</color>
+    <color name="text_secondary_light">#64748B</color>
+    <color name="border_light">#E2E8F0</color>
+    <color name="card_bg_light">#F0FDF4</color>
+    <color name="text_primary_dark">#0F172A</color>
+
+    <!-- Roulette Screen Palette (from Mockup) -->
+    <color name="roulette_screen_bg">#EDF7F1</color>
+    <color name="roulette_card_border">#D1EAE0</color>
+    <color name="roulette_btn_more_bg">#E6F7EC</color>
+    <color name="roulette_btn_more_text">#008E4C</color>
+    <color name="roulette_btn_spin_bg">#22B07D</color>
+    <color name="roulette_action_border_green">#C8E6C9</color>
+    <color name="roulette_action_border_red">#FFCDD2</color>
+    <color name="roulette_action_text_red">#EF4444</color>
+
+    <!-- Dice Settings Pastels & Icons (Image 2) -->
+    <color name="dice_setting_card_range">#F0FDF4</color>
+    <color name="dice_setting_icon_range">#10B981</color>
+    <color name="dice_setting_card_theme">#FFFBEB</color>
+    <color name="dice_setting_icon_theme">#F59E0B</color>
+    <color name="dice_setting_card_anim">#F5F3FF</color>
+    <color name="dice_setting_icon_anim">#8B5CF6</color>
+    <color name="dice_setting_card_roll">#ECFEFF</color>
+    <color name="dice_setting_icon_roll">#06B6D4</color>
+    <color name="dice_setting_card_sound">#FFF1F2</color>
+    <color name="dice_setting_icon_sound">#EF4444</color>
+    <color name="dice_setting_card_vibrate">#FDF2F8</color>
+    <color name="dice_setting_icon_vibrate">#EC4899</color>
+    <color name="dice_setting_card_total">#EFF6FF</color>
+    <color name="dice_setting_icon_total">#3B82F6</color>
+
+    <!-- Neutral & Surface (Dark) -->
+    <color name="bg_dark">#0A0F14</color>
+    <color name="surface_dark">#131B24</color>
+    <color name="surface_variant_dark">#1E293B</color>
+    <color name="text_primary_night">#F8FAFC</color>
+    <color name="text_secondary_night">#94A3B8</color>
+    <color name="border_dark">#334155</color>
+
+    <!-- Status & Player Colors -->
+    <color name="color_success">#10B981</color>
+    <color name="color_error">#EF4444</color>
+    <color name="player_red">#EF4444</color>
+    <color name="player_blue">#3B82F6</color>
+    <color name="player_yellow">#F59E0B</color>
+    <color name="player_green">#10B981</color>
+
+    <!-- Language Module Integration Tokens (Lib-Ads-Meta) -->
+    <color name="color_item_language_unselected">#1E293B</color>
+    <color name="color_item_language_selected">#008E4C</color>
+    <color name="color_item_language_note_unselected">#94A3B8</color>
+    <color name="color_item_language_note_selected">#008E4C</color>
+    <color name="color_tree_line_language">#E2E8F0</color>
+    <color name="color_sw_on">#008E4C</color>
+    <color name="color_sw_off">#CBD5E1</color>
+    <color name="color_ic_arrow_down">#1E293B</color>
+    <color name="native_button_color">#008E4C</color>
+    <color name="native_bg_color">#FFFFFF</color>
+    <color name="native_button_color_language_off">#94A3B8</color>
+
+    <!-- Midnight Cyber Casino Theme (Figma UI) -->
+    <!-- Background Gradient Tokens -->
+    <color name="bg_gradient_start">#001A84</color>
+    <color name="bg_gradient_center">#000C3D</color>
+    <color name="bg_gradient_end">#00061E</color>
+
+    <!-- UI Midnight Theme Colors -->
+    <color name="ui_dark_navy_card">#142757</color>
+    <color name="ui_dark_navy_stroke">#1643B7</color>
+    <color name="ui_squircle_btn_bg">#152344</color>
+    <color name="ui_squircle_btn_stroke">#304875</color>
+    <color name="ui_squircle_btn_icon">#B8CCF2</color>
+    <color name="ui_chevron_tint">#A8B9F5</color>
+    <color name="ui_text_white">#FFFFFF</color>
+    <color name="ui_text_subtitle">#A8B8DF</color>
+    <color name="ui_cta_btn_start">#3189FF</color>
+    <color name="ui_cta_btn_end">#1264F5</color>
+    <color name="ui_banner_start">#080F3D</color>
+    <color name="ui_banner_end">#1712A5</color>
+</resources>

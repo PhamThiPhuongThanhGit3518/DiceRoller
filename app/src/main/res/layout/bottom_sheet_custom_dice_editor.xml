@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/surfaceDialogContainer"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Handle bar indicator -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_indicator_inactive" />
+
+    <TextView
+        android:id="@+id/tvEditorTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="@string/edit_dice_title"
+        android:textAppearance="?attr/textAppearanceTitleLarge"
+        android:textColor="?attr/primaryText"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutDiceTitle"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/dice_title_hint">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etDiceTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Preset standard D selectors -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/quick_d_sides_hint"
+        android:textAppearance="?attr/textAppearanceLabelMedium"
+        android:textColor="?attr/secondaryText" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnQuickD4"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:layout_marginEnd="6dp"
+                android:text="D4" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnQuickD6"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:layout_marginEnd="6dp"
+                android:text="D6" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnQuickD8"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:layout_marginEnd="6dp"
+                android:text="D8" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnQuickD10"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:layout_marginEnd="6dp"
+                android:text="D10" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnQuickD12"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:layout_marginEnd="6dp"
+                android:text="D12" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnQuickD20"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="D20" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Faces Header -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+
+        <TextView
+            android:id="@+id/tvFacesCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:textColor="?attr/primaryText"
+            tools:text="Danh sách mặt (6 mặt):" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddFace"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/btn_add_face"
+            app:icon="@drawable/ic_add" />
+    </RelativeLayout>
+
+    <!-- Dynamic Faces List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFaces"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="8dp"
+        tools:listitem="@layout/item_custom_dice_face_editor" />
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/cancel" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSaveDice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/accent_gold"
+            android:text="@string/custom_range_apply"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+</LinearLayout>

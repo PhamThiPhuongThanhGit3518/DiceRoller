@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingVertical="6dp">
+
+    <TextView
+        android:id="@+id/tvFaceNumber"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/bg_pill_control"
+        android:gravity="center"
+        android:textAppearance="?attr/textAppearanceLabelLarge"
+        android:textColor="?attr/colorPrimary"
+        android:textStyle="bold"
+        tools:text="#1" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_weight="1"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etFaceText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nội dung mặt"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <View
+        android:id="@+id/viewColorBadge"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="6dp"
+        android:background="@drawable/bg_pill_control" />
+
+    <ImageButton
+        android:id="@+id/btnRemoveFace"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Xóa mặt"
+        android:src="@drawable/ic_trash"
+        android:tint="#EF4444" />
+
+</LinearLayout>

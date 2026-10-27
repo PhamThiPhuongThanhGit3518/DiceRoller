@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet_surface"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Handle drag bar -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center"
+        android:background="#D0D5DD" />
+
+    <!-- Header & Preview Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/picker_emoji_title"
+                android:textColor="#1D2939"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/picker_emoji_subtitle"
+                android:textColor="#667085"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Selected Emoji Preview Box -->
+        <FrameLayout
+            android:id="@+id/layoutEmojiPreview"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/bg_squircle_icon">
+
+            <TextView
+                android:id="@+id/tvSelectedEmojiPreview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#1D2939"
+                android:textSize="32sp" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Full Emoji Picker (Google Jetpack EmojiPickerView) -->
+    <androidx.emoji2.emojipicker.EmojiPickerView
+        android:id="@+id/emojiPickerView"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:layout_marginTop="12dp"
+        app:emojiGridColumns="9"
+        app:emojiGridRows="6.5" />
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:text="@string/btn_cancel"
+            android:textColor="#1D2939"
+            app:cornerRadius="24dp"
+            app:strokeColor="#D0D5DD" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnApply"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="@string/btn_save"
+            android:textColor="@color/white"
+            app:backgroundTint="#101828"
+            app:cornerRadius="24dp" />
+    </LinearLayout>
+
+</LinearLayout>

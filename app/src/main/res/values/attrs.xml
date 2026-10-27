@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Semantic Theme Tokens according to docs/AGENTS.md -->
+    <attr name="surfaceCardContainer" format="color" />
+    <attr name="onSurfaceCardContainer" format="color" />
+    <attr name="surfaceDialogContainer" format="color" />
+    <attr name="onSurfaceDialogContainer" format="color" />
+    <attr name="surfaceTextField" format="color" />
+    <attr name="onSurfaceTextField" format="color" />
+    <attr name="primaryText" format="color" />
+    <attr name="secondaryText" format="color" />
+    <attr name="border" format="color" />
+    <attr name="colorSuccess" format="color" />
+    <attr name="tableFeltColor" format="color" />
+</resources>

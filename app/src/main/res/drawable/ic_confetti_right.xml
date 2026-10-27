@@ -1,0 +1,43 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <!-- Blue ribbon -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#38BDF8"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M78,20 Q70,28 80,36 T75,50" />
+    <!-- Red wavy squiggle -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#EF4444"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M56,72 Q64,65 72,74 T85,68" />
+    <!-- Gold curved banner -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#F59E0B"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M50,22 Q60,16 68,26 T82,24" />
+    <!-- Gold thick flake -->
+    <path
+        android:fillColor="#FBBF24"
+        android:pathData="M54,40 L66,40 L64,48 L52,48 Z" />
+    <!-- Coral flake -->
+    <path
+        android:fillColor="#F87171"
+        android:pathData="M72,55 L80,58 L77,65 L69,62 Z" />
+    <!-- Cyan flake -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M66,78 L74,84 L70,88 L62,82 Z" />
+    <!-- Red bottom flake -->
+    <path
+        android:fillColor="#EF4444"
+        android:pathData="M78,85 L84,88 L81,94 L75,91 Z" />
+</vector>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="0dp"
+    android:layout_height="44dp"
+    android:layout_weight="1"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- Outer selection ring (green stroke when selected) -->
+    <View
+        android:id="@+id/viewSelectionRing"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_circle_selection_ring"
+        android:visibility="invisible" />
+
+    <!-- Inner solid color circle -->
+    <View
+        android:id="@+id/viewColorCircle"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_circle_color_solid" />
+
+</FrameLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/freeRollFragment"
+        android:icon="@drawable/ic_nav_dice"
+        android:title="@string/tab_free_roll" />
+
+    <item
+        android:id="@+id/classicPlayerFragment"
+        android:icon="@drawable/ic_nav_people"
+        android:title="@string/tab_classic" />
+
+    <item
+        android:id="@+id/partyFragment"
+        android:icon="@drawable/ic_nav_party"
+        android:title="@string/tab_party" />
+
+    <item
+        android:id="@+id/rouletteFragment"
+        android:icon="@drawable/ic_nav_roulette"
+        android:title="@string/tab_roulette" />
+
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/tab_settings" />
+</menu>

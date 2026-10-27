@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/surfaceDialogContainer"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Handle bar indicator -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_indicator_inactive" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="@string/custom_dice_title"
+        android:textAppearance="?attr/textAppearanceTitleLarge"
+        android:textColor="?attr/primaryText"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCustomDiceSets"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:clipToPadding="false" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnResetPresets"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/btn_reset_default"
+        android:textColor="?attr/secondaryText"
+        android:textSize="12sp" />
+
+</LinearLayout>

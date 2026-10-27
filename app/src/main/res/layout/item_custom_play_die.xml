@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardDie"
+    android:layout_width="105dp"
+    android:layout_height="105dp"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="6dp"
+    app:strokeColor="#EAECF0"
+    app:strokeWidth="1.5dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tvDieIndex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:textColor="#98A2B3"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            tools:text="D1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivDieImage"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:scaleType="centerInside"
+                android:visibility="gone"
+                tools:src="@drawable/ic_crown"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvDieText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:maxLines="2"
+                android:textColor="#101828"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Rửa bát" />
+        </LinearLayout>
+    </FrameLayout>
+</com.google.android.material.card.MaterialCardView>

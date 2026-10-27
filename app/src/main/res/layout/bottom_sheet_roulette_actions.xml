@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet_surface"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Handle indicator -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_indicator_inactive" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:text="@string/roulette_more_actions_title"
+        android:textAppearance="?attr/textAppearanceTitleLarge"
+        android:textColor="@color/text_primary_light"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Edit Action -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnEdit"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/white"
+        android:gravity="center_vertical|start"
+        android:paddingHorizontal="16dp"
+        android:text="@string/roulette_action_edit"
+        android:textAppearance="?attr/textAppearanceBodyLarge"
+        android:textColor="@color/text_primary_light"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:cornerRadius="16dp"
+        app:icon="@drawable/ic_edit"
+        app:iconGravity="textStart"
+        app:iconPadding="12dp"
+        app:iconTint="@color/roulette_btn_more_text"
+        app:strokeColor="@color/roulette_action_border_green"
+        app:strokeWidth="1.5dp" />
+
+    <!-- Duplicate Action -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDuplicate"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/white"
+        android:gravity="center_vertical|start"
+        android:paddingHorizontal="16dp"
+        android:text="@string/roulette_action_duplicate"
+        android:textAppearance="?attr/textAppearanceBodyLarge"
+        android:textColor="@color/text_primary_light"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:cornerRadius="16dp"
+        app:icon="@drawable/ic_duplicate"
+        app:iconGravity="textStart"
+        app:iconPadding="12dp"
+        app:iconTint="@color/roulette_btn_more_text"
+        app:strokeColor="@color/roulette_action_border_green"
+        app:strokeWidth="1.5dp" />
+
+    <!-- Delete Action -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDelete"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/white"
+        android:gravity="center_vertical|start"
+        android:paddingHorizontal="16dp"
+        android:text="@string/roulette_action_delete"
+        android:textAppearance="?attr/textAppearanceBodyLarge"
+        android:textColor="@color/roulette_action_text_red"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:cornerRadius="16dp"
+        app:icon="@drawable/ic_trash"
+        app:iconGravity="textStart"
+        app:iconPadding="12dp"
+        app:iconTint="@color/roulette_action_text_red"
+        app:strokeColor="@color/roulette_action_border_red"
+        app:strokeWidth="1.5dp" />
+
+</LinearLayout>

@@ -1,0 +1,409 @@
+<resources>
+    <string name="app_name">Dice Roller</string>
+    <string name="google_app_id" translatable="false">1:123456789012:android:0123456789abcdef</string>
+    <string name="google_api_key" translatable="false">AIzaSyDummyKeyForOfflineAndDevelopment0123</string>
+    <string name="project_id" translatable="false">diceroller</string>
+
+    <!-- Onboarding / Intro -->
+    <string name="intro_title_1">Realistic Dice Roller</string>
+    <string name="intro_desc_1">Roll single or multiple dice with true physics, sound effects, and shake to roll.</string>
+    <string name="intro_title_2">Multiplayer &amp; Party Games</string>
+    <string name="intro_desc_2">Compete face-to-face with 1–4 players, Truth or Dare, and drinking game challenges.</string>
+    <string name="intro_title_3">Custom Roll Game</string>
+    <string name="intro_desc_3">Design your own personalized dice with images, text, and emojis.</string>
+    <string name="intro_title_4">Lucky Decision Wheel</string>
+    <string name="intro_desc_4">Spin custom roulette wheels to make decisions fun, easy, and fair.</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_start">Start</string>
+
+    <!-- Navigation Tabs -->
+    <string name="tab_home">Home</string>
+    <string name="tab_dice_master">Dice Master</string>
+    <string name="tab_roulette">Roulette</string>
+    <string name="tab_free_roll">Free Roll</string>
+    <string name="tab_classic">Classic</string>
+    <string name="tab_party">Party</string>
+    <string name="tab_settings">Settings</string>
+
+    <!-- Home Screen -->
+    <string name="home_heading">Roll the dice and have fun!</string>
+    <string name="home_sub_heading">Choose from our exciting game modes or create your own custom dice.</string>
+    <string name="home_cta">Play Now</string>
+    <string name="home_categories">Categories</string>
+    <string name="cat_custom_dice">Customize the dice</string>
+    <string name="cat_play_with_friends">Play with friends</string>
+    <string name="cat_party_challenge">Party challenge</string>
+    <string name="home_recommended">Recommended</string>
+    <string name="rec_drinking_night">Drinking Night</string>
+    <string name="rec_drinking_desc">Perfect for parties and gatherings.</string>
+    <string name="rec_classic_party">Classic Party</string>
+    <string name="rec_classic_desc">Roll the dice and complete fun challenges.</string>
+
+    <!-- Select Game Mode & Shake Roll -->
+    <string name="select_game_mode">Select game mode</string>
+    <string name="who_playing_with">Who are you playing with?</string>
+    <string name="choose_mode_subtitle">Choose a mode to get the right challenges for your game.</string>
+    <string name="mode_multiple_people">Play with Multiple People</string>
+    <string name="mode_multiple_desc">Perfect for parties, gatherings, and group fun.</string>
+    <string name="mode_alone">Play Alone</string>
+    <string name="mode_alone_desc">Enjoy fun challenges on your own time.</string>
+    <string name="dice_stepper_label">dice</string>
+    <string name="player_stepper_label">player</string>
+    <string name="many_players_title">Many players</string>
+    <string name="many_players_subtitle">Roll dice with friends</string>
+
+    <!-- Custom Roll Game -->
+    <string name="custom_roll_title">Custom Roll Game</string>
+    <string name="custom_roll_recent">Recent Games</string>
+    <string name="custom_roll_empty">No recent games yet</string>
+    <string name="custom_roll_empty_desc">Create your own custom dice to get started.</string>
+    <string name="custom_roll_new">Create New Game</string>
+    <string name="step_1_2">Step 1/2</string>
+    <string name="step_2_2">Step 2/2</string>
+    <string name="how_many_dice">How many dice</string>
+    <string name="number_of_dice_face">Number of Dice face</string>
+    <string name="dice_face_format">Choose format</string>
+    <string name="format_image">Image</string>
+    <string name="format_text">Text</string>
+    <string name="format_image_text">Image and Text</string>
+    <string name="format_emoji">Emoji</string>
+    <string name="dice_face_title">Dice Face</string>
+    <string name="picker_emoji_title">Choose Emoji</string>
+    <string name="picker_emoji_subtitle">Tap an emoji to apply to this dice face</string>
+    <string name="picker_emoji_keyboard_hint">Type or select emoji from keyboard</string>
+    <string name="picker_emoji_popular_title">Popular Emojis</string>
+    <string name="picker_emoji_keyboard_subtitle">Select any emoji from your keyboard or choose below</string>
+    <string name="picker_please_select_emoji">Please select or enter an emoji</string>
+    <string name="picker_image_title">Choose Face Image</string>
+    <string name="picker_image_from_gallery">Device Gallery</string>
+    <string name="picker_image_from_gallery_desc">Select any photo from your device</string>
+    <string name="picker_preset_icons_title">Or Choose Preset Icon</string>
+    <string name="picker_text_title">Dice Face Text</string>
+    <string name="picker_text_hint">Enter text (e.g. Drink 1 cup, Wash dishes...)</string>
+    <string name="picker_image_text_title">Image and Text</string>
+    <string name="picker_image_section_title">Dice Image</string>
+    <string name="picker_tap_to_change_image">Tap to select photo from device</string>
+    <string name="picker_caption_hint">Enter text caption...</string>
+    <string name="picker_please_enter_content">Please select an image or enter text</string>
+    <string name="tap_to_customize_face">Tap to customize this face</string>
+    <string name="face_default_name">Face %1$d</string>
+    <string name="custom_game_created_success">Custom dice game created successfully!</string>
+    <string name="custom_play_subtitle">%1$d dice • %2$d faces</string>
+    <string name="custom_play_roll_action">Roll Dice</string>
+    <string name="custom_play_result_title">Roll Result</string>
+    <string name="custom_play_die_label">Die %1$d</string>
+    <string name="custom_play_tap_hint">Tap table or shake device to roll</string>
+    <string name="custom_play_help_title">Custom Dice Play</string>
+    <string name="custom_play_help_message">Tap anywhere on the screen, tap the roll button, or shake your device to roll all dice.\n\nUse the - and + buttons to adjust the number of dice (from 1 to 9).\n\nTap the settings icon to configure roll animation, sound, and haptics.</string>
+    <string name="btn_continue">Continue</string>
+
+    <!-- Party Challenge -->
+    <string name="party_challenge_title">Party challenge</string>
+    <string name="party_challenge_subtitle">Roll the dice and complete challenges</string>
+    <string name="featured_pack">Featured</string>
+    <string name="recent_challenges">Recent Challenges</string>
+    <string name="recommended_for_you">Recommended for You</string>
+    <string name="play_now">Play Now</string>
+    <string name="challenges_count_format">%1$d Challenges</string>
+    <string name="players_range_format">%1$s Players</string>
+    <string name="difficulty_easy">Easy Difficulty</string>
+    <string name="difficulty_medium">Medium Difficulty</string>
+    <string name="difficulty_hard">Hard Difficulty</string>
+    <string name="challenges_stat_label">Challenges</string>
+    <string name="players_stat_label">Players</string>
+    <string name="difficulty_stat_label">Difficulty</string>
+    <string name="challenge_types">Challenge Types</string>
+    <string name="type_funny_questions">Funny Questions</string>
+    <string name="type_funny_desc">Get to know each other better.</string>
+    <string name="type_quick_dares">Quick Dares</string>
+    <string name="type_quick_desc">Short and exciting challenges.</string>
+    <string name="type_group_actions">Group Actions</string>
+    <string name="type_group_desc">Fun activities for everyone.</string>
+    <string name="type_random_tasks">Random Tasks</string>
+    <string name="type_random_desc">Unexpected and hilarious moments.</string>
+    <string name="btn_start_rolling">Start Rolling</string>
+    <string name="btn_roll_again">Roll Again</string>
+    <string name="result_title">Result</string>
+    <string name="you_rolled">You Rolled</string>
+    <string name="challenge_badge">Challenge</string>
+
+    <!-- Roulette Additional -->
+    <string name="wheel_create_banner_title">Create your own wheel</string>
+    <string name="wheel_create_banner_desc">Add options and spin to make decisions easier!</string>
+    <string name="wheel_recent">Recent</string>
+    <string name="wheel_name_label">Wheel name</string>
+    <string name="wheel_preview_label">Preview</string>
+    <string name="wheel_options_count_format">Options (%1$d/20)</string>
+    <string name="wheel_add_option">Add Option</string>
+    <string name="wheel_more_options">More options</string>
+    <string name="wheel_custom_colors">Custom Colors</string>
+    <string name="wheel_congratulation">Congratulation !</string>
+    <string name="wheel_edit_title">Edit Wheel</string>
+    <string name="wheel_spin_action">Spin</string>
+    <string name="btn_done">Done</string>
+
+    <!-- Settings & Premium -->
+    <string name="setting_change_language">Change language</string>
+    <string name="setting_share_app">Share app</string>
+    <string name="setting_feedback">Feedback</string>
+    <string name="setting_rights_policy">Rights policy</string>
+    <string name="premium_upgrade_title">Upgrade to Premium</string>
+
+
+    <!-- Free Roll & Controls -->
+    <string name="roll_action">ROLL</string>
+    <string name="total_score_format">TOTAL: %1$d</string>
+    <string name="total_score_display">Total: %1$d</string>
+    <string name="total_score_with_breakdown">TOTAL: %1$d (%2$s)</string>
+    <string name="shake_to_roll_hint">Shake device to roll</string>
+    <string name="rolling_status">Rolling…</string>
+    <string name="tap_to_lock_hint">Tap dice to hold / unlock</string>
+    <string name="max_dice_hint">Max 9 dices</string>
+    <string name="free_roll_help_title">How to Play</string>
+    <string name="free_roll_help_message">Tap the screen, press the Roll button, or shake your phone to roll the dice.\n\nLong-press any die to hold / unlock it.\n\nUse + and - to change the number of dice (up to 9).\n\nTap the gear icon to customize theme, colors, sounds, and animations.</string>
+    <string name="btn_got_it">Got it</string>
+    <string name="dice_type_title">Select Dice Type</string>
+    <string name="dice_d4">D4 (1–4)</string>
+    <string name="dice_d6">D6 (1–6)</string>
+    <string name="dice_d8">D8 (1–8)</string>
+    <string name="dice_d10">D10 (1–10)</string>
+    <string name="dice_d12">D12 (1–12)</string>
+    <string name="dice_d20">D20 (1–20)</string>
+    <string name="dice_d100">D100 (1–100)</string>
+    <string name="dice_custom">Custom Range</string>
+    <string name="custom_range_title">Custom Number Range</string>
+    <string name="custom_range_min">Min Value</string>
+    <string name="custom_range_max">Max Value</string>
+    <string name="custom_range_apply">Apply Range</string>
+    <string name="custom_range_invalid">Max must be greater than Min</string>
+    <string name="quick_presets">Quick Presets</string>
+    <string name="dice_face_style_title">Dice Face Style</string>
+    <string name="dice_style_dots">Dots</string>
+    <string name="dice_style_numbers">Numbers</string>
+    <string name="dice_face_style_hint">For dice with 6 sides or fewer</string>
+
+    <!-- Classic 1-4P -->
+    <string name="player_format">Player %1$d</string>
+    <string name="play_again">Play Again</string>
+    <string name="winner_label">WINNER!</string>
+    <string name="loser_label">PENALTY!</string>
+    <string name="tie_label">TIE!</string>
+    <string name="tap_to_roll">Tap to Roll</string>
+    <string name="mode_1p">1 Player</string>
+    <string name="mode_2p">2 Players</string>
+    <string name="mode_3p">3 Players</string>
+    <string name="mode_4p">4 Players</string>
+
+    <!-- Roulette / Lucky Wheel -->
+    <string name="spin_action">SPIN</string>
+    <string name="spinning_status">Spinning…</string>
+    <string name="preset_food_title">What Should You Eat Today?</string>
+    <string name="preset_yes_no_title">Yes or No</string>
+    <string name="preset_where_go_title">Where Should You Go Today?</string>
+    <string name="preset_numbers_title">Lucky Draw: 1 to 8</string>
+    <string name="preset_friends_title">Who is next?</string>
+    <string name="roulette_presets">Wheel Presets</string>
+    <string name="roulette_editor_title">Edit Wheel Options</string>
+    <string name="roulette_add_option">Add Option</string>
+    <string name="roulette_enter_option">Option text</string>
+    <string name="roulette_result_title">Result</string>
+    <string name="roulette_min_options_error">Wheel requires at least 2 options</string>
+    <string name="roulette_max_options_error">Maximum 20 options allowed</string>
+
+    <string name="roulette_add_roulette">Add Roulette</string>
+    <string name="roulette_action_more">More</string>
+    <string name="roulette_action_spin">Spin</string>
+    <string name="roulette_more_actions_title">More Actions</string>
+    <string name="roulette_action_edit">Edit Roulette</string>
+    <string name="roulette_action_duplicate">Duplicate Roulette</string>
+    <string name="roulette_action_delete">Delete Roulette</string>
+    <string name="roulette_delete_confirm_title">Delete Roulette</string>
+    <string name="roulette_delete_confirm_msg">Are you sure you want to delete \"%s\"?</string>
+    <string name="roulette_min_preset_error">At least one roulette is required</string>
+    <string name="roulette_duplicated_suffix">%s (Copy)</string>
+    <string name="roulette_edit_title_hint">Roulette Title</string>
+    <string name="roulette_create_title">Create Roulette</string>
+    <string name="roulette_default_new_title">New Roulette</string>
+    <string name="roulette_color_label">Color:</string>
+    <string name="roulette_screen_title">roulette</string>
+    <string name="roulette_screen_subtitle">Make your decisions easily</string>
+    <string name="roulette_banner_title">Create your own wheel</string>
+    <string name="roulette_banner_desc">Add options and spin to make decisions easily!</string>
+    <string name="roulette_banner_btn">+ Create Wheel</string>
+    <string name="roulette_recent_title">Recent</string>
+    <string name="roulette_detail">Detail</string>
+    <string name="roulette_options_format">%1$d options</string>
+    <string name="roulette_create_screen_title">Create Wheel</string>
+    <string name="roulette_edit_screen_title">Edit Wheel</string>
+    <string name="roulette_field_wheel_name">Wheel name</string>
+    <string name="roulette_field_wheel_name_hint">Where Should You Go Today?</string>
+    <string name="roulette_field_selection_list">Selection list</string>
+    <string name="roulette_btn_more_options">+ More options</string>
+    <string name="roulette_field_preview">Preview</string>
+    <string name="roulette_field_options">Options</string>
+    <string name="roulette_no_options_yet">No options yet</string>
+    <string name="roulette_no_options_desc">Add options to get started.</string>
+    <string name="roulette_btn_add_option">+ Add Option</string>
+    <string name="btn_done_check">✓ Done</string>
+    <string name="roulette_sheet_add_option_title">Add option</string>
+    <string name="roulette_sheet_edit_option_title">Edit option</string>
+    <string name="roulette_sheet_option_text">Option text</string>
+    <string name="roulette_sheet_option_hint">Enter an option</string>
+    <string name="roulette_sheet_custom_colors">Custom Colors</string>
+    <string name="roulette_congratulation">Congratulation !</string>
+    <string name="roulette_btn_ok">ok</string>
+
+    <!-- Dice Settings (Image 2) -->
+    <string name="dice_settings_title">Settings</string>
+    <string name="dice_setting_range_title">Dice Range</string>
+    <string name="dice_setting_range_desc">Dice type &amp; count</string>
+    <string name="dice_setting_theme_title">Theme</string>
+    <string name="dice_setting_theme_desc">Colors &amp; style</string>
+    <string name="theme_same_colors_title">Same Colors on All Dice</string>
+    <string name="theme_separate_colors">Separate Colors</string>
+    <string name="theme_number_display_title">Number Display</string>
+    <string name="theme_dot_color_title">Dot Color</string>
+    <string name="theme_display_dot">Dot</string>
+    <string name="theme_display_number">Number</string>
+    <string name="dice_setting_anim_title">Animation</string>
+    <string name="dice_setting_anim_desc">Roll speed &amp; effects</string>
+    <string name="dice_setting_roll_title">Roll</string>
+    <string name="dice_setting_roll_desc">Shake device to roll</string>
+    <string name="dice_setting_sound_title">Sound</string>
+    <string name="dice_setting_sound_desc">Dice collision sound</string>
+    <string name="dice_setting_vibrate_title">Vibrate</string>
+    <string name="dice_setting_vibrate_desc">Haptic bounce feedback</string>
+    <string name="dice_setting_total_title">Display Total</string>
+    <string name="dice_setting_total_desc">Show total score banner</string>
+
+    <!-- Animation Settings -->
+    <string name="anim_setting_title">Animation</string>
+    <string name="anim_type_title">Animation Type</string>
+    <string name="anim_type_full_left">Full Left</string>
+    <string name="anim_type_full_right">Full Right</string>
+    <string name="anim_type_none">None</string>
+    <string name="anim_speed_title">Animation Speed</string>
+    <string name="anim_speed_fast">Fast</string>
+    <string name="anim_speed_normal">Normal</string>
+    <string name="anim_speed_slow">Slow</string>
+
+    <!-- Party Games & Custom Dice -->
+    <string name="party_tab_truth_dare">Truth / Dare</string>
+    <string name="party_tab_drinking">Drinking</string>
+    <string name="party_tab_scoreboard">Scoreboard</string>
+    <string name="party_tab_custom">Custom</string>
+    <string name="truth_label">TRUTH</string>
+    <string name="dare_label">DARE</string>
+    <string name="drinking_rule_1">Drink 1 shot</string>
+    <string name="drinking_rule_2">Drink 1/2 shot</string>
+    <string name="drinking_rule_3">Assign someone</string>
+    <string name="drinking_rule_4">Everyone drinks!</string>
+    <string name="drinking_rule_5">Cross-arms drink</string>
+    <string name="drinking_rule_6">Lucky pass!</string>
+    <string name="add_player">Add Player</string>
+    <string name="player_name_hint">Player name</string>
+    <string name="penalty_count_format">%1$d penalties</string>
+    <string name="highest_penalty_badge">TOP PENALIZED</string>
+    <string name="reset_scores">Reset Scores</string>
+    <string name="custom_dice_title">Custom Dice Sets</string>
+    <string name="create_new_dice">Create Dice</string>
+    <string name="edit_dice_title">Edit 6 Faces</string>
+    <string name="dice_title_hint">Dice Set Name</string>
+    <string name="face_format">Face %1$d</string>
+    <string name="delete_confirm_title">Confirm Deletion</string>
+    <string name="delete_confirm_desc">Are you sure you want to delete this dice set?</string>
+    <string name="btn_delete">Delete</string>
+
+    <!-- Settings & Theming -->
+    <string name="settings_group_audio_haptic">Audio &amp; Vibration</string>
+    <string name="settings_sound_fx">Sound Effects</string>
+    <string name="settings_haptic">Haptic Feedback</string>
+    <string name="settings_haptic_subtle">Subtle</string>
+    <string name="settings_haptic_medium">Medium</string>
+    <string name="settings_haptic_strong">Strong</string>
+    <string name="settings_group_sensor">Sensor &amp; Screen</string>
+    <string name="settings_shake">Shake to Roll</string>
+    <string name="settings_shake_low">Low</string>
+    <string name="settings_shake_medium">Medium</string>
+    <string name="settings_shake_high">High</string>
+    <string name="settings_keep_screen_on">Keep Screen Always On</string>
+    <string name="settings_group_appearance">Themes &amp; Skins</string>
+    <string name="settings_dice_skin">Dice Skin</string>
+    <string name="settings_table_theme">Table Surface</string>
+    <string name="settings_group_history">History &amp; Language</string>
+    <string name="settings_history">Roll History</string>
+    <string name="settings_clear_history">Clear</string>
+    <string name="settings_language">Language / Ngôn ngữ</string>
+    <string name="settings_language_desc">Change app display language</string>
+    <string name="settings_share">Share App</string>
+    <string name="settings_share_desc">Share with friends &amp; family</string>
+    <string name="settings_share_content">Check out Dice Roller - 3D Dice &amp; Party Games! Download here: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="settings_rate">Rate App</string>
+    <string name="settings_rate_desc">Rate us 5 stars on Google Play</string>
+
+    <!-- Settings Screen (Figma UI) -->
+    <string name="settings_screen_title">Setting</string>
+    <string name="settings_screen_subtitle">Personalize your game experience</string>
+    <string name="settings_premium_upgrade_title">Premium upgrade</string>
+    <string name="settings_premium_upgrade_btn">Upgrade</string>
+    <string name="settings_item_language">Change language</string>
+    <string name="settings_item_share">Share app</string>
+    <string name="settings_item_feedback">Feedback</string>
+    <string name="settings_item_privacy">Privacy policy</string>
+    <string name="settings_btn_next">Next</string>
+    <string name="theme_classic_white">Classic White</string>
+    <string name="theme_matte_black">Matte Black</string>
+    <string name="theme_casino_red">Casino Red</string>
+    <string name="theme_metallic_gold">Metallic Gold</string>
+    <string name="theme_neon">Neon Glow</string>
+    <string name="felt_green_title">Green Casino Felt</string>
+    <string name="felt_wood_title">Classic Wood</string>
+    <string name="felt_dark_title">Dark Modern</string>
+    <string name="felt_red_title">Royal Red Felt</string>
+    <string name="empty_history">No roll history recorded yet</string>
+    <string name="summary_theme_format">%1$s / %2$s</string>
+    <string name="settings_go_vip">VIP / Remove Ads</string>
+    <string name="premium_title">VIP Membership</string>
+    <string name="premium_subtitle">Unlock the ultimate dice roller experience</string>
+    <string name="premium_perk_ad_free_title">100% Ad-Free</string>
+    <string name="premium_perk_ad_free_desc">Enjoy continuous play with zero interruptions</string>
+    <string name="premium_perk_themes_title">All Skins &amp; Tables</string>
+    <string name="premium_perk_themes_desc">Instant access to Neon, Gold, and Royal Felt themes</string>
+    <string name="premium_perk_custom_title">Unlimited Custom Dice</string>
+    <string name="premium_perk_custom_desc">Create unlimited custom games and party rules</string>
+    <string name="premium_btn_buy">Unlock Forever - %1$s</string>
+    <string name="premium_btn_restore">Restore Purchases</string>
+    <string name="premium_active_title">VIP Active</string>
+    <string name="premium_active_desc">You have unlocked all premium privileges. Thank you!</string>
+    <string name="premium_success_toast">VIP privileges unlocked successfully!</string>
+    <string name="premium_restore_success">Purchases restored successfully!</string>
+    <string name="premium_restore_empty">No existing purchases found.</string>
+
+    <!-- Party Custom Management -->
+    <string name="manage_truth_dare_title">Truth or Dare Questions</string>
+    <string name="manage_drinking_title">Drinking Rules</string>
+    <string name="btn_manage_truth_dare">Customize Questions</string>
+    <string name="btn_manage_drinking">Customize Rules</string>
+    <string name="filter_all">All</string>
+    <string name="btn_reset_default">Reset Default</string>
+    <string name="btn_add_question">Add Question</string>
+    <string name="btn_add_rule">Add Rule</string>
+    <string name="edit_question_title">Edit Question</string>
+    <string name="add_question_title">New Question</string>
+    <string name="hint_question_text">Enter question or challenge...</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_save">Save</string>
+    <string name="edit_rule_title">Edit Rule</string>
+    <string name="add_rule_title">New Rule</string>
+    <string name="hint_rule_title">Enter rule title...</string>
+    <string name="choose_emoji">Select Icon Emoji</string>
+    <string name="choose_color">Select Color</string>
+    <string name="quick_d_sides_hint">Quick sides (D4 - D20):</string>
+    <string name="btn_add_face">+ Add Face</string>
+    <string name="faces_count_format">Dice Faces: %1$d</string>
+    <string name="min_faces_warning">Dice must have at least 2 faces</string>
+    <string name="confirm_reset_title">Reset to Default</string>
+    <string name="confirm_reset_questions_desc">Restore all original Truth or Dare questions?</string>
+    <string name="confirm_reset_rules_desc">Restore all original drinking rules?</string>
+    <string name="confirm_reset_presets_desc">Restore original preset dice sets?</string>
+</resources>

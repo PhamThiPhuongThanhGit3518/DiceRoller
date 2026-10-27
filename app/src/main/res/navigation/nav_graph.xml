@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.phuongthanh.diceroller.features.home.ui.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_selectGameModeFragment"
+            app:destination="@id/selectGameModeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_classicPlayerFragment"
+            app:destination="@id/classicPlayerFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_partyFragment"
+            app:destination="@id/partyFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_partyDetailFragment"
+            app:destination="@id/partyDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_customRollHomeFragment"
+            app:destination="@id/customRollHomeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/customRollHomeFragment"
+        android:name="com.phuongthanh.diceroller.features.customdice.ui.CustomRollHomeFragment"
+        android:label="CustomRollHomeFragment"
+        tools:layout="@layout/fragment_custom_roll_home">
+        <action
+            android:id="@+id/action_customRollHomeFragment_to_customDiceStep1Fragment"
+            app:destination="@id/customDiceStep1Fragment" />
+        <action
+            android:id="@+id/action_customRollHomeFragment_to_customRollPlayFragment"
+            app:destination="@id/customRollPlayFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/customDiceStep1Fragment"
+        android:name="com.phuongthanh.diceroller.features.customdice.ui.CustomDiceStep1Fragment"
+        android:label="CustomDiceStep1Fragment"
+        tools:layout="@layout/fragment_custom_dice_step1">
+        <action
+            android:id="@+id/action_customDiceStep1Fragment_to_customDiceStep2Fragment"
+            app:destination="@id/customDiceStep2Fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/customDiceStep2Fragment"
+        android:name="com.phuongthanh.diceroller.features.customdice.ui.CustomDiceStep2Fragment"
+        android:label="CustomDiceStep2Fragment"
+        tools:layout="@layout/fragment_custom_dice_step2">
+        <argument
+            android:name="diceCount"
+            android:defaultValue="3"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/customRollPlayFragment"
+        android:name="com.phuongthanh.diceroller.features.customdice.ui.CustomRollPlayFragment"
+        android:label="CustomRollPlayFragment"
+        tools:layout="@layout/fragment_custom_roll_play">
+        <argument
+            android:name="diceId"
+            android:defaultValue=""
+            app:argType="string" />
+        <action
+            android:id="@+id/action_customRollPlayFragment_to_diceSettingsFragment"
+            app:destination="@id/diceSettingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/selectGameModeFragment"
+        android:name="com.phuongthanh.diceroller.features.shakeroll.ui.SelectGameModeFragment"
+        android:label="SelectGameModeFragment"
+        tools:layout="@layout/fragment_select_game_mode">
+        <action
+            android:id="@+id/action_selectGameModeFragment_to_classicPlayerFragment"
+            app:destination="@id/classicPlayerFragment" />
+        <action
+            android:id="@+id/action_selectGameModeFragment_to_freeRollFragment"
+            app:destination="@id/freeRollFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/freeRollFragment"
+        android:name="com.phuongthanh.diceroller.features.freeroll.ui.FreeRollFragment"
+        android:label="FreeRollFragment"
+        tools:layout="@layout/fragment_free_roll">
+        <action
+            android:id="@+id/action_freeRollFragment_to_diceSettingsFragment"
+            app:destination="@id/diceSettingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/classicPlayerFragment"
+        android:name="com.phuongthanh.diceroller.features.classic.ui.ClassicPlayerFragment"
+        android:label="ClassicPlayerFragment"
+        tools:layout="@layout/fragment_classic_player">
+        <action
+            android:id="@+id/action_classicPlayerFragment_to_diceSettingsFragment"
+            app:destination="@id/diceSettingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/partyFragment"
+        android:name="com.phuongthanh.diceroller.features.party.ui.PartyFragment"
+        android:label="PartyFragment"
+        tools:layout="@layout/fragment_party">
+        <action
+            android:id="@+id/action_partyFragment_to_partyDetailFragment"
+            app:destination="@id/partyDetailFragment" />
+        <action
+            android:id="@+id/action_partyFragment_to_diceSettingsFragment"
+            app:destination="@id/diceSettingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/partyDetailFragment"
+        android:name="com.phuongthanh.diceroller.features.party.ui.PartyDetailFragment"
+        android:label="PartyDetailFragment"
+        tools:layout="@layout/fragment_party_detail">
+        <argument
+            android:name="packId"
+            android:defaultValue="classic_party"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_partyDetailFragment_to_partyRollPlayFragment"
+            app:destination="@id/partyRollPlayFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/partyRollPlayFragment"
+        android:name="com.phuongthanh.diceroller.features.party.ui.PartyRollPlayFragment"
+        android:label="PartyRollPlayFragment"
+        tools:layout="@layout/fragment_party_roll_play">
+        <argument
+            android:name="packId"
+            android:defaultValue="classic_party"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_partyRollPlayFragment_to_diceSettingsFragment"
+            app:destination="@id/diceSettingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/rouletteFragment"
+        android:name="com.phuongthanh.diceroller.features.roulette.ui.RouletteFragment"
+        android:label="RouletteFragment"
+        tools:layout="@layout/fragment_roulette">
+        <action
+            android:id="@+id/action_rouletteFragment_to_rouletteSpinFragment"
+            app:destination="@id/rouletteSpinFragment" />
+        <action
+            android:id="@+id/action_rouletteFragment_to_createWheelFragment"
+            app:destination="@id/createWheelFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/rouletteSpinFragment"
+        android:name="com.phuongthanh.diceroller.features.roulette.ui.RouletteSpinFragment"
+        android:label="RouletteSpinFragment"
+        tools:layout="@layout/fragment_roulette_spin">
+        <argument
+            android:name="presetId"
+            android:defaultValue=""
+            app:argType="string" />
+        <action
+            android:id="@+id/action_rouletteSpinFragment_to_editWheelFragment"
+            app:destination="@id/editWheelFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createWheelFragment"
+        android:name="com.phuongthanh.diceroller.features.roulette.ui.CreateWheelFragment"
+        android:label="CreateWheelFragment"
+        tools:layout="@layout/fragment_create_wheel">
+        <action
+            android:id="@+id/action_createWheelFragment_to_rouletteSpinFragment"
+            app:destination="@id/rouletteSpinFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editWheelFragment"
+        android:name="com.phuongthanh.diceroller.features.roulette.ui.EditWheelFragment"
+        android:label="EditWheelFragment"
+        tools:layout="@layout/fragment_edit_wheel">
+        <argument
+            android:name="presetId"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.phuongthanh.diceroller.features.settings.ui.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/diceSettingsFragment"
+        android:name="com.phuongthanh.diceroller.features.settings.ui.DiceSettingsFragment"
+        android:label="DiceSettingsFragment"
+        tools:layout="@layout/fragment_dice_settings">
+        <argument
+            android:name="isClassic"
+            android:defaultValue="false"
+            app:argType="boolean" />
+    </fragment>
+
+</navigation>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="24dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="8dp"
+    app:strokeColor="#EAECF0"
+    app:strokeWidth="1.5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="28dp">
+
+        <!-- Trophy Icon -->
+        <FrameLayout
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/bg_squircle_icon">
+
+            <ImageView
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_trophy"
+                app:tint="#101828" />
+        </FrameLayout>
+
+        <!-- Congratulation Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/roulette_congratulation"
+            android:textColor="#667085"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <!-- Winner Name -->
+        <TextView
+            android:id="@+id/tvWinnerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textColor="#101828"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:text="Coffee" />
+
+        <!-- OK Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnOk"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/roulette_btn_ok"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:backgroundTint="#101828"
+            app:cornerRadius="25dp" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

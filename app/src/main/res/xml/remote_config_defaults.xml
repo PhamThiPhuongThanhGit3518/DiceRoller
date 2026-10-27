@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+    <entry>
+        <key>show_language_intro_every_open</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>settings</key>
+        <value>{"ads_enable":1,"language_delay_millis":500,"language_setup":"next=1, loading=true","language_expandable":false,"release_log":true}</value>
+    </entry>
+    <entry>
+        <key>native_language_small</key>
+        <value>{"enable":0,"native_template":"Tiny1","native":{"name1":"NATIVE_LANGUAGE_SMALL","id1":"ca-app-pub-3940256099942544/2247696110"}}</value>
+    </entry>
+    <entry>
+        <key>native_language</key>
+        <value>{"enable":1,"native_template":"Big11","native_language1":{"name1":"NATIVE_LANGUAGE","id1":"ca-app-pub-3940256099942544/2247696110","native_template":"Big11"}}</value>
+    </entry>
+    <entry>
+        <key>native_language_re</key>
+        <value>{"enable":1,"native_template":"Big11","native_language_re1":{"name1":"NATIVE_LANGUAGE_RE","id1":"ca-app-pub-3940256099942544/2247696110","native_template":"Big11"}}</value>
+    </entry>
+    <entry>
+        <key>inter_language</key>
+        <value>{"enable":1,"inter":{"name1":"INTER_LANGUAGE","id1":"ca-app-pub-3940256099942544/1033173712"},"native_inter":{"name1":"NATIVE_INTER_LANGUAGE","id1":"ca-app-pub-3940256099942544/2247696110"}}</value>
+    </entry>
+</defaultsMap>

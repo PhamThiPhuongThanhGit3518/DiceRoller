@@ -1,0 +1,12 @@
+*.iml
+.gradle
+/local.properties
+/.idea/
+.idea/
+build/
+app/build/
+
+# Documentation & AI Agent specifications (Never commit internal docs)
+docs/
+
+

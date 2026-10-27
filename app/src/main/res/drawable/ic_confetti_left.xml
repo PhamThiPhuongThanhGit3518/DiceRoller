@@ -1,0 +1,43 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <!-- Blue wavy ribbon -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#38BDF8"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M18,22 Q24,14 30,22 T42,20" />
+    <!-- Yellow wavy ribbon -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#F59E0B"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M38,40 Q45,50 38,60 T42,75" />
+    <!-- Red curvy line -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#F87171"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M12,75 Q22,68 28,76 T44,72" />
+    <!-- Blue flake -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M16,42 L24,46 L20,53 L12,49 Z" />
+    <!-- Orange flake -->
+    <path
+        android:fillColor="#F97316"
+        android:pathData="M48,28 L54,34 L50,38 L44,32 Z" />
+    <!-- Red dot -->
+    <path
+        android:fillColor="#EF4444"
+        android:pathData="M14,64 A3,3 0 1,0 14,70 A3,3 0 1,0 14,64 Z" />
+    <!-- Yellow flake -->
+    <path
+        android:fillColor="#FBBF24"
+        android:pathData="M30,68 L36,66 L38,72 L32,74 Z" />
+</vector>

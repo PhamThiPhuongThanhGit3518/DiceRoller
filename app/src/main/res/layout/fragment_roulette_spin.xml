@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/android:colorBackground"
+    android:orientation="vertical">
+
+    <!-- Top Bar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <FrameLayout
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_squircle_icon"
+            android:foreground="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="?attr/colorOnSurface" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btnEdit"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_squircle_icon"
+            android:foreground="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_edit"
+                app:tint="?attr/colorOnSurface" />
+        </FrameLayout>
+    </RelativeLayout>
+
+    <!-- Question Title -->
+    <TextView
+        android:id="@+id/tvQuestionTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="28dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:maxLines="3"
+        android:textColor="#101828"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:text="Where Should You Go Today?" />
+
+    <!-- Spin Button Placed Directly Below Question -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSpin"
+        android:layout_width="140dp"
+        android:layout_height="46dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/spin_action"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:backgroundTint="#101828"
+        app:cornerRadius="23dp"
+        app:elevation="3dp"
+        app:icon="@drawable/ic_refresh"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp"
+        app:iconTint="@color/white" />
+
+    <!-- Giant Lucky Wheel Fills Bottom -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="12dp">
+
+        <com.phuongthanh.diceroller.core.widget.LuckyWheelView
+            android:id="@+id/wheelView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:padding="8dp" />
+    </FrameLayout>
+
+</LinearLayout>

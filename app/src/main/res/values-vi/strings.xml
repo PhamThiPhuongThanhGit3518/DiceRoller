@@ -1,0 +1,406 @@
+<resources>
+    <string name="app_name">Đổ Xúc Xắc</string>
+
+    <!-- Onboarding / Intro -->
+    <string name="intro_title_1">Đổ Xúc Xắc Chân Thực</string>
+    <string name="intro_desc_1">Đổ một hoặc nhiều xúc xắc cùng lúc, tự tính tổng, âm thanh sống động và lắc máy để gieo.</string>
+    <string name="intro_title_2">Đối Kháng &amp; Trò Chơi Tiệc Tùng</string>
+    <string name="intro_desc_2">Thi đấu trực tiếp 1–4 người trên cùng một máy, Thật hay Thách và xúc xắc bàn nhậu cực vui.</string>
+    <string name="intro_title_3">Tùy Biến Trò Chơi Xúc Xắc</string>
+    <string name="intro_desc_3">Tự tay thiết kế bộ xúc xắc độc nhất với hình ảnh, văn bản và biểu tượng cảm xúc.</string>
+    <string name="intro_title_4">Vòng Quay May Mắn</string>
+    <string name="intro_desc_4">Quay bánh xe roulette ra quyết định dễ dàng, công bằng và tràn ngập niềm vui.</string>
+    <string name="btn_next">Tiếp theo</string>
+    <string name="btn_start">Bắt đầu</string>
+
+    <!-- Navigation Tabs -->
+    <string name="tab_home">Trang chủ</string>
+    <string name="tab_dice_master">Bậc thầy xúc xắc</string>
+    <string name="tab_roulette">Quay roulette</string>
+    <string name="tab_free_roll">Tự Do</string>
+    <string name="tab_classic">Cổ Điển</string>
+    <string name="tab_party">Tiệc Tùng</string>
+    <string name="tab_settings">Cài Đặt</string>
+
+    <!-- Home Screen -->
+    <string name="home_heading">Lắc xúc xắc và tận hưởng cuộc vui!</string>
+    <string name="home_sub_heading">Chọn chế độ chơi hấp dẫn hoặc tự tạo bộ xúc xắc riêng của bạn.</string>
+    <string name="home_cta">Chơi Ngay</string>
+    <string name="home_categories">Danh Mục</string>
+    <string name="cat_custom_dice">Tùy biến xúc xắc</string>
+    <string name="cat_play_with_friends">Chơi cùng bạn bè</string>
+    <string name="cat_party_challenge">Thử thách tiệc tùng</string>
+    <string name="home_recommended">Gợi ý cho bạn</string>
+    <string name="rec_drinking_night">Đêm tiệc tùng</string>
+    <string name="rec_drinking_desc">Hoàn hảo cho tiệc tùng và tụ họp bạn bè.</string>
+    <string name="rec_classic_party">Tiệc cổ điển</string>
+    <string name="rec_classic_desc">Gieo xúc xắc và hoàn thành thử thách vui nhộn.</string>
+
+    <!-- Select Game Mode & Shake Roll -->
+    <string name="select_game_mode">Chọn chế độ chơi</string>
+    <string name="who_playing_with">Bạn đang chơi cùng ai?</string>
+    <string name="choose_mode_subtitle">Chọn chế độ phù hợp với buổi chơi của bạn.</string>
+    <string name="mode_multiple_people">Chơi cùng nhiều người</string>
+    <string name="mode_multiple_desc">Hoàn hảo cho tiệc tùng, tụ họp và chơi nhóm.</string>
+    <string name="mode_alone">Chơi một mình</string>
+    <string name="mode_alone_desc">Tự do trải nghiệm theo cách của riêng bạn.</string>
+    <string name="dice_stepper_label">xúc xắc</string>
+    <string name="player_stepper_label">người chơi</string>
+    <string name="many_players_title">Nhiều người chơi</string>
+    <string name="many_players_subtitle">Cùng gieo xúc xắc với bạn bè</string>
+
+    <!-- Custom Roll Game -->
+    <string name="custom_roll_title">Tạo trò chơi xúc xắc</string>
+    <string name="custom_roll_recent">Trò chơi gần đây</string>
+    <string name="custom_roll_empty">Chưa có trò chơi gần đây</string>
+    <string name="custom_roll_empty_desc">Hãy tự tạo bộ xúc xắc đầu tiên để bắt đầu trải nghiệm.</string>
+    <string name="custom_roll_new">Tạo trò chơi mới</string>
+    <string name="step_1_2">Bước 1/2</string>
+    <string name="step_2_2">Bước 2/2</string>
+    <string name="how_many_dice">Số lượng xúc xắc</string>
+    <string name="number_of_dice_face">Số mặt xúc xắc</string>
+    <string name="dice_face_format">Chọn định dạng nội dung</string>
+    <string name="format_image">Hình ảnh</string>
+    <string name="format_text">Văn bản</string>
+    <string name="format_image_text">Hình ảnh và văn bản</string>
+    <string name="format_emoji">Emoji</string>
+    <string name="dice_face_title">Mặt xúc xắc</string>
+    <string name="picker_emoji_title">Chọn Emoji</string>
+    <string name="picker_emoji_subtitle">Chạm vào biểu tượng để áp dụng cho mặt xúc xắc</string>
+    <string name="picker_emoji_keyboard_hint">Nhập hoặc chọn emoji từ bàn phím</string>
+    <string name="picker_emoji_popular_title">Emoji phổ biến</string>
+    <string name="picker_emoji_keyboard_subtitle">Chọn bất kỳ emoji nào từ bàn phím hoặc danh sách bên dưới</string>
+    <string name="picker_please_select_emoji">Vui lòng chọn hoặc nhập một emoji</string>
+    <string name="picker_image_title">Chọn hình ảnh mặt xúc xắc</string>
+    <string name="picker_image_from_gallery">Thư viện ảnh trên máy</string>
+    <string name="picker_image_from_gallery_desc">Chọn hình ảnh bất kỳ từ thiết bị của bạn</string>
+    <string name="picker_preset_icons_title">Hoặc chọn biểu tượng có sẵn</string>
+    <string name="picker_text_title">Văn bản mặt xúc xắc</string>
+    <string name="picker_text_hint">Nhập văn bản (vd: Uống 1 ly, Rửa bát...)</string>
+    <string name="picker_image_text_title">Hình ảnh và văn bản</string>
+    <string name="picker_image_section_title">Hình ảnh mặt xúc xắc</string>
+    <string name="picker_tap_to_change_image">Chạm để chọn ảnh từ thiết bị</string>
+    <string name="picker_caption_hint">Nhập văn bản kèm theo...</string>
+    <string name="picker_please_enter_content">Vui lòng chọn hình ảnh hoặc nhập văn bản</string>
+    <string name="tap_to_customize_face">Chạm để tùy chỉnh mặt này</string>
+    <string name="face_default_name">Mặt %1$d</string>
+    <string name="custom_game_created_success">Tạo trò chơi xúc xắc thành công!</string>
+    <string name="custom_play_subtitle">%1$d viên • %2$d mặt</string>
+    <string name="custom_play_roll_action">Gieo xúc xắc</string>
+    <string name="custom_play_result_title">Kết quả gieo</string>
+    <string name="custom_play_die_label">Xúc xắc %1$d</string>
+    <string name="custom_play_tap_hint">Chạm vào bàn hoặc lắc máy để gieo</string>
+    <string name="custom_play_help_title">Hướng dẫn chơi</string>
+    <string name="custom_play_help_message">Chạm vào màn hình, bấm nút Gieo hoặc lắc điện thoại để gieo xúc xắc.\n\nDùng nút - và + để điều chỉnh số lượng xúc xắc (từ 1 đến 9).\n\nBấm biểu tượng Cài đặt để điều chỉnh âm thanh, độ rung và hiệu ứng.</string>
+    <string name="btn_continue">Tiếp tục</string>
+
+    <!-- Party Challenge -->
+    <string name="party_challenge_title">Thử thách tiệc tùng</string>
+    <string name="party_challenge_subtitle">Gieo xúc xắc và hoàn thành thử thách</string>
+    <string name="featured_pack">Nổi bật</string>
+    <string name="recent_challenges">Thử thách gần đây</string>
+    <string name="recommended_for_you">Gợi ý cho bạn</string>
+    <string name="play_now">Chơi ngay</string>
+    <string name="challenges_count_format">%1$d Thử thách</string>
+    <string name="players_range_format">%1$s Người chơi</string>
+    <string name="difficulty_easy">Độ khó: Dễ</string>
+    <string name="difficulty_medium">Độ khó: Vừa</string>
+    <string name="difficulty_hard">Độ khó: Khó</string>
+    <string name="challenges_stat_label">Thử thách</string>
+    <string name="players_stat_label">Người chơi</string>
+    <string name="difficulty_stat_label">Độ khó</string>
+    <string name="challenge_types">Nhóm thử thách</string>
+    <string name="type_funny_questions">Câu hỏi hài hước</string>
+    <string name="type_funny_desc">Thấu hiểu nhau hơn qua từng câu hỏi thú vị.</string>
+    <string name="type_quick_dares">Thách đố nhanh</string>
+    <string name="type_quick_desc">Những thử thách ngắn và đầy kịch tính.</string>
+    <string name="type_group_actions">Hành động nhóm</string>
+    <string name="type_group_desc">Các hoạt động tương tác vui nhộn cho cả nhóm.</string>
+    <string name="type_random_tasks">Nhiệm vụ ngẫu nhiên</string>
+    <string name="type_random_desc">Những khoảnh khắc bất ngờ và hài hước.</string>
+    <string name="btn_start_rolling">Bắt đầu gieo</string>
+    <string name="btn_roll_again">Gieo lại</string>
+    <string name="result_title">Kết quả</string>
+    <string name="you_rolled">Bạn đã gieo được</string>
+    <string name="challenge_badge">Thử thách</string>
+
+    <!-- Roulette Additional -->
+    <string name="wheel_create_banner_title">Tạo vòng quay của riêng bạn</string>
+    <string name="wheel_create_banner_desc">Thêm các lựa chọn và quay để đưa ra quyết định dễ dàng hơn!</string>
+    <string name="wheel_recent">Vòng quay gần đây</string>
+    <string name="wheel_name_label">Tên vòng quay</string>
+    <string name="wheel_preview_label">Xem trước</string>
+    <string name="wheel_options_count_format">Lựa chọn (%1$d/20)</string>
+    <string name="wheel_add_option">Thêm lựa chọn</string>
+    <string name="wheel_more_options">Thêm lựa chọn khác</string>
+    <string name="wheel_custom_colors">Màu sắc nan quạt</string>
+    <string name="wheel_congratulation">Chúc mừng !</string>
+    <string name="wheel_edit_title">Sửa vòng quay</string>
+    <string name="wheel_spin_action">Quay</string>
+    <string name="btn_done">Xong</string>
+
+    <!-- Settings & Premium -->
+    <string name="setting_change_language">Đổi ngôn ngữ</string>
+    <string name="setting_share_app">Chia sẻ ứng dụng</string>
+    <string name="setting_feedback">Gửi phản hồi</string>
+    <string name="setting_rights_policy">Chính sách &amp; Quyền riêng tư</string>
+    <string name="premium_upgrade_title">Nâng cấp VIP Premium</string>
+
+
+    <!-- Free Roll & Controls -->
+    <string name="roll_action">GIEO</string>
+    <string name="total_score_format">TỔNG: %1$d</string>
+    <string name="total_score_display">Tổng: %1$d</string>
+    <string name="total_score_with_breakdown">TỔNG: %1$d (%2$s)</string>
+    <string name="shake_to_roll_hint">Lắc điện thoại để gieo</string>
+    <string name="rolling_status">Đang gieo…</string>
+    <string name="tap_to_lock_hint">Chạm vào xúc xắc để giữ / mở khóa</string>
+    <string name="max_dice_hint">Tối đa 9 xúc xắc</string>
+    <string name="free_roll_help_title">Hướng dẫn</string>
+    <string name="free_roll_help_message">Chạm vào màn hình, bấm nút Gieo hoặc lắc điện thoại để gieo xúc xắc.\n\nNhấn giữ xúc xắc để giữ / mở khóa.\n\nDùng nút + và - để chọn số lượng xúc xắc (tối đa 9).\n\nBấm biểu tượng Cài đặt để tùy chỉnh giao diện, màu sắc, âm thanh và hiệu ứng.</string>
+    <string name="btn_got_it">Đã hiểu</string>
+    <string name="dice_type_title">Chọn loại xúc xắc</string>
+    <string name="dice_d4">D4 (1–4)</string>
+    <string name="dice_d6">D6 (1–6)</string>
+    <string name="dice_d8">D8 (1–8)</string>
+    <string name="dice_d10">D10 (1–10)</string>
+    <string name="dice_d12">D12 (1–12)</string>
+    <string name="dice_d20">D20 (1–20)</string>
+    <string name="dice_d100">D100 (1–100)</string>
+    <string name="dice_custom">Dải số tùy chỉnh</string>
+    <string name="custom_range_title">Dải số ngẫu nhiên</string>
+    <string name="custom_range_min">Giá trị nhỏ nhất (Min)</string>
+    <string name="custom_range_max">Giá trị lớn nhất (Max)</string>
+    <string name="custom_range_apply">Áp dụng</string>
+    <string name="custom_range_invalid">Giá trị Max phải lớn hơn Min</string>
+    <string name="quick_presets">Mẫu nhanh</string>
+    <string name="dice_face_style_title">Kiểu mặt xúc xắc</string>
+    <string name="dice_style_dots">Dấu chấm</string>
+    <string name="dice_style_numbers">Số</string>
+    <string name="dice_face_style_hint">Áp dụng cho xúc xắc từ D6 trở xuống</string>
+
+    <!-- Classic 1-4P -->
+    <string name="player_format">Người %1$d</string>
+    <string name="play_again">Ván Mới</string>
+    <string name="winner_label">THẮNG!</string>
+    <string name="loser_label">PHẠT!</string>
+    <string name="tie_label">HÒA!</string>
+    <string name="tap_to_roll">Chạm để gieo</string>
+    <string name="mode_1p">1 Người</string>
+    <string name="mode_2p">2 Người</string>
+    <string name="mode_3p">3 Người</string>
+    <string name="mode_4p">4 Người</string>
+
+    <!-- Roulette / Lucky Wheel -->
+    <string name="spin_action">QUAY</string>
+    <string name="spinning_status">Đang quay…</string>
+    <string name="preset_food_title">Hôm nay ăn gì?</string>
+    <string name="preset_yes_no_title">Có hay Không</string>
+    <string name="preset_where_go_title">Hôm nay đi đâu?</string>
+    <string name="preset_numbers_title">Bốc thăm: 1 đến 8</string>
+    <string name="preset_friends_title">Ai là người tiếp theo?</string>
+    <string name="roulette_presets">Mẫu vòng quay</string>
+    <string name="roulette_editor_title">Chỉnh sửa ô lựa chọn</string>
+    <string name="roulette_add_option">Thêm ô</string>
+    <string name="roulette_enter_option">Nội dung ô</string>
+    <string name="roulette_result_title">Kết Quả</string>
+    <string name="roulette_min_options_error">Vòng quay cần tối thiểu 2 ô</string>
+    <string name="roulette_max_options_error">Tối đa 20 ô</string>
+
+    <string name="roulette_add_roulette">Thêm Vòng Quay</string>
+    <string name="roulette_action_more">Thêm</string>
+    <string name="roulette_action_spin">Quay</string>
+    <string name="roulette_more_actions_title">Tùy Chọn Khác</string>
+    <string name="roulette_action_edit">Chỉnh sửa vòng quay</string>
+    <string name="roulette_action_duplicate">Nhân bản vòng quay</string>
+    <string name="roulette_action_delete">Xóa vòng quay</string>
+    <string name="roulette_delete_confirm_title">Xóa vòng quay</string>
+    <string name="roulette_delete_confirm_msg">Bạn có chắc chắn muốn xóa \"%s\"?</string>
+    <string name="roulette_min_preset_error">Cần giữ lại ít nhất một vòng quay</string>
+    <string name="roulette_duplicated_suffix">%s (Bản sao)</string>
+    <string name="roulette_edit_title_hint">Tiêu đề vòng quay</string>
+    <string name="roulette_create_title">Tạo Vòng Quay Mới</string>
+    <string name="roulette_default_new_title">Vòng quay mới</string>
+    <string name="roulette_color_label">Màu sắc:</string>
+    <string name="roulette_screen_title">Vòng quay</string>
+    <string name="roulette_screen_subtitle">Đưa ra quyết định dễ dàng hơn</string>
+    <string name="roulette_banner_title">Tạo vòng quay của riêng bạn</string>
+    <string name="roulette_banner_desc">Thêm các lựa chọn và quay để đưa ra quyết định dễ dàng hơn!</string>
+    <string name="roulette_banner_btn">+ Tạo vòng quay</string>
+    <string name="roulette_recent_title">Gần đây</string>
+    <string name="roulette_detail">Chi tiết</string>
+    <string name="roulette_options_format">%1$d lựa chọn</string>
+    <string name="roulette_create_screen_title">Tạo vòng quay</string>
+    <string name="roulette_edit_screen_title">Sửa vòng quay</string>
+    <string name="roulette_field_wheel_name">Tên vòng quay</string>
+    <string name="roulette_field_wheel_name_hint">Hôm nay nên đi đâu?</string>
+    <string name="roulette_field_selection_list">Danh sách lựa chọn</string>
+    <string name="roulette_btn_more_options">+ Thêm lựa chọn</string>
+    <string name="roulette_field_preview">Xem trước</string>
+    <string name="roulette_field_options">Lựa chọn</string>
+    <string name="roulette_no_options_yet">Chưa có lựa chọn nào</string>
+    <string name="roulette_no_options_desc">Hãy thêm lựa chọn để bắt đầu.</string>
+    <string name="roulette_btn_add_option">+ Thêm lựa chọn</string>
+    <string name="btn_done_check">✓ Hoàn tất</string>
+    <string name="roulette_sheet_add_option_title">Thêm lựa chọn</string>
+    <string name="roulette_sheet_edit_option_title">Sửa lựa chọn</string>
+    <string name="roulette_sheet_option_text">Nội dung lựa chọn</string>
+    <string name="roulette_sheet_option_hint">Nhập lựa chọn</string>
+    <string name="roulette_sheet_custom_colors">Màu sắc tùy chỉnh</string>
+    <string name="roulette_congratulation">Chúc mừng !</string>
+    <string name="roulette_btn_ok">OK</string>
+
+    <!-- Dice Settings (Image 2) -->
+    <string name="dice_settings_title">Cài đặt</string>
+    <string name="dice_setting_range_title">Phạm vi xúc xắc</string>
+    <string name="dice_setting_range_desc">Loại xúc xắc và số lượng</string>
+    <string name="dice_setting_theme_title">Giao diện</string>
+    <string name="dice_setting_theme_desc">Màu sắc và kiểu hiển thị</string>
+    <string name="theme_same_colors_title">Cùng màu trên mọi xúc xắc</string>
+    <string name="theme_separate_colors">Màu riêng từng người</string>
+    <string name="theme_number_display_title">Kiểu hiển thị</string>
+    <string name="theme_dot_color_title">Màu nốt chấm</string>
+    <string name="theme_display_dot">Nốt chấm</string>
+    <string name="theme_display_number">Chữ số</string>
+    <string name="dice_setting_anim_title">Hoạt ảnh</string>
+    <string name="dice_setting_anim_desc">Tốc độ và hiệu ứng lăn</string>
+    <string name="dice_setting_roll_title">Lăn</string>
+    <string name="dice_setting_roll_desc">Lắc thiết bị để gieo</string>
+    <string name="dice_setting_sound_title">Âm thanh</string>
+    <string name="dice_setting_sound_desc">Âm thanh khi gieo xúc xắc</string>
+    <string name="dice_setting_vibrate_title">Rung</string>
+    <string name="dice_setting_vibrate_desc">Rung phản hồi xúc giác</string>
+    <string name="dice_setting_total_title">Hiển thị tổng</string>
+    <string name="dice_setting_total_desc">Hiện điểm tổng trên màn hình</string>
+
+    <!-- Animation Settings -->
+    <string name="anim_setting_title">Hoạt ảnh</string>
+    <string name="anim_type_title">Animation Type</string>
+    <string name="anim_type_full_left">Full Left</string>
+    <string name="anim_type_full_right">Full Right</string>
+    <string name="anim_type_none">None</string>
+    <string name="anim_speed_title">Animation Speed</string>
+    <string name="anim_speed_fast">Fast</string>
+    <string name="anim_speed_normal">Normal</string>
+    <string name="anim_speed_slow">Slow</string>
+
+    <!-- Party Games & Custom Dice -->
+    <string name="party_tab_truth_dare">Thật / Thách</string>
+    <string name="party_tab_drinking">Bàn Nhậu</string>
+    <string name="party_tab_scoreboard">Bảng Phạt</string>
+    <string name="party_tab_custom">Tự Tạo</string>
+    <string name="truth_label">THẬT</string>
+    <string name="dare_label">THÁCH</string>
+    <string name="drinking_rule_1">Uống 1 ly</string>
+    <string name="drinking_rule_2">Uống 1/2 ly</string>
+    <string name="drinking_rule_3">Chỉ định người khác</string>
+    <string name="drinking_rule_4">Tất cả cùng cạn ly!</string>
+    <string name="drinking_rule_5">Uống giao bôi</string>
+    <string name="drinking_rule_6">Qua lượt may mắn!</string>
+    <string name="add_player">Thêm người chơi</string>
+    <string name="player_name_hint">Tên người chơi</string>
+    <string name="penalty_count_format">%1$d lần phạt</string>
+    <string name="highest_penalty_badge">PHẠT NHIỀU NHẤT</string>
+    <string name="reset_scores">Đặt lại điểm</string>
+    <string name="custom_dice_title">Bộ xúc xắc tự tạo</string>
+    <string name="create_new_dice">Tạo mới</string>
+    <string name="edit_dice_title">Chỉnh sửa 6 mặt</string>
+    <string name="dice_title_hint">Tên bộ xúc xắc</string>
+    <string name="face_format">Mặt %1$d</string>
+    <string name="delete_confirm_title">Xác nhận xóa</string>
+    <string name="delete_confirm_desc">Bạn có chắc chắn muốn xóa bộ xúc xắc này?</string>
+    <string name="btn_delete">Xóa</string>
+
+    <!-- Settings & Theming -->
+    <string name="settings_group_audio_haptic">Âm thanh &amp; Rung</string>
+    <string name="settings_sound_fx">Âm thanh hiệu ứng</string>
+    <string name="settings_haptic">Rung phản hồi</string>
+    <string name="settings_haptic_subtle">Nhẹ</string>
+    <string name="settings_haptic_medium">Vừa</string>
+    <string name="settings_haptic_strong">Mạnh</string>
+    <string name="settings_group_sensor">Cảm biến &amp; Màn hình</string>
+    <string name="settings_shake">Lắc máy để gieo</string>
+    <string name="settings_shake_low">Thấp</string>
+    <string name="settings_shake_medium">Trung bình</string>
+    <string name="settings_shake_high">Cao</string>
+    <string name="settings_keep_screen_on">Giữ màn hình luôn sáng</string>
+    <string name="settings_group_appearance">Giao diện &amp; Chủ đề</string>
+    <string name="settings_dice_skin">Màu xúc xắc</string>
+    <string name="settings_table_theme">Mặt bàn chơi</string>
+    <string name="settings_group_history">Lịch sử &amp; Ngôn ngữ</string>
+    <string name="settings_history">Lịch sử gieo xúc xắc</string>
+    <string name="settings_clear_history">Xóa lịch sử</string>
+    <string name="settings_language">Ngôn ngữ / Language</string>
+    <string name="settings_language_desc">Thay đổi ngôn ngữ hiển thị</string>
+    <string name="settings_share">Chia sẻ ứng dụng</string>
+    <string name="settings_share_desc">Chia sẻ với bạn bè và người thân</string>
+    <string name="settings_share_content">Trải nghiệm ứng dụng Dice Roller - Đổ xúc xắc 3D &amp; Trò chơi nhóm! Tải tại: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="settings_rate">Đánh giá ứng dụng</string>
+    <string name="settings_rate_desc">Ủng hộ chúng tôi 5 sao trên Google Play</string>
+
+    <!-- Settings Screen (Figma UI) -->
+    <string name="settings_screen_title">Cài đặt</string>
+    <string name="settings_screen_subtitle">Cá nhân hóa trải nghiệm chơi của bạn</string>
+    <string name="settings_premium_upgrade_title">Nâng cấp VIP</string>
+    <string name="settings_premium_upgrade_btn">Nâng cấp</string>
+    <string name="settings_item_language">Đổi ngôn ngữ</string>
+    <string name="settings_item_share">Chia sẻ ứng dụng</string>
+    <string name="settings_item_feedback">Góp ý &amp; phản hồi</string>
+    <string name="settings_item_privacy">Chính sách quyền riêng tư</string>
+    <string name="settings_btn_next">Tiếp tục</string>
+    <string name="theme_classic_white">Trắng cổ điển</string>
+    <string name="theme_matte_black">Đen mờ</string>
+    <string name="theme_casino_red">Đỏ Casino</string>
+    <string name="theme_metallic_gold">Vàng ánh kim</string>
+    <string name="theme_neon">Neon dạ quang</string>
+    <string name="felt_green_title">Thảm nỉ xanh</string>
+    <string name="felt_wood_title">Mặt gỗ tự nhiên</string>
+    <string name="felt_dark_title">Màu tối hiện đại</string>
+    <string name="felt_red_title">Thảm đỏ hoàng gia</string>
+    <string name="empty_history">Chưa có lịch sử gieo xúc xắc</string>
+    <string name="summary_theme_format">%1$s / %2$s</string>
+    <string name="settings_go_vip">VIP / Gỡ Quảng Cáo</string>
+    <string name="premium_title">Gói VIP Đặc Quyền</string>
+    <string name="premium_subtitle">Mở khóa trải nghiệm xúc xắc đỉnh cao</string>
+    <string name="premium_perk_ad_free_title">100% Không Quảng Cáo</string>
+    <string name="premium_perk_ad_free_desc">Tận hưởng trò chơi liên tục không bị gián đoạn</string>
+    <string name="premium_perk_themes_title">Toàn Bộ Xúc Xắc &amp; Thảm Bàn</string>
+    <string name="premium_perk_themes_desc">Mở khóa xúc xắc Vàng kim, Neon và Thảm đỏ</string>
+    <string name="premium_perk_custom_title">Không Giới Hạn Tự Tạo</string>
+    <string name="premium_perk_custom_desc">Tự do sáng tạo số lượng bộ xúc xắc không giới hạn</string>
+    <string name="premium_btn_buy">Mở Khóa Vĩnh Viễn - %1$s</string>
+    <string name="premium_btn_restore">Khôi Phục Gói Mua</string>
+    <string name="premium_active_title">Đã Kích Hoạt VIP</string>
+    <string name="premium_active_desc">Bạn đang sở hữu toàn bộ đặc quyền VIP. Cảm ơn bạn!</string>
+    <string name="premium_success_toast">Đã kích hoạt đặc quyền VIP thành công!</string>
+    <string name="premium_restore_success">Khôi phục gói mua thành công!</string>
+    <string name="premium_restore_empty">Không tìm thấy gói mua trước đó.</string>
+
+    <!-- Party Custom Management -->
+    <string name="manage_truth_dare_title">Câu Hỏi Thật Hay Thách</string>
+    <string name="manage_drinking_title">Luật Xúc Xắc Bàn Nhậu</string>
+    <string name="btn_manage_truth_dare">Tùy chỉnh câu hỏi</string>
+    <string name="btn_manage_drinking">Tùy chỉnh luật chơi</string>
+    <string name="filter_all">Tất cả</string>
+    <string name="btn_reset_default">Khôi phục mặc định</string>
+    <string name="btn_add_question">Thêm câu hỏi</string>
+    <string name="btn_add_rule">Thêm luật mới</string>
+    <string name="edit_question_title">Sửa câu hỏi</string>
+    <string name="add_question_title">Thêm câu hỏi mới</string>
+    <string name="hint_question_text">Nhập câu hỏi hoặc thử thách...</string>
+    <string name="btn_cancel">Hủy</string>
+    <string name="btn_save">Lưu</string>
+    <string name="edit_rule_title">Sửa luật chơi</string>
+    <string name="add_rule_title">Thêm luật mới</string>
+    <string name="hint_rule_title">Nhập nội dung luật...</string>
+    <string name="choose_emoji">Chọn biểu tượng Emoji</string>
+    <string name="choose_color">Chọn màu sắc</string>
+    <string name="quick_d_sides_hint">Chọn nhanh số mặt (D4 - D20):</string>
+    <string name="btn_add_face">+ Thêm mặt xúc xắc</string>
+    <string name="faces_count_format">Danh sách mặt: %1$d mặt</string>
+    <string name="min_faces_warning">Xúc xắc phải có tối thiểu 2 mặt</string>
+    <string name="confirm_reset_title">Khôi phục mặc định</string>
+    <string name="confirm_reset_questions_desc">Khôi phục lại toàn bộ câu hỏi Thật / Thách ban đầu?</string>
+    <string name="confirm_reset_rules_desc">Khôi phục lại toàn bộ 6 luật uống ban đầu?</string>
+    <string name="confirm_reset_presets_desc">Khôi phục lại các bộ xúc xắc mẫu ban đầu?</string>
+</resources>

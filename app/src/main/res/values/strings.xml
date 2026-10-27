@@ -54,10 +54,15 @@
 
     <!-- Custom Roll Game -->
     <string name="custom_roll_title">Custom Roll Game</string>
+    <string name="custom_roll_header_creat">Creat</string>
+    <string name="custom_roll_header_suffix"> your own Dice game</string>
+    <string name="custom_roll_header_subtitle">Customize your dice experience for any occasion</string>
     <string name="custom_roll_recent">Recent Games</string>
-    <string name="custom_roll_empty">No recent games yet</string>
-    <string name="custom_roll_empty_desc">Create your own custom dice to get started.</string>
-    <string name="custom_roll_new">Create New Game</string>
+    <string name="custom_roll_empty">No Recent Games</string>
+    <string name="custom_roll_empty_desc">Create your first custom dice game and get the fun started!</string>
+    <string name="custom_roll_new">Create new game</string>
+    <string name="custom_roll_customize_dice">Customize the dice</string>
+    <string name="custom_roll_subtitle_placeholder">Sub title</string>
     <string name="step_1_2">Step 1/2</string>
     <string name="step_2_2">Step 2/2</string>
     <string name="how_many_dice">How many dice</string>
@@ -344,7 +349,7 @@
     <!-- Settings Screen (Figma UI) -->
     <string name="settings_screen_title">Setting</string>
     <string name="settings_screen_subtitle">Personalize your game experience</string>
-    <string name="settings_premium_upgrade_title">Premium upgrade</string>
+    <string name="settings_premium_upgrade_title">Premium\nupgrade</string>
     <string name="settings_premium_upgrade_btn">Upgrade</string>
     <string name="settings_item_language">Change language</string>
     <string name="settings_item_share">Share app</string>
@@ -406,4 +411,35 @@
     <string name="confirm_reset_questions_desc">Restore all original Truth or Dare questions?</string>
     <string name="confirm_reset_rules_desc">Restore all original drinking rules?</string>
     <string name="confirm_reset_presets_desc">Restore original preset dice sets?</string>
+
+    <!-- Premium Paywall (Figma node 154:1299) -->
+    <string name="premium_hero_title">Roll &amp; win\nUpgrade to\nPremium</string>
+    <string name="premium_hero_subtitle">unlock more fun, more dice and a better experience</string>
+    <string name="premium_benefit_unlimited_title">Unlimited</string>
+    <string name="premium_benefit_unlimited_sub">rolls</string>
+    <string name="premium_benefit_custom_title">Custom</string>
+    <string name="premium_benefit_custom_sub">dice</string>
+    <string name="premium_benefit_adfree_title">Ad-free</string>
+    <string name="premium_benefit_adfree_sub">experience</string>
+    <string name="premium_plan_free_title">FREE</string>
+    <string name="premium_plan_free_duration">3 days</string>
+    <string name="premium_plan_free_perks">Full access to all features\nNo credit card required\nCancel anytime</string>
+    <string name="premium_plan_weekly_title">Weekly</string>
+    <string name="premium_plan_weekly_savings">Save 50%</string>
+    <string name="premium_plan_weekly_price">199.000đ</string>
+    <string name="premium_plan_yearly_title">Yearly</string>
+    <string name="premium_plan_yearly_savings">Save 88%</string>
+    <string name="premium_plan_yearly_badge">-60%</string>
+    <string name="premium_plan_yearly_price">1.199.000đ</string>
+    <string name="premium_plan_yearly_original_price">2.990.000đ</string>
+    <string name="premium_btn_continue">Continue</string>
+
+    <!-- Language Selection (Figma) -->
+    <string name="choose_language_title">Choose the language</string>
+    <string name="choose_language_subtitle">Select your preferred language for the best experience</string>
+    <string name="you_selected_section">You Selected</string>
+    <string name="all_languages_section">All Languages</string>
+    <string name="search_language_hint">Search language</string>
+    <string name="language_btn_continue">Continue</string>
+    <string name="back">Back</string>
 </resources>

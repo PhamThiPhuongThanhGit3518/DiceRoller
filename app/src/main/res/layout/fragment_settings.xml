@@ -59,6 +59,7 @@
         android:id="@+id/scrollViewContent"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:clipChildren="false"
         android:clipToPadding="false"
         android:fillViewport="true"
         android:paddingHorizontal="20dp"
@@ -70,50 +71,72 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             android:orientation="vertical">
 
-            <!-- Banner: Premium Upgrade -->
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <!-- Banner: Premium Upgrade with Glowing Border & Drop Shadow -->
+            <com.phuongthanh.diceroller.core.widget.FigmaCardView
                 android:id="@+id/bannerPremium"
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_settings_banner"
+                android:layout_height="235dp"
                 android:clickable="true"
-                android:focusable="true"
-                android:paddingStart="18dp"
-                android:paddingEnd="8dp">
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:background="@drawable/bg_settings_banner"
+                android:focusable="true">
+
+                <!-- Right Graphic: 3D Crown Dice -->
+                <ImageView
+                    android:id="@+id/imgPremiumDice"
+                    android:layout_width="230dp"
+                    android:layout_height="205dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="12dp"
+                    android:contentDescription="Premium Dice"
+                    android:scaleType="fitEnd"
+                    android:src="@drawable/png_pro_setting"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <!-- Left Content: Heading + Button -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="8dp"
                     android:gravity="start"
                     android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgPremiumDice"
                     app:layout_constraintEnd_toStartOf="@+id/imgPremiumDice"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
                         android:id="@+id/tvPremiumHeading"
-                        android:layout_width="wrap_content"
+                        android:layout_width="145dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
+                        android:lineSpacingExtra="2dp"
                         android:text="@string/settings_premium_upgrade_title"
                         android:textColor="@color/ui_text_white"
-                        android:textSize="18sp"
+                        android:textSize="26sp"
                         android:textStyle="bold" />
 
                     <LinearLayout
                         android:id="@+id/btnUpgrade"
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"
-                        android:layout_marginTop="14dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="16dp"
                         android:background="@drawable/bg_btn_upgrade_gradient"
-                        android:gravity="center"
+                        android:clickable="true"
+                        android:elevation="6dp"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:paddingHorizontal="14dp">
+                        android:outlineAmbientShadowColor="@color/ui_btn_shadow"
+                        android:outlineSpotShadowColor="@color/ui_btn_shadow"
+                        android:paddingHorizontal="16dp">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -121,37 +144,26 @@
                             android:fontFamily="sans-serif-bold"
                             android:text="@string/settings_premium_upgrade_btn"
                             android:textColor="@color/ui_text_white"
-                            android:textSize="13sp" />
+                            android:textSize="14sp" />
 
                         <ImageView
                             android:layout_width="16dp"
                             android:layout_height="16dp"
-                            android:layout_marginStart="4dp"
+                            android:layout_marginStart="6dp"
                             android:contentDescription="Forward"
                             android:src="@drawable/ic_chevron_right"
                             app:tint="@color/ui_text_white" />
                     </LinearLayout>
                 </LinearLayout>
 
-                <!-- Right Graphic: 3D Crown Dice -->
-                <ImageView
-                    android:id="@+id/imgPremiumDice"
-                    android:layout_width="140dp"
-                    android:layout_height="124dp"
-                    android:contentDescription="Premium Dice"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/img_premium_crown_dice"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.phuongthanh.diceroller.core.widget.FigmaCardView>
 
             <!-- Settings Options Card List -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="24dp"
                 android:orientation="vertical">
 
                 <!-- Item 1: Change Language -->
@@ -161,10 +173,13 @@
                     android:layout_height="60dp"
                     android:background="@drawable/bg_settings_card"
                     android:clickable="true"
+                    android:elevation="2dp"
                     android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingHorizontal="14dp">
+                    android:outlineAmbientShadowColor="#200A2459"
+                    android:outlineSpotShadowColor="#400A2459"
+                    android:paddingHorizontal="16dp">
 
                     <ImageView
                         android:layout_width="37dp"
@@ -202,10 +217,10 @@
                     </LinearLayout>
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:contentDescription="Forward"
-                        android:src="@drawable/ic_chevron_right"
+                        android:src="@drawable/ic_right"
                         app:tint="@color/ui_chevron_tint" />
                 </LinearLayout>
 
@@ -214,13 +229,16 @@
                     android:id="@+id/cardShare"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="12dp"
                     android:background="@drawable/bg_settings_card"
                     android:clickable="true"
+                    android:elevation="2dp"
                     android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingHorizontal="14dp">
+                    android:outlineAmbientShadowColor="#200A2459"
+                    android:outlineSpotShadowColor="#400A2459"
+                    android:paddingHorizontal="16dp">
 
                     <ImageView
                         android:layout_width="37dp"
@@ -241,10 +259,10 @@
                         android:textSize="15sp" />
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:contentDescription="Forward"
-                        android:src="@drawable/ic_chevron_right"
+                        android:src="@drawable/ic_right"
                         app:tint="@color/ui_chevron_tint" />
                 </LinearLayout>
 
@@ -253,13 +271,16 @@
                     android:id="@+id/cardFeedback"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="12dp"
                     android:background="@drawable/bg_settings_card"
                     android:clickable="true"
+                    android:elevation="2dp"
                     android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingHorizontal="14dp">
+                    android:outlineAmbientShadowColor="#200A2459"
+                    android:outlineSpotShadowColor="#400A2459"
+                    android:paddingHorizontal="16dp">
 
                     <ImageView
                         android:layout_width="36dp"
@@ -280,10 +301,10 @@
                         android:textSize="15sp" />
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:contentDescription="Forward"
-                        android:src="@drawable/ic_chevron_right"
+                        android:src="@drawable/ic_right"
                         app:tint="@color/ui_chevron_tint" />
                 </LinearLayout>
 
@@ -292,13 +313,16 @@
                     android:id="@+id/cardPrivacyPolicy"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="12dp"
                     android:background="@drawable/bg_settings_card"
                     android:clickable="true"
+                    android:elevation="2dp"
                     android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingHorizontal="14dp">
+                    android:outlineAmbientShadowColor="#200A2459"
+                    android:outlineSpotShadowColor="#400A2459"
+                    android:paddingHorizontal="16dp">
 
                     <ImageView
                         android:layout_width="36dp"
@@ -319,25 +343,14 @@
                         android:textSize="15sp" />
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:contentDescription="Forward"
-                        android:src="@drawable/ic_chevron_right"
+                        android:src="@drawable/ic_right"
                         app:tint="@color/ui_chevron_tint" />
                 </LinearLayout>
 
             </LinearLayout>
-
-            <!-- App Version -->
-            <TextView
-                android:id="@+id/tvAppVersion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:textColor="@color/ui_text_subtitle"
-                android:textSize="12sp"
-                tools:text="Dice Roller v1.0.0" />
 
         </LinearLayout>
     </ScrollView>
@@ -346,14 +359,17 @@
     <LinearLayout
         android:id="@+id/btnNext"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/bg_btn_next_gradient"
         android:clickable="true"
+        android:elevation="8dp"
         android:focusable="true"
         android:gravity="center"
         android:orientation="horizontal"
+        android:outlineAmbientShadowColor="@color/ui_btn_shadow"
+        android:outlineSpotShadowColor="@color/ui_btn_shadow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">

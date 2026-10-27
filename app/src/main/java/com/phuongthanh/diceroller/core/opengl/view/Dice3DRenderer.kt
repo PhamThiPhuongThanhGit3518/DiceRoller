@@ -13,6 +13,7 @@ import com.phuongthanh.diceroller.core.opengl.geometry.PolyhedralMesh
 import com.phuongthanh.diceroller.core.opengl.model.Dice3DState
 import com.phuongthanh.diceroller.core.opengl.shader.DiceShader
 import com.phuongthanh.diceroller.core.opengl.texture.DiceTextureGenerator
+import com.phuongthanh.diceroller.features.freeroll.model.DiceType
 import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10
 
@@ -251,6 +252,7 @@ class Dice3DRenderer(
             GLES20.glUniform3f(shader.uLightPosLocation, 1.5f, 2.8f, 4.2f)
             GLES20.glUniform1f(shader.uAmbientLocation, 0.58f)
             GLES20.glUniform1f(shader.uSpecularLocation, 0.22f)
+            GLES20.glUniform1f(shader.uIsD6Location, if (die.type == DiceType.D6) 1f else 0f)
 
             // 5. Dice Color (separate from background)
             val dieColor = if (sameColorsAllDice) {

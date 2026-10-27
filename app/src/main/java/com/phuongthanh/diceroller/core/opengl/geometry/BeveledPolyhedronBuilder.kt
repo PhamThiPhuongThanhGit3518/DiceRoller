@@ -38,7 +38,8 @@ object BeveledPolyhedronBuilder {
 
     data class RestingAngle(
         val pitchDeg: Float = 0f,
-        val yawDeg: Float = 0f
+        val yawDeg: Float = 0f,
+        val rollDeg: Float = 0f
     )
 
     private data class BoundaryPoint(
@@ -104,12 +105,14 @@ object BeveledPolyhedronBuilder {
             val upNorm = (rf.upVector - normal * rf.upVector.dot(normal)).normalize()
             val baseRotation = MeshBuilderUtils.computeFaceTargetRotation(normal, upNorm)
 
-            // Apply resting tilt (pitch around X axis, yaw around Y axis in camera view space)
+            // Apply resting tilt (pitch around X axis, yaw around Y axis, roll around Z axis in camera view space)
             val radPitch = (restingAngle.pitchDeg * Math.PI / 180.0).toFloat()
             val radYaw = (restingAngle.yawDeg * Math.PI / 180.0).toFloat()
+            val radRoll = (restingAngle.rollDeg * Math.PI / 180.0).toFloat()
             val qPitch = Quaternion.fromAxisAngle(Vector3.UNIT_X, radPitch)
             val qYaw = Quaternion.fromAxisAngle(Vector3.UNIT_Y, radYaw)
-            val qTilt = qYaw * qPitch
+            val qRoll = Quaternion.fromAxisAngle(Vector3.UNIT_Z, radRoll)
+            val qTilt = qYaw * qPitch * qRoll
 
             targetRotations[rf.faceNum] = (qTilt * baseRotation).normalize()
 

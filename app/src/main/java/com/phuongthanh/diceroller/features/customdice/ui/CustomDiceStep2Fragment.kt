@@ -99,25 +99,33 @@ class CustomDiceStep2Fragment : BaseFragment<FragmentCustomDiceStep2Binding>(Fra
         }
 
         binding.cardCustomizeCurrentFace.setOnDebouncedClickListener {
-            val sheet = CustomFaceFormatBottomSheet.newInstance().apply {
-                onFormatSelected = { format ->
-                    if (currentFaceIndex < faces.size) {
-                        val currentFace = faces[currentFaceIndex]
-                        when (format) {
-                            "text" -> openTextDialog(currentFace)
-                            "emoji" -> openEmojiPicker(currentFace)
-                            "image" -> pickFaceImageLauncher.launch("image/*")
-                            "image_text" -> openImageTextPicker(currentFace)
-                        }
-                    }
-                }
-            }
-            sheet.show(childFragmentManager, CustomFaceFormatBottomSheet.TAG)
+            openFormatSelection()
+        }
+
+        binding.btnBottomAux.setOnDebouncedClickListener {
+            openFormatSelection()
         }
 
         binding.btnDone.setOnDebouncedClickListener {
             saveCustomGame()
         }
+    }
+
+    private fun openFormatSelection() {
+        val sheet = CustomFaceFormatBottomSheet.newInstance().apply {
+            onFormatSelected = { format ->
+                if (currentFaceIndex < faces.size) {
+                    val currentFace = faces[currentFaceIndex]
+                    when (format) {
+                        "text" -> openTextDialog(currentFace)
+                        "emoji" -> openEmojiPicker(currentFace)
+                        "image" -> pickFaceImageLauncher.launch("image/*")
+                        "image_text" -> openImageTextPicker(currentFace)
+                    }
+                }
+            }
+        }
+        sheet.show(childFragmentManager, CustomFaceFormatBottomSheet.TAG)
     }
 
     private fun initializeFaces() {
@@ -214,18 +222,26 @@ class CustomDiceStep2Fragment : BaseFragment<FragmentCustomDiceStep2Binding>(Fra
 
     private fun updateFaceControls() {
         binding.tvFacesCount.text = facesCount.toString()
-        binding.tvCurrentFaceIndicator.text = "${currentFaceIndex + 1}/$facesCount"
+        binding.tvCurrentFaceIndicator.text = (currentFaceIndex + 1).toString()
 
         if (currentFaceIndex < faces.size) {
             val face = faces[currentFaceIndex]
             val defaultName = getString(R.string.face_default_name, currentFaceIndex + 1)
             val isPlaceholder = face.text == defaultName && face.iconOrEmoji.isEmpty() && face.formatType == "text"
-            CustomDiceImageHelper.renderFace(
-                face = face,
-                imageView = binding.ivFaceIconOrAdd,
-                textView = binding.tvFaceContentPreview,
-                isPlaceholder = isPlaceholder
-            )
+
+            if (isPlaceholder) {
+                binding.layoutEmptyFace.visibility = android.view.View.VISIBLE
+                binding.layoutCustomizedFace.visibility = android.view.View.GONE
+            } else {
+                binding.layoutEmptyFace.visibility = android.view.View.GONE
+                binding.layoutCustomizedFace.visibility = android.view.View.VISIBLE
+                CustomDiceImageHelper.renderFace(
+                    face = face,
+                    imageView = binding.ivFaceIconOrAdd,
+                    textView = binding.tvFaceContentPreview,
+                    isPlaceholder = false
+                )
+            }
         }
     }
 

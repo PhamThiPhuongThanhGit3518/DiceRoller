@@ -253,7 +253,7 @@
         android:orientation="vertical"
         android:paddingHorizontal="16dp"
         android:paddingTop="4dp"
-        android:paddingBottom="96dp"
+        android:paddingBottom="16dp"
         android:splitMotionEvents="true">
 
         <!-- Top Row (Player 1, Player 2) -->

@@ -7,13 +7,12 @@ import com.phuongthanh.diceroller.core.utils.safeNavigate
 import com.phuongthanh.diceroller.core.utils.setOnDebouncedClickListener
 import com.phuongthanh.diceroller.databinding.FragmentHomeBinding
 import com.phuongthanh.diceroller.features.customdice.ui.CustomDicePickerBottomSheet
-import com.phuongthanh.diceroller.features.settings.ui.PremiumBottomSheet
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
     override fun initViews() {
         binding.btnCrown.setOnDebouncedClickListener {
-            PremiumBottomSheet().show(childFragmentManager, "PremiumBottomSheet")
+            findNavController().safeNavigate(R.id.action_homeFragment_to_premiumFragment)
         }
 
         binding.btnSettings.setOnDebouncedClickListener {

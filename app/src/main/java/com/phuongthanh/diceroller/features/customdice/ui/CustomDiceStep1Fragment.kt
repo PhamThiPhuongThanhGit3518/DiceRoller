@@ -51,29 +51,5 @@ class CustomDiceStep1Fragment : BaseFragment<FragmentCustomDiceStep1Binding>(Fra
 
     private fun updateDicePreview() {
         binding.tvDiceCount.text = diceCount.toString()
-        binding.layoutDicePreview.removeAllViews()
-
-        val density = resources.displayMetrics.density
-        val size64dp = (64 * density).toInt()
-        val margin8dp = (8 * density).toInt()
-
-        for (i in 1..diceCount) {
-            val diceCard = FrameLayout(requireContext()).apply {
-                layoutParams = LinearLayout.LayoutParams(size64dp, size64dp).apply {
-                    setMargins(margin8dp, 0, margin8dp, 0)
-                }
-                background = ContextCompat.getDrawable(requireContext(), R.drawable.bg_bottom_nav_pill)
-                elevation = 2 * density
-            }
-
-            val icon = ImageView(requireContext()).apply {
-                layoutParams = FrameLayout.LayoutParams((32 * density).toInt(), (32 * density).toInt(), Gravity.CENTER)
-                setImageResource(R.drawable.ic_dice_d6)
-                setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
-            }
-
-            diceCard.addView(icon)
-            binding.layoutDicePreview.addView(diceCard)
-        }
     }
 }

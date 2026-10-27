@@ -55,7 +55,7 @@ object DiceTextureGenerator {
         }
 
         val textShadowPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-            color = Color.parseColor("#40000000") // Soft engraved drop shadow
+            color = 0x40000000 // Soft engraved drop shadow
             textAlign = Paint.Align.CENTER
             typeface = Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD)
         }

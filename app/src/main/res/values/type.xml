@@ -2,39 +2,55 @@
 <resources>
     <!-- Material 3 Typography Scale according to docs/AGENTS.md -->
     <style name="TextAppearance.DiceRoller.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="fontFamily">@font/be_vietnam_pro</item>
+        <item name="android:fontFamily">@font/be_vietnam_pro</item>
         <item name="android:textSize">32sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextAppearance.DiceRoller.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="fontFamily">@font/be_vietnam_pro</item>
+        <item name="android:fontFamily">@font/be_vietnam_pro</item>
         <item name="android:textSize">26sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextAppearance.DiceRoller.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">@font/be_vietnam_pro</item>
+        <item name="android:fontFamily">@font/be_vietnam_pro</item>
         <item name="android:textSize">22sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextAppearance.DiceRoller.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">@font/be_vietnam_pro</item>
+        <item name="android:fontFamily">@font/be_vietnam_pro</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextAppearance.DiceRoller.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@font/be_vietnam_pro</item>
+        <item name="android:fontFamily">@font/be_vietnam_pro</item>
         <item name="android:textSize">16sp</item>
     </style>
 
     <style name="TextAppearance.DiceRoller.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@font/be_vietnam_pro</item>
+        <item name="android:fontFamily">@font/be_vietnam_pro</item>
         <item name="android:textSize">14sp</item>
     </style>
 
     <style name="TextAppearance.DiceRoller.LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/be_vietnam_pro</item>
+        <item name="android:fontFamily">@font/be_vietnam_pro</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextAppearance.DiceRoller.LabelMedium" parent="TextAppearance.Material3.LabelMedium">
+        <item name="fontFamily">@font/be_vietnam_pro</item>
+        <item name="android:fontFamily">@font/be_vietnam_pro</item>
         <item name="android:textSize">12sp</item>
     </style>
 </resources>

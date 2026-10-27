@@ -16,12 +16,12 @@ class CustomDiceRepository(private val appPreferences: AppPreferences) {
 
     val customDiceListFlow: Flow<List<CustomDice>> = appPreferences.customDiceJsonFlow.map { json ->
         if (json.isBlank()) {
-            CustomDicePresetsBank.presets
+            emptyList()
         } else {
             try {
-                gson.fromJson<List<CustomDice>>(json, typeToken) ?: CustomDicePresetsBank.presets
+                gson.fromJson<List<CustomDice>>(json, typeToken) ?: emptyList()
             } catch (_: Exception) {
-                CustomDicePresetsBank.presets
+                emptyList()
             }
         }
     }
@@ -29,12 +29,12 @@ class CustomDiceRepository(private val appPreferences: AppPreferences) {
     private suspend fun getCurrentList(): List<CustomDice> {
         val json = appPreferences.customDiceJsonFlow.first()
         return if (json.isBlank()) {
-            CustomDicePresetsBank.presets
+            emptyList()
         } else {
             try {
-                gson.fromJson<List<CustomDice>>(json, typeToken) ?: CustomDicePresetsBank.presets
+                gson.fromJson<List<CustomDice>>(json, typeToken) ?: emptyList()
             } catch (_: Exception) {
-                CustomDicePresetsBank.presets
+                emptyList()
             }
         }
     }

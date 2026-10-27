@@ -51,10 +51,15 @@
 
     <!-- Custom Roll Game -->
     <string name="custom_roll_title">Tạo trò chơi xúc xắc</string>
+    <string name="custom_roll_header_creat">Tạo</string>
+    <string name="custom_roll_header_suffix"> bộ xúc xắc của riêng bạn</string>
+    <string name="custom_roll_header_subtitle">Tùy biến xúc xắc theo phong cách của bạn cho mọi cuộc vui</string>
     <string name="custom_roll_recent">Trò chơi gần đây</string>
     <string name="custom_roll_empty">Chưa có trò chơi gần đây</string>
-    <string name="custom_roll_empty_desc">Hãy tự tạo bộ xúc xắc đầu tiên để bắt đầu trải nghiệm.</string>
+    <string name="custom_roll_empty_desc">Tạo bộ xúc xắc đầu tiên của bạn và bắt đầu cuộc vui!</string>
     <string name="custom_roll_new">Tạo trò chơi mới</string>
+    <string name="custom_roll_customize_dice">Tùy chỉnh xúc xắc</string>
+    <string name="custom_roll_subtitle_placeholder">Tùy chỉnh thông số</string>
     <string name="step_1_2">Bước 1/2</string>
     <string name="step_2_2">Bước 2/2</string>
     <string name="how_many_dice">Số lượng xúc xắc</string>
@@ -403,4 +408,26 @@
     <string name="confirm_reset_questions_desc">Khôi phục lại toàn bộ câu hỏi Thật / Thách ban đầu?</string>
     <string name="confirm_reset_rules_desc">Khôi phục lại toàn bộ 6 luật uống ban đầu?</string>
     <string name="confirm_reset_presets_desc">Khôi phục lại các bộ xúc xắc mẫu ban đầu?</string>
+
+    <!-- Premium Paywall (Figma node 154:1299) -->
+    <string name="premium_hero_title">Roll &amp; win\nUpgrade to\nPremium</string>
+    <string name="premium_hero_subtitle">mở khóa thêm nhiều niềm vui, xúc xắc và trải nghiệm tốt hơn</string>
+    <string name="premium_benefit_unlimited_title">Không giới hạn</string>
+    <string name="premium_benefit_unlimited_sub">lượt gieo</string>
+    <string name="premium_benefit_custom_title">Tự tạo</string>
+    <string name="premium_benefit_custom_sub">xúc xắc</string>
+    <string name="premium_benefit_adfree_title">100% Sạch</string>
+    <string name="premium_benefit_adfree_sub">quảng cáo</string>
+    <string name="premium_plan_free_title">DÙNG THỬ</string>
+    <string name="premium_plan_free_duration">3 ngày miễn phí</string>
+    <string name="premium_plan_free_perks">Mở khóa toàn bộ tính năng\nKhông yêu cầu thẻ tín dụng\nHủy bất kỳ lúc nào</string>
+    <string name="premium_plan_weekly_title">Gói Tuần</string>
+    <string name="premium_plan_weekly_savings">Tiết kiệm 50%</string>
+    <string name="premium_plan_weekly_price">199.000đ</string>
+    <string name="premium_plan_yearly_title">Gói Năm</string>
+    <string name="premium_plan_yearly_savings">Tiết kiệm 88%</string>
+    <string name="premium_plan_yearly_badge">-60%</string>
+    <string name="premium_plan_yearly_price">1.199.000đ</string>
+    <string name="premium_plan_yearly_original_price">2.990.000đ</string>
+    <string name="premium_btn_continue">Tiếp tục</string>
 </resources>

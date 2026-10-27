@@ -6,7 +6,7 @@
     </entry>
     <entry>
         <key>settings</key>
-        <value>{"ads_enable":1,"language_delay_millis":500,"language_setup":"next=1, loading=true","language_expandable":false,"release_log":true}</value>
+        <value>{"ads_enable":1,"language_delay_millis":500,"language_setup":"next=2, loading=false","language_expandable":false,"release_log":true}</value>
     </entry>
     <entry>
         <key>native_language_small</key>

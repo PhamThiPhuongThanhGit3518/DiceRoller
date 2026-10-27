@@ -32,6 +32,18 @@
         <item name="colorError">@color/color_error</item>
         <item name="colorOnError">@color/white</item>
         <item name="tableFeltColor">@color/felt_green</item>
+
+        <!-- Material 3 Typography Scale Mapping -->
+        <item name="fontFamily">@font/be_vietnam_pro</item>
+        <item name="android:fontFamily">@font/be_vietnam_pro</item>
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.DiceRoller.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.DiceRoller.HeadlineMedium</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.DiceRoller.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.DiceRoller.TitleMedium</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.DiceRoller.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.DiceRoller.BodyMedium</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.DiceRoller.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.DiceRoller.LabelMedium</item>
     </style>
 
     <style name="Theme.DiceRoller" parent="Base.Theme.DiceRoller" />

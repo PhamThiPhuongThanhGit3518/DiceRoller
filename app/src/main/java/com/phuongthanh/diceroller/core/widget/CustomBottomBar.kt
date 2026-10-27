@@ -77,9 +77,7 @@ class CustomBottomBar @JvmOverloads constructor(
                         renderTabs()
                     }
                 }
-                R.id.selectGameModeFragment,
-                R.id.classicPlayerFragment,
-                R.id.freeRollFragment -> {
+                R.id.selectGameModeFragment -> {
                     visibility = View.VISIBLE
                     if (currentTab != BottomTab.DICE) {
                         currentTab = BottomTab.DICE
@@ -93,20 +91,8 @@ class CustomBottomBar @JvmOverloads constructor(
                         renderTabs()
                     }
                 }
-                R.id.rouletteSpinFragment,
-                R.id.createWheelFragment,
-                R.id.editWheelFragment,
-                R.id.customRollPlayFragment,
-                R.id.diceSettingsFragment,
-                R.id.customRollHomeFragment,
-                R.id.customDiceStep1Fragment,
-                R.id.customDiceStep2Fragment,
-                R.id.partyDetailFragment,
-                R.id.partyRollPlayFragment -> {
-                    visibility = View.GONE
-                }
                 else -> {
-                    visibility = View.VISIBLE
+                    visibility = View.GONE
                 }
             }
         }

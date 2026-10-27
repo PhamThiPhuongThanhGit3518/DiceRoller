@@ -28,6 +28,9 @@ class CustomRollHomeFragment : BaseFragment<FragmentCustomRollHomeBinding>(Fragm
     private lateinit var adapter: CustomRollAdapter
 
     override fun initViews() {
+        val titleHtml = "<font color='#00CAFB'>${getString(R.string.custom_roll_header_creat)}</font><font color='#FFFFFF'>${getString(R.string.custom_roll_header_suffix)}</font>"
+        binding.tvHeaderTitle.text = android.text.Html.fromHtml(titleHtml, android.text.Html.FROM_HTML_MODE_LEGACY)
+
         binding.btnBack.setOnDebouncedClickListener {
             findNavController().navigateUp()
         }

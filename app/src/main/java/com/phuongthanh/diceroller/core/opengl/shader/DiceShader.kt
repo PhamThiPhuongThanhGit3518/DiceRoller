@@ -26,6 +26,8 @@ class DiceShader {
         private set
     var uSpecularLocation: Int = -1
         private set
+    var uIsD6Location: Int = -1
+        private set
 
     fun init() {
         val vertexShaderSource = """
@@ -55,6 +57,7 @@ class DiceShader {
             uniform vec3 u_LightPos;
             uniform float u_Ambient;
             uniform float u_Specular;
+            uniform float u_IsD6;
 
             varying vec3 v_Position;
             varying vec3 v_Normal;
@@ -62,23 +65,48 @@ class DiceShader {
 
             void main() {
                 vec3 normal = normalize(v_Normal);
-                vec3 lightVec = normalize(u_LightPos - v_Position);
                 vec3 viewVec = normalize(-v_Position);
 
-                // Ambient lighting
-                float ambient = u_Ambient;
+                if (u_IsD6 > 0.5) {
+                    // Studio 3D glossy lighting tailored for D6
+                    vec3 keyLight = normalize(vec3(-0.6, 0.9, 1.2));
+                    vec3 rimLight = normalize(vec3(1.2, 0.2, 0.4));
+                    vec3 fillLight = normalize(vec3(-1.0, -0.6, 0.4));
 
-                // Diffuse lighting
-                float diffuse = max(dot(normal, lightVec), 0.0) * (1.0 - ambient);
+                    float amb = 0.24;
+                    float diff = max(dot(normal, keyLight), 0.0) * (1.0 - amb);
+                    float fillDiff = max(dot(normal, fillLight), 0.0) * 0.15;
 
-                // Specular highlight (tight glint)
-                vec3 halfVec = normalize(lightVec + viewVec);
-                float specularFactor = pow(max(dot(normal, halfVec), 0.0), 48.0);
-                float specular = specularFactor * u_Specular;
+                    // Dual-lobe specular for glossy acrylic / resin shine
+                    vec3 halfVec = normalize(keyLight + viewVec);
+                    float specPrimary = pow(max(dot(normal, halfVec), 0.0), 38.0) * 0.95;
+                    float specSoft = pow(max(dot(normal, halfVec), 0.0), 10.0) * 0.22;
 
-                vec4 texColor = texture2D(u_Texture, v_TexCoordinate);
-                vec3 litRgb = texColor.rgb * (ambient + diffuse) + vec3(specular);
-                gl_FragColor = vec4(litRgb, texColor.a);
+                    // Fresnel edge glow: vibrant cyan/blue rim light on right edge
+                    float fresnel = pow(1.0 - max(dot(normal, viewVec), 0.0), 2.8);
+                    float rim = max(dot(normal, rimLight), 0.0) * fresnel * 1.6;
+                    float fillRim = max(dot(normal, fillLight), 0.0) * fresnel * 0.35;
+
+                    vec4 texColor = texture2D(u_Texture, v_TexCoordinate);
+                    vec3 baseLit = texColor.rgb * (amb + diff + fillDiff);
+                    vec3 specColor = vec3(specPrimary + specSoft);
+                    vec3 rimColor = vec3(0.15, 0.55, 1.0) * rim + vec3(0.5, 0.1, 0.3) * fillRim;
+
+                    vec3 finalColor = min(vec3(1.0), baseLit + specColor + rimColor);
+                    gl_FragColor = vec4(finalColor, texColor.a);
+                } else {
+                    // Standard lighting for all other dice (D4, D8, D10, D12, D20, D100)
+                    vec3 lightVec = normalize(u_LightPos - v_Position);
+                    float ambient = u_Ambient;
+                    float diffuse = max(dot(normal, lightVec), 0.0) * (1.0 - ambient);
+                    vec3 halfVec = normalize(lightVec + viewVec);
+                    float specularFactor = pow(max(dot(normal, halfVec), 0.0), 48.0);
+                    float specular = specularFactor * u_Specular;
+
+                    vec4 texColor = texture2D(u_Texture, v_TexCoordinate);
+                    vec3 litRgb = texColor.rgb * (ambient + diffuse) + vec3(specular);
+                    gl_FragColor = vec4(litRgb, texColor.a);
+                }
             }
         """.trimIndent()
 
@@ -110,6 +138,7 @@ class DiceShader {
         uTextureLocation = GLES20.glGetUniformLocation(programId, "u_Texture")
         uAmbientLocation = GLES20.glGetUniformLocation(programId, "u_Ambient")
         uSpecularLocation = GLES20.glGetUniformLocation(programId, "u_Specular")
+        uIsD6Location = GLES20.glGetUniformLocation(programId, "u_IsD6")
     }
 
     fun use() {

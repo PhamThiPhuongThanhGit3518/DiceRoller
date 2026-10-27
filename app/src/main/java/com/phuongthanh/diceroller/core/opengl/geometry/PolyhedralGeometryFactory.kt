@@ -47,7 +47,7 @@ object PolyhedralGeometryFactory {
      */
     val BEVEL_CONFIGS = mapOf(
         DiceType.D4 to DiceBevelConfig(bevelRatio = 0.25f, cornerSoftness = 0.0f),
-        DiceType.D6 to DiceBevelConfig(bevelRatio = 0.35f, cornerSoftness = 0.0f),
+        DiceType.D6 to DiceBevelConfig(bevelRatio = 0.25f, cornerSoftness = 0.0f),
         DiceType.D8 to DiceBevelConfig(bevelRatio = 0.16f, cornerSoftness = 0.0f),
         DiceType.D10 to DiceBevelConfig(bevelRatio = 0.16f, cornerSoftness = 0.0f),
         DiceType.D12 to DiceBevelConfig(bevelRatio = 0.14f, cornerSoftness = 0.0f),
@@ -67,7 +67,8 @@ object PolyhedralGeometryFactory {
      */
     val RESTING_ANGLES = mapOf(
         DiceType.D4 to BeveledPolyhedronBuilder.RestingAngle(pitchDeg = -15f, yawDeg = 15f),
-        DiceType.D6 to BeveledPolyhedronBuilder.RestingAngle(pitchDeg = 15f, yawDeg = -20f),
+        // D6: Góc nhìn 3D từ trên xuống nghiêng chéo thấy đồng thời mặt trên và 2 mặt bên
+        DiceType.D6 to BeveledPolyhedronBuilder.RestingAngle(pitchDeg = -25f, yawDeg = 0f, rollDeg = 45f),
         DiceType.D8 to BeveledPolyhedronBuilder.RestingAngle(pitchDeg = 0f, yawDeg = 0f),
         DiceType.D10 to BeveledPolyhedronBuilder.RestingAngle(pitchDeg = 10f, yawDeg = 0f),
         DiceType.D12 to BeveledPolyhedronBuilder.RestingAngle(pitchDeg = 0f, yawDeg = 0f),

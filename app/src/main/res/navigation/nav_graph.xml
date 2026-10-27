@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_homeFragment_to_customRollHomeFragment"
             app:destination="@id/customRollHomeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_premiumFragment"
+            app:destination="@id/premiumFragment" />
     </fragment>
 
     <fragment
@@ -204,7 +207,11 @@
         android:id="@+id/settingsFragment"
         android:name="com.phuongthanh.diceroller.features.settings.ui.SettingsFragment"
         android:label="SettingsFragment"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_premiumFragment"
+            app:destination="@id/premiumFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/diceSettingsFragment"
@@ -216,5 +223,11 @@
             android:defaultValue="false"
             app:argType="boolean" />
     </fragment>
+
+    <fragment
+        android:id="@+id/premiumFragment"
+        android:name="com.phuongthanh.diceroller.features.settings.ui.PremiumFragment"
+        android:label="PremiumFragment"
+        tools:layout="@layout/fragment_premium" />
 
 </navigation>

@@ -8,6 +8,8 @@ import androidx.navigation.fragment.findNavController
 import com.phuongthanh.diceroller.R
 import com.phuongthanh.diceroller.core.base.BaseFragment
 import com.phuongthanh.diceroller.core.utils.LocaleManager
+import com.phuongthanh.diceroller.core.utils.safeNavigate
+import com.phuongthanh.diceroller.core.utils.setFigmaSettingsBannerBackground
 import com.phuongthanh.diceroller.core.utils.setOnDebouncedClickListener
 import com.phuongthanh.diceroller.databinding.FragmentSettingsBinding
 import com.phuongthanh.diceroller.features.language.LanguageActivity
@@ -16,9 +18,13 @@ import java.util.Locale
 class SettingsFragment : BaseFragment<FragmentSettingsBinding>(FragmentSettingsBinding::inflate) {
 
     override fun initViews() {
+        setupCardBackgrounds()
         setupClickListeners()
-        displayAppVersion()
         updateLanguageDisplay()
+    }
+
+    private fun setupCardBackgrounds() {
+        binding.bannerPremium.setFigmaSettingsBannerBackground()
     }
 
     override fun onResume() {
@@ -61,7 +67,7 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(FragmentSettingsB
     }
 
     private fun openPremiumPaywall() {
-        PremiumBottomSheet.newInstance().show(childFragmentManager, PremiumBottomSheet.TAG)
+        findNavController().safeNavigate(R.id.action_settingsFragment_to_premiumFragment)
     }
 
     private fun updateLanguageDisplay() {
@@ -119,16 +125,6 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(FragmentSettingsB
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(privacyUrl)))
         } catch (_: Exception) {
             // Fallback gracefully if no browser found
-        }
-    }
-
-    private fun displayAppVersion() {
-        try {
-            val pInfo = requireContext().packageManager.getPackageInfo(requireContext().packageName, 0)
-            val versionName = pInfo.versionName ?: "1.0.0"
-            binding.tvAppVersion.text = "${getString(R.string.app_name)} v$versionName"
-        } catch (_: Exception) {
-            binding.tvAppVersion.text = "${getString(R.string.app_name)} v1.0.0"
         }
     }
 }

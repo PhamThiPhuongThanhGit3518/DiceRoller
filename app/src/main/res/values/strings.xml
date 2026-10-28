@@ -62,14 +62,14 @@
     <!-- Custom Roll Game -->
     <string name="custom_roll_title">Custom Roll Game</string>
     <string name="custom_roll_header_creat">Creat</string>
-    <string name="custom_roll_header_suffix"> your own Dice game</string>
+    <string name="custom_roll_header_suffix">\u0020your own Dice game</string>
     <string name="custom_roll_header_subtitle">Customize your dice experience for any occasion</string>
     <string name="custom_roll_recent">Recent Games</string>
     <string name="custom_roll_empty">No Recent Games</string>
     <string name="custom_roll_empty_desc">Create your first custom dice game and get the fun started!</string>
     <string name="custom_roll_new">Create new game</string>
     <string name="custom_roll_customize_dice">Customize the dice</string>
-    <string name="custom_roll_subtitle_placeholder">Sub title</string>
+    <string name="custom_roll_subtitle_placeholder">Design your own dice.</string>
     <string name="step_1_2">Step 1/2</string>
     <string name="step_2_2">Step 2/2</string>
     <string name="how_many_dice">How many dice</string>
@@ -236,6 +236,7 @@
     <string name="roulette_add_roulette">Add Roulette</string>
     <string name="roulette_action_more">More</string>
     <string name="roulette_action_spin">Spin</string>
+    <string name="roulette_action_continue">Continue</string>
     <string name="roulette_more_actions_title">More Actions</string>
     <string name="roulette_action_edit">Edit Roulette</string>
     <string name="roulette_action_duplicate">Duplicate Roulette</string>
@@ -250,6 +251,7 @@
     <string name="roulette_color_label">Color:</string>
     <string name="roulette_screen_title">roulette</string>
     <string name="roulette_screen_subtitle">Make your decisions easily</string>
+    <string name="roulette_spin_subtitle">Let\'s see what you get !</string>
     <string name="roulette_banner_title">Create your own wheel</string>
     <string name="roulette_banner_desc">Add options and spin to make decisions easily!</string>
     <string name="roulette_banner_btn">+ Create Wheel</string>
@@ -273,6 +275,7 @@
     <string name="roulette_sheet_option_text">Option text</string>
     <string name="roulette_sheet_option_hint">Enter an option</string>
     <string name="roulette_sheet_custom_colors">Custom Colors</string>
+    <string name="roulette_sheet_color">Color</string>
     <string name="roulette_congratulation">Congratulation !</string>
     <string name="roulette_btn_ok">ok</string>
 

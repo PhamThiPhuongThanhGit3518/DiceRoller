@@ -44,24 +44,19 @@ class LuckyWheelView @JvmOverloads constructor(
     }
 
     private val outerRimPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#1D2939")
+        color = Color.WHITE
         style = Paint.Style.STROKE
-        strokeWidth = 24f
+        strokeWidth = 8f
+    }
+
+    private val dividerPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.WHITE
+        style = Paint.Style.STROKE
+        strokeWidth = 6f
     }
 
     private val centerHubBgPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#1D2939")
-        style = Paint.Style.FILL
-    }
-
-    private val centerHubBorderPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = Color.WHITE
-        style = Paint.Style.STROKE
-        strokeWidth = 5f
-    }
-
-    private val centerHubInnerPinPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#475467")
         style = Paint.Style.FILL
     }
 
@@ -73,17 +68,6 @@ class LuckyWheelView @JvmOverloads constructor(
 
     private val pointerPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = Color.WHITE
-        style = Paint.Style.FILL
-    }
-
-    private val pointerBorderPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#1D2939")
-        style = Paint.Style.STROKE
-        strokeWidth = 2.5f
-    }
-
-    private val pointerPinPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#1D2939")
         style = Paint.Style.FILL
     }
 
@@ -183,13 +167,17 @@ class LuckyWheelView @JvmOverloads constructor(
 
             canvas.drawArc(localRect, startAngle, sweepAngle, true, sectorPaint)
 
+            // Draw white divider line
+            val rad = Math.toRadians(startAngle.toDouble())
+            canvas.drawLine(0f, 0f, (radius * cos(rad)).toFloat(), (radius * sin(rad)).toFloat(), dividerPaint)
+
             // Draw Sector Text
             canvas.save()
             canvas.rotate(startAngle + sweepAngle / 2f)
 
             sectorTextPaint.textSize = (radius * 0.11f).coerceIn(24f, 40f)
             val displayText = if (sector.text.length > 10) sector.text.take(9) + "…" else sector.text
-            val textX = radius * 0.84f
+            val textX = radius * 0.82f
             val fontMetrics = sectorTextPaint.fontMetrics
             val textY = -(fontMetrics.ascent + fontMetrics.descent) / 2f
             canvas.drawText(displayText, textX, textY, sectorTextPaint)
@@ -202,14 +190,12 @@ class LuckyWheelView @JvmOverloads constructor(
 
         canvas.restore()
 
-        // Draw Center Hub (Solid dark circle matching Figma)
-        val hubRadius = radius * 0.28f
+        // Draw Center Hub (Solid white circle matching Figma)
+        val hubRadius = radius * 0.22f
         canvas.drawCircle(cx, cy, hubRadius, centerHubBgPaint)
-        canvas.drawCircle(cx, cy, hubRadius, centerHubBorderPaint)
-        canvas.drawCircle(cx, cy, hubRadius * 0.28f, centerHubInnerPinPaint)
 
-        // Draw Pointer at Top (12 o'clock = 270 degrees)
-        drawTopPointer(canvas, cx, cy - radius + 12f)
+        // Draw Pointer at Top (12 o'clock pointing downwards)
+        drawTopPointer(canvas, cx, cy - radius - 2f)
     }
 
     private fun drawTopPointer(canvas: Canvas, px: Float, py: Float) {
@@ -218,20 +204,16 @@ class LuckyWheelView @JvmOverloads constructor(
         canvas.rotate(pointerBounceAngle)
 
         val path = Path()
-        val pointerW = 26f
-        val pointerH = 44f
+        val pointerW = 38f
+        val pointerH = 30f
 
-        // Sleek pin pointer pointing downwards
-        path.moveTo(0f, pointerH)
-        path.lineTo(-pointerW / 2f, 0f)
-        path.arcTo(RectF(-pointerW / 2f, -pointerW / 2f, pointerW / 2f, pointerW / 2f), 180f, 180f, false)
+        // Upside-down white triangle pointing down into the wheel
+        path.moveTo(0f, pointerH) // tip pointing down
+        path.lineTo(-pointerW / 2f, 0f) // top left
+        path.lineTo(pointerW / 2f, 0f) // top right
         path.close()
 
         canvas.drawPath(path, pointerPaint)
-        canvas.drawPath(path, pointerBorderPaint)
-
-        // White inner pin dot
-        canvas.drawCircle(0f, 0f, 5f, pointerPinPaint)
         canvas.restore()
     }
 

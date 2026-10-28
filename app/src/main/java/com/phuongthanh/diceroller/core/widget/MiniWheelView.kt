@@ -24,9 +24,7 @@ class MiniWheelView @JvmOverloads constructor(
     private var customSectors: List<WheelSector> = emptyList()
 
     private val defaultPalette = listOf(
-        "#FFFFFF", "#E5E7EB",
-        "#FFFFFF", "#E5E7EB",
-        "#FFFFFF", "#E5E7EB"
+        "#8B5CF6", "#2F80ED", "#06B6D4"
     )
 
     private val sectorPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -36,40 +34,23 @@ class MiniWheelView @JvmOverloads constructor(
     private val dividerPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = Color.WHITE
         style = Paint.Style.STROKE
-        strokeWidth = 2f
+        strokeWidth = 2.5f
     }
 
     private val rimStrokePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#1D2939")
-        style = Paint.Style.STROKE
-        strokeWidth = 3f
-    }
-
-    private val outerRingPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = Color.WHITE
         style = Paint.Style.STROKE
         strokeWidth = 3f
     }
 
-    private val centerHubRedPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#1D2939")
-        style = Paint.Style.FILL
-    }
-
-    private val centerHubInnerPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#475467")
+    private val centerHubPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.WHITE
         style = Paint.Style.FILL
     }
 
     private val pointerPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#1D2939")
-        style = Paint.Style.FILL
-    }
-
-    private val pointerStrokePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = Color.WHITE
-        style = Paint.Style.STROKE
-        strokeWidth = 2f
+        style = Paint.Style.FILL
     }
 
     private val wheelBounds = RectF()
@@ -122,27 +103,24 @@ class MiniWheelView @JvmOverloads constructor(
             canvas.drawLine(cx, cy, endX, endY, dividerPaint)
         }
 
-        // Outer rims
+        // Outer rim
         canvas.drawCircle(cx, cy, wheelRadius, rimStrokePaint)
-        canvas.drawCircle(cx, cy, wheelRadius + 2f, outerRingPaint)
 
-        // Center hub (red circle + white pin)
+        // Center hub (solid white circle)
         val hubRadius = wheelRadius * 0.18f
-        canvas.drawCircle(cx, cy, hubRadius, centerHubRedPaint)
-        canvas.drawCircle(cx, cy, hubRadius * 0.35f, centerHubInnerPaint)
+        canvas.drawCircle(cx, cy, hubRadius, centerHubPaint)
 
         // Pointer triangle at top (12 o'clock pointing down into wheel)
-        val pointerH = wheelRadius * 0.38f
-        val pointerHalfW = pointerH * 0.55f
+        val pointerH = wheelRadius * 0.32f
+        val pointerHalfW = pointerH * 0.5f
         val topY = cy - wheelRadius - 2f
 
         pointerPath.reset()
-        pointerPath.moveTo(cx, cy - wheelRadius + pointerH * 0.8f) // Tip pointing downwards
+        pointerPath.moveTo(cx, cy - wheelRadius + pointerH * 0.7f) // Tip pointing downwards
         pointerPath.lineTo(cx - pointerHalfW, topY)               // Top left
         pointerPath.lineTo(cx + pointerHalfW, topY)               // Top right
         pointerPath.close()
 
         canvas.drawPath(pointerPath, pointerPaint)
-        canvas.drawPath(pointerPath, pointerStrokePaint)
     }
 }

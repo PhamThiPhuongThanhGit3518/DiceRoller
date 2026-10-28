@@ -25,6 +25,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
             android:orientation="vertical">
 
             <!-- Title & Subtitle -->
@@ -41,7 +42,7 @@
                 android:id="@+id/tvHeaderSubtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/custom_roll_header_subtitle"
                 android:textColor="@color/ui_text_subtitle"
                 android:textSize="14sp" />
@@ -52,6 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
+                android:layout_marginTop="24dp"
                 android:contentDescription="@string/custom_roll_title"
                 android:src="@drawable/img_custom_roll_banner" />
 
@@ -60,8 +62,8 @@
                 android:id="@+id/btnCreateNewGame"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_btn_upgrade_gradient"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_segmented_active_item"
                 android:fontFamily="sans-serif-black"
                 android:text="@string/custom_roll_new"
                 android:textAllCaps="false"
@@ -70,8 +72,9 @@
                 app:backgroundTint="@null"
                 app:cornerRadius="26dp"
                 app:icon="@drawable/ic_game"
-                app:iconGravity="textStart"
-                app:iconPadding="10dp"
+                app:iconGravity="textEnd"
+                app:iconPadding="8dp"
+                app:iconSize="24dp"
                 app:iconTint="@color/white" />
 
             <!-- Title: Recent Games -->
@@ -97,8 +100,8 @@
                 android:paddingHorizontal="24dp">
 
                 <ImageView
-                    android:layout_width="140dp"
-                    android:layout_height="110dp"
+                    android:layout_width="184dp"
+                    android:layout_height="147dp"
                     android:contentDescription="@string/custom_roll_empty"
                     android:scaleType="fitCenter"
                     android:src="@drawable/img_empty_recent_games" />

@@ -37,6 +37,10 @@ class CreateWheelFragment : BaseFragment<FragmentCreateWheelBinding>(FragmentCre
             findNavController().navigateUp()
         }
 
+        binding.btnCancel.setOnDebouncedClickListener {
+            findNavController().navigateUp()
+        }
+
         adapter = OptionsAdapter(
             onEditClick = { sector, position ->
                 openEditOptionSheet(sector, position)

@@ -14,10 +14,10 @@
 
     <!-- Fill Layer: Horizontal Linear Gradient Inset by 1dp -->
     <item
-        android:bottom="0.5dp"
-        android:left="0.5dp"
-        android:right="0.5dp"
-        android:top="0.5dp">
+        android:bottom="0.7dp"
+        android:left="0.7dp"
+        android:right="0.7dp"
+        android:top="0.7dp">
         <shape android:shape="rectangle">
             <gradient
                 android:type="linear"

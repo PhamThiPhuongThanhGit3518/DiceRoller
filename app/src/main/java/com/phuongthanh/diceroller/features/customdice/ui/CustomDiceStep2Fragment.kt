@@ -2,10 +2,15 @@ package com.phuongthanh.diceroller.features.customdice.ui
 
 import android.net.Uri
 import android.text.InputFilter
+import android.view.View
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.DecelerateInterpolator
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.doOnPreDraw
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -30,6 +35,7 @@ class CustomDiceStep2Fragment : BaseFragment<FragmentCustomDiceStep2Binding>(Fra
     private var facesCount = 6
     private var currentFaceIndex = 0
     private val faces = mutableListOf<CustomDiceFace>()
+    private var backPressedCallback: OnBackPressedCallback? = null
 
     private val pickFaceImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
         if (uri != null && currentFaceIndex < faces.size) {
@@ -52,8 +58,52 @@ class CustomDiceStep2Fragment : BaseFragment<FragmentCustomDiceStep2Binding>(Fra
         initializeFaces()
         updateFaceControls()
 
+        val callback = object : OnBackPressedCallback(false) {
+            override fun handleOnBackPressed() {
+                if (isFormatSheetVisible()) {
+                    hideFormatBottomSheet()
+                }
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+        backPressedCallback = callback
+
         binding.topBar.setOnBackClickListener {
             findNavController().navigateUp()
+        }
+
+        binding.viewGradientOverlay.setOnClickListener {
+            hideFormatBottomSheet()
+        }
+
+        binding.layoutFormatBottomSheet.optImage.setOnDebouncedClickListener {
+            hideFormatBottomSheet {
+                pickFaceImageLauncher.launch("image/*")
+            }
+        }
+
+        binding.layoutFormatBottomSheet.optText.setOnDebouncedClickListener {
+            hideFormatBottomSheet {
+                if (currentFaceIndex < faces.size) {
+                    openTextDialog(faces[currentFaceIndex])
+                }
+            }
+        }
+
+        binding.layoutFormatBottomSheet.optEmoji.setOnDebouncedClickListener {
+            hideFormatBottomSheet {
+                if (currentFaceIndex < faces.size) {
+                    openEmojiPicker(faces[currentFaceIndex])
+                }
+            }
+        }
+
+        binding.layoutFormatBottomSheet.optImageText.setOnDebouncedClickListener {
+            hideFormatBottomSheet {
+                if (currentFaceIndex < faces.size) {
+                    openImageTextPicker(faces[currentFaceIndex])
+                }
+            }
         }
 
         binding.btnMinusFaces.setOnDebouncedClickListener {
@@ -99,7 +149,7 @@ class CustomDiceStep2Fragment : BaseFragment<FragmentCustomDiceStep2Binding>(Fra
         }
 
         binding.cardCustomizeCurrentFace.setOnDebouncedClickListener {
-            openFormatSelection()
+            showFormatBottomSheet()
         }
 
         binding.btnBottomClose.setOnDebouncedClickListener {
@@ -111,21 +161,85 @@ class CustomDiceStep2Fragment : BaseFragment<FragmentCustomDiceStep2Binding>(Fra
         }
     }
 
-    private fun openFormatSelection() {
-        val sheet = CustomFaceFormatBottomSheet.newInstance().apply {
-            onFormatSelected = { format ->
-                if (currentFaceIndex < faces.size) {
-                    val currentFace = faces[currentFaceIndex]
-                    when (format) {
-                        "text" -> openTextDialog(currentFace)
-                        "emoji" -> openEmojiPicker(currentFace)
-                        "image" -> pickFaceImageLauncher.launch("image/*")
-                        "image_text" -> openImageTextPicker(currentFace)
-                    }
-                }
+    private fun isFormatSheetVisible(): Boolean {
+        return binding.layoutFormatBottomSheet.root.visibility == View.VISIBLE
+    }
+
+    private fun showFormatBottomSheet() {
+        backPressedCallback?.isEnabled = true
+
+        binding.viewGradientOverlay.apply {
+            animate().cancel()
+            alpha = 0f
+            scaleX = 0.96f
+            scaleY = 0.96f
+            visibility = View.VISIBLE
+            doOnPreDraw { overlay ->
+                overlay.pivotX = overlay.width / 2f
+                overlay.pivotY = overlay.height / 2f
+                overlay.animate()
+                    .alpha(0.85f)
+                    .scaleX(1f)
+                    .scaleY(1f)
+                    .setDuration(300)
+                    .setInterpolator(DecelerateInterpolator())
+                    .start()
             }
         }
-        sheet.show(childFragmentManager, CustomFaceFormatBottomSheet.TAG)
+
+        binding.layoutFormatBottomSheet.root.apply {
+            animate().cancel()
+            visibility = View.VISIBLE
+            alpha = 1f
+            scaleX = 1f
+            scaleY = 1f
+
+            doOnPreDraw { sheet ->
+                val startY = if (sheet.height > 0) sheet.height.toFloat() else 1200f
+                sheet.translationY = startY
+                sheet.animate()
+                    .translationY(0f)
+                    .setDuration(320)
+                    .setInterpolator(DecelerateInterpolator(2.0f))
+                    .start()
+            }
+        }
+    }
+
+    private fun hideFormatBottomSheet(onEnd: (() -> Unit)? = null) {
+        backPressedCallback?.isEnabled = false
+
+        binding.viewGradientOverlay.apply {
+            animate().cancel()
+            animate()
+                .alpha(0f)
+                .scaleX(0.96f)
+                .scaleY(0.96f)
+                .setDuration(220)
+                .setInterpolator(AccelerateInterpolator())
+                .withEndAction {
+                    visibility = View.GONE
+                }
+                .start()
+        }
+
+        binding.layoutFormatBottomSheet.root.apply {
+            animate().cancel()
+            val targetY = if (height > 0) height.toFloat() else 1200f
+            animate()
+                .translationY(targetY)
+                .setDuration(240)
+                .setInterpolator(AccelerateInterpolator(1.8f))
+                .withEndAction {
+                    visibility = View.GONE
+                    onEnd?.invoke()
+                }
+                .start()
+        }
+    }
+
+    private fun openFormatSelection() {
+        showFormatBottomSheet()
     }
 
     private fun initializeFaces() {

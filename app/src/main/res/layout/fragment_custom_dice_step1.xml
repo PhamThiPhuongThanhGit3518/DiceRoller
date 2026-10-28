@@ -23,8 +23,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp">
+        android:paddingTop="36dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -43,15 +42,15 @@
 
             <!-- Step 1 Active Pill -->
             <View
-                android:layout_width="32dp"
-                android:layout_height="5dp"
-                android:layout_marginEnd="6dp"
+                android:layout_width="37dp"
+                android:layout_height="8dp"
+                android:layout_marginEnd="5dp"
                 android:background="@drawable/bg_step_active" />
 
             <!-- Step 2 Inactive Dot -->
             <View
-                android:layout_width="6dp"
-                android:layout_height="6dp"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
                 android:background="@drawable/bg_step_inactive" />
         </LinearLayout>
     </LinearLayout>
@@ -109,8 +108,9 @@
 
             <FrameLayout
                 android:id="@+id/btnMinusDice"
-                android:layout_width="56dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:foreground="?attr/selectableItemBackgroundBorderless">
 
                 <ImageView
@@ -128,8 +128,8 @@
                 android:layout_weight="1">
 
                 <FrameLayout
-                    android:layout_width="130dp"
-                    android:layout_height="40dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
                     android:layout_gravity="center"
                     android:background="@drawable/bg_stepper_inner_box">
 
@@ -147,8 +147,9 @@
 
             <FrameLayout
                 android:id="@+id/btnPlusDice"
-                android:layout_width="56dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:foreground="?attr/selectableItemBackgroundBorderless">
 
                 <ImageView
@@ -166,8 +167,9 @@
             android:id="@+id/btnContinue"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/bg_btn_continue_blue"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="64dp"
+            android:background="@drawable/bg_segmented_active_item"
             android:fontFamily="sans-serif-black"
             android:text="@string/btn_continue_lower"
             android:textAllCaps="false"

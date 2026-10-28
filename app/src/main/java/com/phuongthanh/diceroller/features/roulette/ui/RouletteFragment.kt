@@ -30,6 +30,9 @@ class RouletteFragment : BaseFragment<FragmentRouletteBinding>(FragmentRouletteB
     private lateinit var adapter: RouletteGridAdapter
 
     override fun initViews() {
+        binding.topBar.containerAction1.setBackgroundResource(R.drawable.bg_squircle_blue_btn)
+        binding.topBar.btnAction1.setColorFilter(android.graphics.Color.parseColor("#FFD700"))
+
         binding.topBar.setRightAction1 {
             findNavController().safeNavigate(R.id.settingsFragment)
         }
@@ -49,6 +52,10 @@ class RouletteFragment : BaseFragment<FragmentRouletteBinding>(FragmentRouletteB
         adapter = RouletteGridAdapter(
             onItemClick = { preset ->
                 navigateToSpin(preset.id)
+            },
+            onEditClick = { preset ->
+                val bundle = android.os.Bundle().apply { putString("presetId", preset.id) }
+                findNavController().safeNavigate(R.id.action_rouletteFragment_to_editWheelFragment, bundle)
             }
         )
 
@@ -61,9 +68,6 @@ class RouletteFragment : BaseFragment<FragmentRouletteBinding>(FragmentRouletteB
     private fun observeViewModel() {
         viewModel.uiState.collectWithLifecycle(viewLifecycleOwner) { state ->
             adapter.submitList(state.presets)
-            state.presets.firstOrNull()?.let { firstPreset ->
-                binding.wheelBadge.setSectors(firstPreset.sectors)
-            }
         }
     }
 
@@ -73,7 +77,8 @@ class RouletteFragment : BaseFragment<FragmentRouletteBinding>(FragmentRouletteB
     }
 
     private class RouletteGridAdapter(
-        private val onItemClick: (WheelPreset) -> Unit
+        private val onItemClick: (WheelPreset) -> Unit,
+        private val onEditClick: (WheelPreset) -> Unit
     ) : RecyclerView.Adapter<RouletteGridAdapter.ViewHolder>() {
 
         private val items = mutableListOf<WheelPreset>()
@@ -94,12 +99,11 @@ class RouletteFragment : BaseFragment<FragmentRouletteBinding>(FragmentRouletteB
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val preset = items[position]
             holder.binding.tvTitle.text = preset.title
-            holder.binding.tvSubtitle.text = holder.itemView.context.getString(R.string.roulette_detail)
             holder.binding.tvOptionCount.text = holder.itemView.context.getString(
                 R.string.roulette_options_format, preset.sectors.size
             )
-            holder.binding.miniWheel.setSectors(preset.sectors)
 
+            holder.binding.btnCardAction.setOnClickListener { onEditClick(preset) }
             holder.binding.root.setOnClickListener { onItemClick(preset) }
             holder.binding.btnSpin.setOnClickListener { onItemClick(preset) }
         }

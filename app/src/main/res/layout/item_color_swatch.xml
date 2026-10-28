@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="44dp"
-    android:layout_height="44dp"
-    android:padding="3dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+    android:layout_marginEnd="8dp">
 
+    <!-- Swatch background view (rounded rectangle / squircle) -->
+    <View
+        android:id="@+id/viewColorCircle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Selection Ring (white stroke with radius 10dp) -->
     <View
         android:id="@+id/viewSelectionRing"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_circle_selection_ring"
+        android:background="@drawable/bg_swatch_selection_ring"
         android:visibility="invisible" />
 
-    <View
-        android:id="@+id/viewColorCircle"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+    <!-- Center Checkmark Icon for selected state -->
+    <ImageView
+        android:id="@+id/ivCheckmark"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
         android:layout_gravity="center"
-        android:background="@drawable/bg_circle_color_solid" />
+        android:src="@drawable/ic_check"
+        android:visibility="invisible"
+        app:tint="@color/white" />
 
 </FrameLayout>

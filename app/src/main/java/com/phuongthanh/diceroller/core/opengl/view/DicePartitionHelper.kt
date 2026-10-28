@@ -17,83 +17,71 @@ object DicePartitionHelper {
     const val SPACING_3_DICE_VERTICAL = 0.15f
     const val CELL_SIZE_3_DICE_RATIO = 0.50f
 
-    fun calculatePartitionRects(count: Int, totalW: Float, totalH: Float): List<RectF> {
+    /**
+     * Khoảng cách mặc định (gap) giữa các ô chứa xúc xắc (in pixels).
+     * Mặc định là 8f để các xúc xắc không dính sát viền hay chạm vào nhau.
+     */
+    const val DEFAULT_DICE_GAP = 4f
+
+    fun calculatePartitionRects(
+        count: Int,
+        totalW: Float,
+        totalH: Float,
+        gap: Float = DEFAULT_DICE_GAP
+    ): List<RectF> {
         if (count <= 0 || totalW <= 0f || totalH <= 0f) return emptyList()
         val clampedCount = count.coerceIn(1, 9)
         val rects = ArrayList<RectF>(clampedCount)
 
-        val isCardRatio = (totalH / totalW) < 1.35f
-
-        when (clampedCount) {
-            1, 2, 3 -> {
-                // Khi số xúc xắc <= 3, hiển thị trên cùng 1 hàng ngang ở giữa màn hình / thẻ
-                val cellW = totalW / clampedCount.toFloat()
-                val cy = totalH / 2f
-                val cellH = minOf(totalH, cellW * 1.35f)
-                val top = cy - cellH / 2f
-                val bottom = cy + cellH / 2f
-                for (i in 0 until clampedCount) {
-                    rects.add(RectF(i * cellW, top, (i + 1) * cellW, bottom))
-                }
-            }
-            4 -> {
-                val w2 = totalW / 2f
-                val h2 = totalH / 2f
-                rects.add(RectF(0f, 0f, w2, h2))
-                rects.add(RectF(w2, 0f, totalW, h2))
-                rects.add(RectF(0f, h2, w2, totalH))
-                rects.add(RectF(w2, h2, totalW, totalH))
-            }
-            5 -> {
-                val h2 = totalH / 2f
-                val w2 = totalW / 2f
-                val w3 = totalW / 3f
-                rects.add(RectF(0f, 0f, w2, h2))
-                rects.add(RectF(w2, 0f, totalW, h2))
-                rects.add(RectF(0f, h2, w3, totalH))
-                rects.add(RectF(w3, h2, 2f * w3, totalH))
-                rects.add(RectF(2f * w3, h2, totalW, totalH))
-            }
-            6 -> {
-                val h3 = totalH / 3f
-                val w2 = totalW / 2f
-                for (r in 0..2) {
-                    for (c in 0..1) {
-                        rects.add(RectF(c * w2, r * h3, (c + 1) * w2, (r + 1) * h3))
-                    }
-                }
-            }
-            7 -> {
-                val h3 = totalH / 3f
-                val w2 = totalW / 2f
-                val w3 = totalW / 3f
-                rects.add(RectF(0f, 0f, w2, h3))
-                rects.add(RectF(w2, 0f, totalW, h3))
-                rects.add(RectF(0f, h3, w2, 2f * h3))
-                rects.add(RectF(w2, h3, totalW, 2f * h3))
-                rects.add(RectF(0f, 2f * h3, w3, totalH))
-                rects.add(RectF(w3, 2f * h3, 2f * w3, totalH))
-                rects.add(RectF(2f * w3, 2f * h3, totalW, totalH))
-            }
-            8 -> {
-                val h4 = totalH / 4f
-                val w2 = totalW / 2f
-                for (r in 0..3) {
-                    for (c in 0..1) {
-                        rects.add(RectF(c * w2, r * h4, (c + 1) * w2, (r + 1) * h4))
-                    }
-                }
-            }
-            9 -> {
-                val h3 = totalH / 3f
-                val w3 = totalW / 3f
-                for (r in 0..2) {
-                    for (c in 0..2) {
-                        rects.add(RectF(c * w3, r * h3, (c + 1) * w3, (r + 1) * h3))
-                    }
-                }
-            }
+        // Tính số hàng: mỗi hàng tối đa 3 xúc xắc
+        val numRows = when {
+            clampedCount <= 3 -> 1
+            clampedCount <= 6 -> 2
+            else -> 3
         }
-        return rects
+
+        // Số cột tối đa của layout (1 cột nếu 1 viên, 3 cột nếu >= 2 viên để căn giữa và thu hẹp khoảng cách)
+        val maxCols = if (clampedCount == 1) 1 else 3
+
+        val cellW = totalW / maxCols.toFloat()
+        // Chiều cao mỗi ô: vừa vặn với chiều dọc tổng chia cho số hàng, nhưng không quá dài
+        val cellH = minOf(totalH / numRows.toFloat(), cellW * 1.0f)
+
+        // Căn giữa toàn bộ cụm hàng theo chiều dọc (Y)
+        val totalClusterH = numRows * cellH
+        val startY = (totalH - totalClusterH) / 2f
+
+        var remainingDice = clampedCount
+        for (r in 0 until numRows) {
+            val itemsInThisRow = minOf(3, remainingDice)
+            val rowTop = startY + r * cellH
+            val rowBottom = rowTop + cellH
+
+            // Căn giữa các viên trên hàng này theo chiều ngang (X)
+            val startX = (totalW - itemsInThisRow * cellW) / 2f
+            for (c in 0 until itemsInThisRow) {
+                val left = startX + c * cellW
+                val right = left + cellW
+                rects.add(RectF(left, rowTop, right, rowBottom))
+            }
+            remainingDice -= itemsInThisRow
+        }
+
+        return if (gap > 0f && clampedCount > 1) {
+            rects.map { rect ->
+                val halfW = (rect.right - rect.left) / 2f
+                val halfH = (rect.bottom - rect.top) / 2f
+                val clampedGapX = minOf(gap, halfW * 0.5f)
+                val clampedGapY = minOf(gap, halfH * 0.5f)
+                RectF(
+                    rect.left + clampedGapX,
+                    rect.top + clampedGapY,
+                    rect.right - clampedGapX,
+                    rect.bottom - clampedGapY
+                )
+            }
+        } else {
+            rects
+        }
     }
 }

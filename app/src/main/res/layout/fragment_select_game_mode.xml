@@ -27,13 +27,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="8dp">
+            android:paddingTop="40dp">
 
             <!-- Title: Who are you playing with? -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -56,6 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
+                android:textAlignment="center"
                 android:text="@string/choose_mode_subtitle"
                 android:textColor="@color/ui_text_subtitle"
                 android:textSize="14sp" />
@@ -66,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/bg_mode_card"
+                android:background="@drawable/bg_stepper_capsule_blue"
                 android:clickable="true"
                 android:focusable="true"
                 android:padding="20dp">

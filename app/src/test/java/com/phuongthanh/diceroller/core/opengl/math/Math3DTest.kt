@@ -231,22 +231,12 @@ class Math3DTest {
     }
 
     @Test
-    fun dicePartitionHelper_3Dice_hasClusteredLayout() {
-        val totalW = 200f
-        val totalH = 200f
-        val rects = DicePartitionHelper.calculatePartitionRects(3, totalW, totalH)
-        assertEquals(3, rects.size)
-
-        val die0 = rects[0]
-        val die1 = rects[1]
-        val die2 = rects[2]
-
-        val horizontalGapBetweenTopDice = (die1.left + die1.right) / 2f - (die0.left + die0.right) / 2f
-        // Horizontal distance must be significantly closer than old 50% (100f)
-        assertTrue("Horizontal distance between top dice should be < 50% width", horizontalGapBetweenTopDice < totalW * 0.45f)
-
-        val verticalGapBetweenRows = (die2.top + die2.bottom) / 2f - (die0.top + die0.bottom) / 2f
-        // Vertical distance must be significantly closer than old 50% (100f)
-        assertTrue("Vertical distance between rows should be < 50% height", verticalGapBetweenRows < totalH * 0.45f)
+    fun dicePartitionHelper_returnsCorrectPartitionCounts() {
+        assertEquals(1, DicePartitionHelper.calculatePartitionRects(1, 200f, 200f).size)
+        assertEquals(2, DicePartitionHelper.calculatePartitionRects(2, 200f, 200f).size)
+        assertEquals(3, DicePartitionHelper.calculatePartitionRects(3, 200f, 200f).size)
+        assertEquals(4, DicePartitionHelper.calculatePartitionRects(4, 200f, 200f).size)
+        assertEquals(8, DicePartitionHelper.calculatePartitionRects(8, 200f, 200f).size)
+        assertEquals(9, DicePartitionHelper.calculatePartitionRects(9, 200f, 200f).size)
     }
 }

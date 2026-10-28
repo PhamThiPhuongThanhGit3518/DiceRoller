@@ -8,347 +8,374 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <!-- Common Top Bar -->
-    <com.phuongthanh.diceroller.core.widget.CommonTopBar
-        android:id="@+id/topBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:showBackButton="true"
-        app:topbarSubtitle="@string/custom_roll_subtitle_placeholder"
-        app:topbarTitle="@string/custom_roll_customize_dice" />
-
-    <!-- Step Progress Indicator -->
+    <!-- Main Screen Content Container -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingTop="8dp"
-        android:paddingBottom="12dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Common Top Bar -->
+        <com.phuongthanh.diceroller.core.widget.CommonTopBar
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/step_2_2"
-            android:textColor="#A3B8D8"
-            android:textSize="13sp" />
+            app:showBackButton="true"
+            app:topbarSubtitle="@string/custom_roll_subtitle_placeholder"
+            app:topbarTitle="@string/custom_roll_customize_dice" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <!-- Step 1 Inactive Dot -->
-            <View
-                android:layout_width="6dp"
-                android:layout_height="6dp"
-                android:layout_marginEnd="6dp"
-                android:background="@drawable/bg_step_inactive" />
-
-            <!-- Step 2 Active Pill -->
-            <View
-                android:layout_width="32dp"
-                android:layout_height="5dp"
-                android:background="@drawable/bg_step_active" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:clipToPadding="false"
-        android:paddingHorizontal="20dp"
-        android:paddingBottom="16dp">
-
+        <!-- Step Progress Indicator -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="32dp"
+            android:paddingBottom="32dp">
 
-            <!-- Title: Number of Dice face -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-black"
-                android:text="@string/number_of_dice_face"
-                android:textColor="@color/ui_text_white"
-                android:textSize="18sp" />
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/step_2_2"
+                android:textColor="#A3B8D8"
+                android:textSize="13sp" />
 
-            <!-- Stepper: Number of Dice face -->
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_stepper_capsule_blue"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <FrameLayout
-                    android:id="@+id/btnMinusFaces"
-                    android:layout_width="56dp"
-                    android:layout_height="match_parent"
-                    android:foreground="?attr/selectableItemBackgroundBorderless">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="Minus"
-                        android:src="@drawable/ic_minus"
-                        app:tint="@color/white" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                    <FrameLayout
-                        android:layout_width="130dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/bg_stepper_inner_box">
-
-                        <TextView
-                            android:id="@+id/tvFacesCount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="sans-serif-black"
-                            android:textColor="@color/ui_text_white"
-                            android:textSize="18sp"
-                            tools:text="3" />
-                    </FrameLayout>
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/btnPlusFaces"
-                    android:layout_width="56dp"
-                    android:layout_height="match_parent"
-                    android:foreground="?attr/selectableItemBackgroundBorderless">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="Plus"
-                        android:src="@drawable/ic_plus"
-                        app:tint="@color/white" />
-                </FrameLayout>
-            </LinearLayout>
-
-            <!-- Title: Dice face -->
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="sans-serif-black"
-                android:text="@string/dice_face_title"
-                android:textColor="@color/ui_text_white"
-                android:textSize="18sp" />
-
-            <!-- Stepper: Dice face navigation -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_stepper_capsule_blue"
+                android:layout_marginTop="7dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <FrameLayout
-                    android:id="@+id/btnPrevFace"
-                    android:layout_width="56dp"
-                    android:layout_height="match_parent"
-                    android:foreground="?attr/selectableItemBackgroundBorderless">
+                <!-- Step 1 Inactive Dot -->
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/bg_step_inactive" />
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="Previous"
-                        android:src="@drawable/ic_left"
-                        app:tint="@color/white" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                    <FrameLayout
-                        android:layout_width="130dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/bg_stepper_inner_box">
-
-                        <TextView
-                            android:id="@+id/tvCurrentFaceIndicator"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="sans-serif-black"
-                            android:textColor="@color/ui_text_white"
-                            android:textSize="18sp"
-                            tools:text="1/6" />
-                    </FrameLayout>
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/btnNextFace"
-                    android:layout_width="56dp"
-                    android:layout_height="match_parent"
-                    android:foreground="?attr/selectableItemBackgroundBorderless">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="Next"
-                        android:src="@drawable/ic_right"
-                        app:tint="@color/white" />
-                </FrameLayout>
+                <!-- Step 2 Active Pill -->
+                <View
+                    android:layout_width="37dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/bg_step_active" />
             </LinearLayout>
-
-            <!-- Face Customizer Card ("Add content") -->
-            <LinearLayout
-                android:id="@+id/cardCustomizeCurrentFace"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:background="@drawable/bg_dashed_card"
-                android:foreground="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:minHeight="210dp"
-                android:orientation="vertical"
-                android:paddingVertical="32dp"
-                android:paddingHorizontal="20dp">
-
-                <!-- Placeholder state: Add Content matching Figma Design -->
-                <LinearLayout
-                    android:id="@+id/layoutEmptyFace"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="44dp"
-                        android:layout_height="44dp"
-                        android:contentDescription="@string/add_content"
-                        android:src="@drawable/ic_plus_circle"
-                        app:tint="@color/white" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="14dp"
-                        android:fontFamily="sans-serif-black"
-                        android:gravity="center"
-                        android:text="@string/add_content"
-                        android:textColor="@color/ui_text_white"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:gravity="center"
-                        android:lineSpacingExtra="3dp"
-                        android:text="@string/add_content_desc"
-                        android:textColor="#8E9BB5"
-                        android:textSize="13sp" />
-                </LinearLayout>
-
-                <!-- Customized content state -->
-                <LinearLayout
-                    android:id="@+id/layoutCustomizedFace"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:visibility="gone">
-
-                    <ImageView
-                        android:id="@+id/ivFaceIconOrAdd"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:contentDescription="Face Icon"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/ic_add"
-                        app:tint="#3189FF" />
-
-                    <TextView
-                        android:id="@+id/tvFaceContentPreview"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:fontFamily="sans-serif-black"
-                        android:gravity="center"
-                        android:textColor="@color/ui_text_white"
-                        android:textSize="18sp"
-                        tools:text="Custom Face" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="@string/tap_to_customize_face"
-                        android:textColor="#3B82F6"
-                        android:textSize="13sp" />
-                </LinearLayout>
-
-            </LinearLayout>
-
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
 
-    <!-- Bottom Actions Area -->
-    <LinearLayout
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingHorizontal="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Title: Number of Dice face -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/number_of_dice_face"
+                    android:textColor="@color/ui_text_white"
+                    android:textSize="18sp" />
+
+                <!-- Stepper: Number of Dice face -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_stepper_capsule_blue"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:id="@+id/btnMinusFaces"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Minus"
+                            android:src="@drawable/ic_minus"
+                            app:tint="@color/white" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/bg_stepper_inner_box">
+
+                            <TextView
+                                android:id="@+id/tvFacesCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="sans-serif-black"
+                                android:textColor="@color/ui_text_white"
+                                android:textSize="18sp"
+                                tools:text="3" />
+                        </FrameLayout>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/btnPlusFaces"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Plus"
+                            android:src="@drawable/ic_plus"
+                            app:tint="@color/white" />
+                    </FrameLayout>
+                </LinearLayout>
+
+                <!-- Title: Dice face -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/dice_face_title"
+                    android:textColor="@color/ui_text_white"
+                    android:textSize="18sp" />
+
+                <!-- Stepper: Dice face navigation -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_stepper_capsule_blue"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:id="@+id/btnPrevFace"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Previous"
+                            android:src="@drawable/ic_left"
+                            app:tint="@color/white" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/bg_stepper_inner_box">
+
+                            <TextView
+                                android:id="@+id/tvCurrentFaceIndicator"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="sans-serif-black"
+                                android:textColor="@color/ui_text_white"
+                                android:textSize="18sp"
+                                tools:text="1/6" />
+                        </FrameLayout>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/btnNextFace"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Next"
+                            android:src="@drawable/ic_right"
+                            app:tint="@color/white" />
+                    </FrameLayout>
+                </LinearLayout>
+
+                <!-- Face Customizer Card ("Add content") -->
+                <LinearLayout
+                    android:id="@+id/cardCustomizeCurrentFace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/bg_dashed_card"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:minHeight="210dp"
+                    android:orientation="vertical"
+                    android:paddingVertical="32dp"
+                    android:paddingHorizontal="20dp">
+
+                    <!-- Placeholder state: Add Content matching Figma Design -->
+                    <LinearLayout
+                        android:id="@+id/layoutEmptyFace"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:contentDescription="@string/add_content"
+                            android:src="@drawable/ic_plus_circle"
+                            app:tint="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:text="@string/add_content"
+                            android:textColor="@color/ui_text_white"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:gravity="center"
+                            android:lineSpacingExtra="3dp"
+                            android:text="@string/add_content_desc"
+                            android:textColor="#8E9BB5"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <!-- Customized content state -->
+                    <LinearLayout
+                        android:id="@+id/layoutCustomizedFace"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/ivFaceIconOrAdd"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:contentDescription="Face Icon"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_add"
+                            app:tint="#3189FF" />
+
+                        <TextView
+                            android:id="@+id/tvFaceContentPreview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:textColor="@color/ui_text_white"
+                            android:textSize="18sp"
+                            tools:text="Custom Face" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="@string/tap_to_customize_face"
+                            android:textColor="#3B82F6"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- Bottom Actions Area (Giờ sẽ xếp ngay dưới nội dung cuộn) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginTop="32dp"
+            android:paddingHorizontal="20dp">
+
+            <!-- Bottom Close / Cancel Squircle Button -->
+            <FrameLayout
+                android:id="@+id/btnBottomClose"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_btn_close_dark"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Close"
+                    android:src="@drawable/ic_close"
+                    app:tint="@color/white" />
+            </FrameLayout>
+
+            <!-- CTA Button: continue -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDone"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_segmented_active_item"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/btn_continue_lower"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:backgroundTint="@null"
+                app:cornerRadius="16dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Gradient Overlay matching Figma Rectangle 5 (#1353E2 0% to #142757 100%) -->
+    <View
+        android:id="@+id/viewGradientOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_gradient_custom_dice_overlay"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone" />
+
+    <!-- Format Selection Bottom Sheet -->
+    <include
+        android:id="@+id/layoutFormatBottomSheet"
+        layout="@layout/bottom_sheet_custom_face_format"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="20dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="24dp">
+        android:layout_gravity="bottom"
+        android:visibility="gone" />
 
-        <!-- Bottom Close / Cancel Squircle Button -->
-        <FrameLayout
-            android:id="@+id/btnBottomClose"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            android:layout_marginEnd="12dp"
-            android:background="@drawable/bg_btn_close_dark"
-            android:foreground="?attr/selectableItemBackgroundBorderless">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:contentDescription="Close"
-                android:src="@drawable/ic_close"
-                app:tint="@color/white" />
-        </FrameLayout>
-
-        <!-- CTA Button: continue -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDone"
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_btn_continue_blue"
-            android:fontFamily="sans-serif-black"
-            android:text="@string/btn_continue_lower"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:backgroundTint="@null"
-            app:cornerRadius="16dp" />
-    </LinearLayout>
 </LinearLayout>

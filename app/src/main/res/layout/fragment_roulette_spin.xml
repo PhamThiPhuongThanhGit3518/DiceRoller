@@ -27,7 +27,18 @@
         android:textColor="@color/white"
         android:textSize="22sp"
         android:textStyle="bold"
-        tools:text="Where Should You Go Today?" />
+        tools:text="Where Should You Go?" />
+
+    <!-- Subtitle -->
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="6dp"
+        android:text="@string/roulette_spin_subtitle"
+        android:textColor="#8E9DC4"
+        android:textSize="13sp" />
 
     <!-- Spin Button Placed Directly Below Question -->
     <com.google.android.material.button.MaterialButton
@@ -42,9 +53,9 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:backgroundTint="#101828"
+        app:backgroundTint="#1872F6"
         app:cornerRadius="23dp"
-        app:elevation="3dp"
+        app:elevation="4dp"
         app:icon="@drawable/ic_refresh"
         app:iconGravity="textStart"
         app:iconPadding="8dp"

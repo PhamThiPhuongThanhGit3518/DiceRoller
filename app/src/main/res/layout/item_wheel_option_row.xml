@@ -5,25 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
-    app:cardBackgroundColor="@color/white"
+    app:cardBackgroundColor="#0D193A"
     app:cardCornerRadius="14dp"
     app:cardElevation="0dp"
-    app:strokeColor="#EAECF0"
+    app:strokeColor="#1E366E"
     app:strokeWidth="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="52dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingStart="16dp"
+        android:paddingStart="12dp"
         android:paddingEnd="10dp">
+
+        <!-- Drag Handle Indicator -->
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_drag_handle"
+            app:tint="#5A6E99" />
 
         <!-- Sector Color Indicator -->
         <View
             android:id="@+id/viewSectorColor"
-            android:layout_width="14dp"
-            android:layout_height="14dp"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="10dp"
             android:background="@drawable/bg_circle_color_solid" />
 
         <!-- Option Title -->
@@ -35,7 +43,7 @@
             android:layout_weight="1"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textColor="#101828"
+            android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="bold"
             tools:text="Coffee" />
@@ -48,7 +56,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Edit"
             android:src="@drawable/ic_edit"
-            app:tint="#667085" />
+            app:tint="#8E9DC4" />
 
         <!-- Delete Icon Button -->
         <ImageButton
@@ -57,8 +65,8 @@
             android:layout_height="36dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Delete"
-            android:src="@drawable/ic_trash"
-            app:tint="#667085" />
+            android:src="@drawable/ic_cancel_circle"
+            app:tint="#8E9DC4" />
 
     </LinearLayout>
 

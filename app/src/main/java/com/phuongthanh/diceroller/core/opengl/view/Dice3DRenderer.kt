@@ -31,11 +31,11 @@ class Dice3DRenderer(
          * - SCALE_4_DICE: Khi có 4 xúc xắc lưới 2x2 (mặc định 0.58f)
          * - SCALE_MANY_DICE: Khi có từ 5 xúc xắc trở lên (mặc định 0.52f)
          */
-        const val SCALE_1_DICE = 0.95f
-        const val SCALE_2_DICE = 0.78f
-        const val SCALE_3_DICE = 0.65f
-        const val SCALE_4_DICE = 0.58f
-        const val SCALE_MANY_DICE = 0.52f
+        const val SCALE_1_DICE = 0.85f
+        const val SCALE_2_DICE = 0.8f
+        const val SCALE_3_DICE = 0.72f
+        const val SCALE_4_DICE = 0.72f
+        const val SCALE_MANY_DICE = 0.72f
     }
 
     private val shader = DiceShader()
@@ -245,7 +245,16 @@ class Dice3DRenderer(
 
             // 3. Setup Camera & Projection
             val aspect = vw.toFloat() / vh.toFloat()
-            Matrix.perspectiveM(projMatrix, 0, 42f, aspect, 0.1f, 100f)
+            val fovY = if (renderCount >= 2) {
+                // Khóa góc nhìn ngang (horizontal FOV) cho lưới 3 cột (>= 2 xúc xắc)
+                // để khi giảm chiều cao hàng (cellH), các hàng xích lại gần nhau mà xúc xắc không bị teo nhỏ
+                val referenceAspect = 1f / 1.35f
+                val targetTanFovX = Math.tan(Math.toRadians(42.0 / 2.0)) * referenceAspect
+                (2.0 * Math.toDegrees(Math.atan(targetTanFovX / aspect))).toFloat()
+            } else {
+                42f
+            }
+            Matrix.perspectiveM(projMatrix, 0, fovY, aspect, 0.1f, 100f)
             Matrix.setLookAtM(viewMatrix, 0, 0f, 0f, 3.8f, 0f, 0f, 0f, 0f, 1f, 0f)
 
             // 4. Model Transform

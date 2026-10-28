@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_bottom_sheet_surface"
+    android:background="@drawable/bg_bottom_sheet_dark_navy"
     android:orientation="vertical"
     android:padding="24dp">
 
@@ -12,7 +12,7 @@
         android:layout_width="40dp"
         android:layout_height="4dp"
         android:layout_gravity="center"
-        android:background="#D0D5DD" />
+        android:background="#243760" />
 
     <TextView
         android:id="@+id/tvSheetTitle"
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/roulette_sheet_add_option_title"
-        android:textColor="#1D2939"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -30,8 +30,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="@string/roulette_screen_subtitle"
-        android:textColor="#667085"
-        android:textSize="12sp" />
+        android:textColor="#8E9DC4"
+        android:textSize="12sp"
+        android:visibility="gone" />
 
     <!-- Option text -->
     <TextView
@@ -39,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/roulette_sheet_option_text"
-        android:textColor="#1D2939"
+        android:textColor="@color/white"
         android:textSize="14sp"
         android:textStyle="bold" />
 
@@ -49,11 +50,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        app:boxBackgroundColor="#131F3F"
         app:boxCornerRadiusBottomEnd="14dp"
         app:boxCornerRadiusBottomStart="14dp"
         app:boxCornerRadiusTopEnd="14dp"
         app:boxCornerRadiusTopStart="14dp"
-        app:endIconMode="clear_text">
+        app:boxStrokeColor="#203362"
+        app:boxStrokeWidth="1dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="#8E9DC4"
+        app:hintEnabled="false">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etOptionText"
@@ -61,7 +67,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/roulette_sheet_option_hint"
             android:singleLine="true"
-            android:textColor="#101828"
+            android:textColor="@color/white"
+            android:textColorHint="#667A9E"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,8 +77,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/roulette_sheet_custom_colors"
-        android:textColor="#1D2939"
+        android:text="@string/roulette_sheet_color"
+        android:textColor="@color/white"
         android:textSize="14sp"
         android:textStyle="bold" />
 
@@ -86,13 +93,17 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnDone"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="52dp"
         android:layout_marginTop="24dp"
-        android:text="@string/btn_done_check"
+        android:text="@string/btn_done"
         android:textColor="@color/white"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:backgroundTint="#101828"
-        app:cornerRadius="25dp" />
+        app:backgroundTint="#1872F6"
+        app:cornerRadius="26dp"
+        app:icon="@drawable/ic_check"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp"
+        app:iconTint="@color/white" />
 
 </LinearLayout>

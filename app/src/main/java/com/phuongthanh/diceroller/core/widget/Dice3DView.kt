@@ -54,6 +54,13 @@ class Dice3DView @JvmOverloads constructor(
     private val diceStates = mutableListOf<Dice3DState>()
     private val diceBoundsMap = mutableMapOf<Int, RectF>()
 
+    var diceGap: Float = DicePartitionHelper.DEFAULT_DICE_GAP
+        set(value) {
+            field = value
+            updatePartitions()
+            glTextureView.requestRender()
+        }
+
     private var isTileMode: Boolean = false
     private var tileRollAnimator: ValueAnimator? = null
     private val tileRollingValues = mutableMapOf<Int, Int>()
@@ -213,7 +220,7 @@ class Dice3DView @JvmOverloads constructor(
         if (w <= 0f || h <= 0f || diceItems.isEmpty()) return
 
         val count = diceItems.size.coerceIn(1, 9)
-        val rects = DicePartitionHelper.calculatePartitionRects(count, w, h)
+        val rects = DicePartitionHelper.calculatePartitionRects(count, w, h, diceGap)
         renderer.partitionRects = rects
 
         diceBoundsMap.clear()

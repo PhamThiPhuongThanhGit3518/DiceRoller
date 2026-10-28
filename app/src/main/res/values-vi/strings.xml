@@ -222,6 +222,7 @@
     <string name="roulette_add_roulette">Thêm Vòng Quay</string>
     <string name="roulette_action_more">Thêm</string>
     <string name="roulette_action_spin">Quay</string>
+    <string name="roulette_action_continue">Tiếp tục</string>
     <string name="roulette_more_actions_title">Tùy Chọn Khác</string>
     <string name="roulette_action_edit">Chỉnh sửa vòng quay</string>
     <string name="roulette_action_duplicate">Nhân bản vòng quay</string>
@@ -236,6 +237,7 @@
     <string name="roulette_color_label">Màu sắc:</string>
     <string name="roulette_screen_title">Vòng quay</string>
     <string name="roulette_screen_subtitle">Đưa ra quyết định dễ dàng hơn</string>
+    <string name="roulette_spin_subtitle">Hãy xem bạn sẽ nhận được gì nhé!</string>
     <string name="roulette_banner_title">Tạo vòng quay của riêng bạn</string>
     <string name="roulette_banner_desc">Thêm các lựa chọn và quay để đưa ra quyết định dễ dàng hơn!</string>
     <string name="roulette_banner_btn">+ Tạo vòng quay</string>
@@ -259,6 +261,7 @@
     <string name="roulette_sheet_option_text">Nội dung lựa chọn</string>
     <string name="roulette_sheet_option_hint">Nhập lựa chọn</string>
     <string name="roulette_sheet_custom_colors">Màu sắc tùy chỉnh</string>
+    <string name="roulette_sheet_color">Màu sắc</string>
     <string name="roulette_congratulation">Chúc mừng !</string>
     <string name="roulette_btn_ok">OK</string>
 

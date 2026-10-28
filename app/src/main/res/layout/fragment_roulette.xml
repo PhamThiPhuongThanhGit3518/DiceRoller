@@ -15,7 +15,6 @@
         app:action1Icon="@drawable/ic_crown"
         app:action2Icon="@drawable/ic_settings"
         app:showBackButton="false"
-        app:topbarSubtitle="@string/roulette_screen_subtitle"
         app:topbarTitle="@string/roulette_screen_title" />
 
     <androidx.core.widget.NestedScrollView
@@ -39,66 +38,52 @@
                 android:layout_marginTop="12dp"
                 android:clickable="true"
                 android:focusable="true"
-                app:cardBackgroundColor="@color/white"
+                app:cardBackgroundColor="@android:color/transparent"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="0dp"
-                app:strokeColor="#EAECF0"
-                app:strokeWidth="1.5dp">
+                app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="16dp">
+                    android:background="@drawable/bg_roulette_banner_card"
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:text="@string/roulette_banner_title"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/roulette_banner_title"
-                            android:textColor="#101828"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/roulette_banner_desc"
+                        android:textColor="#8E9DC4"
+                        android:textSize="12sp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="@string/roulette_banner_desc"
-                            android:textColor="#667085"
-                            android:textSize="11sp" />
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btnAddRoulette"
-                            android:layout_width="wrap_content"
-                            android:layout_height="38dp"
-                            android:layout_marginTop="12dp"
-                            android:insetTop="0dp"
-                            android:insetBottom="0dp"
-                            android:paddingHorizontal="14dp"
-                            android:text="@string/roulette_banner_btn"
-                            android:textColor="@color/white"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            app:backgroundTint="#101828"
-                            app:cornerRadius="19dp"
-                            app:icon="@drawable/ic_add"
-                            app:iconGravity="textStart"
-                            app:iconPadding="6dp"
-                            app:iconTint="@color/white" />
-                    </LinearLayout>
-
-                    <com.phuongthanh.diceroller.core.widget.MiniWheelView
-                        android:id="@+id/wheelBadge"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_marginStart="12dp" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAddRoulette"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginTop="16dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:paddingHorizontal="16dp"
+                        android:text="@string/roulette_banner_btn"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="#1872F6"
+                        app:cornerRadius="19dp"
+                        app:icon="@drawable/ic_add"
+                        app:iconGravity="textEnd"
+                        app:iconPadding="4dp"
+                        app:iconTint="@color/white" />
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

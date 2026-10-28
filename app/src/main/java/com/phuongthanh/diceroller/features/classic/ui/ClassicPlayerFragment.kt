@@ -374,7 +374,7 @@ class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(Fragmen
             isLockedThisRound -> {
                 slotBinding.ivWinnerTrophy.visibility = View.GONE
                 slotBinding.layoutLockedBadge.visibility = View.VISIBLE
-                slotBinding.cardPlayerRoot.setBackgroundResource(R.drawable.bg_player_card_locked)
+                slotBinding.cardPlayerRoot.setBackgroundResource(cardBg as Int)
             }
             else -> {
                 slotBinding.ivWinnerTrophy.visibility = View.GONE

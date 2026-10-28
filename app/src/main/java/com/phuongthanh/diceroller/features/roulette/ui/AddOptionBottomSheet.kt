@@ -21,20 +21,20 @@ class AddOptionBottomSheet : BottomSheetDialogFragment() {
     private val binding get() = _binding!!
 
     private var initialText: String = ""
-    private var selectedColor: String = "#3B82F6"
+    private var selectedColor: String = "#2F80ED"
     private var isEditMode: Boolean = false
 
     var onSave: ((text: String, colorHex: String) -> Unit)? = null
 
     private val availableColors = listOf(
-        "#1D2939", "#344054", "#475467", "#667085", "#98A2B3", "#CBD5E1",
-        "#EF4444", "#F59E0B", "#10B981", "#3B82F6", "#8B5CF6", "#EC4899"
+        "#2F80ED", "#8B5CF6", "#EC4899", "#FFD130", "#10B981", "#06B6D4",
+        "#F97316", "#3B82F6", "#A855F7", "#EF4444"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initialText = arguments?.getString(ARG_TEXT).orEmpty()
-        selectedColor = arguments?.getString(ARG_COLOR) ?: "#3B82F6"
+        selectedColor = arguments?.getString(ARG_COLOR) ?: "#2F80ED"
         isEditMode = arguments?.getBoolean(ARG_IS_EDIT) ?: false
     }
 
@@ -80,6 +80,11 @@ class AddOptionBottomSheet : BottomSheetDialogFragment() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)?.background = null
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -102,13 +107,16 @@ class AddOptionBottomSheet : BottomSheetDialogFragment() {
             val colorHex = colors[position]
             val isSelected = colorHex.equals(selectedColor, ignoreCase = true)
 
+            val radiusPx = 10f * holder.itemView.context.resources.displayMetrics.density
             val bg = GradientDrawable().apply {
-                shape = GradientDrawable.OVAL
+                shape = GradientDrawable.RECTANGLE
+                cornerRadius = radiusPx
                 setColor(Color.parseColor(colorHex))
             }
             holder.binding.viewColorCircle.background = bg
 
             holder.binding.viewSelectionRing.visibility = if (isSelected) View.VISIBLE else View.INVISIBLE
+            holder.binding.ivCheckmark.visibility = if (isSelected) View.VISIBLE else View.INVISIBLE
 
             holder.binding.root.setOnClickListener {
                 selectedColor = colorHex
@@ -126,7 +134,7 @@ class AddOptionBottomSheet : BottomSheetDialogFragment() {
         private const val ARG_COLOR = "arg_color"
         private const val ARG_IS_EDIT = "arg_is_edit"
 
-        fun newInstanceForAdd(defaultColor: String = "#3B82F6"): AddOptionBottomSheet {
+        fun newInstanceForAdd(defaultColor: String = "#2F80ED"): AddOptionBottomSheet {
             return AddOptionBottomSheet().apply {
                 arguments = Bundle().apply {
                     putString(ARG_TEXT, "")

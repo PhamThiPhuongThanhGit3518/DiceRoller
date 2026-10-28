@@ -172,6 +172,9 @@
         <action
             android:id="@+id/action_rouletteFragment_to_createWheelFragment"
             app:destination="@id/createWheelFragment" />
+        <action
+            android:id="@+id/action_rouletteFragment_to_editWheelFragment"
+            app:destination="@id/editWheelFragment" />
     </fragment>
 
     <fragment

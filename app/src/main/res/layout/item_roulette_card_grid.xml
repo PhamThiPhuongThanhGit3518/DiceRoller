@@ -8,84 +8,95 @@
     android:layout_margin="6dp"
     android:clickable="true"
     android:focusable="true"
-    app:cardBackgroundColor="@color/white"
+    app:cardBackgroundColor="#0D1630"
     app:cardCornerRadius="18dp"
     app:cardElevation="0dp"
-    app:strokeColor="#EAECF0"
+    app:strokeColor="#1F2D54"
     app:strokeWidth="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="12dp">
-
-        <!-- Mini Wheel Preview -->
-        <com.phuongthanh.diceroller.core.widget.MiniWheelView
-            android:id="@+id/miniWheel"
-            android:layout_width="68dp"
-            android:layout_height="68dp"
-            android:layout_marginTop="4dp" />
+        android:padding="16dp">
 
         <!-- Wheel Title -->
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:gravity="center"
-            android:maxLines="2"
-            android:textColor="#101828"
-            android:textSize="13sp"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textSize="14sp"
             android:textStyle="bold"
-            tools:text="Where Should You Go Today?" />
+            tools:text="Dinner Roulette" />
 
-        <!-- Subtitle / Detail -->
-        <TextView
-            android:id="@+id/tvSubtitle"
+        <!-- Subtitle / Options Count Row -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:text="@string/roulette_detail"
-            android:textColor="#667085"
-            android:textSize="11sp" />
-
-        <!-- Bottom Row: Count Pill & Spin Button -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="6dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/ic_nav_people"
+                app:tint="#8E9DC4" />
+
             <TextView
                 android:id="@+id/tvOptionCount"
-                android:layout_width="0dp"
-                android:layout_height="28dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_bottom_nav_pill"
-                android:gravity="center"
-                android:textColor="#344054"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                tools:text="8 option" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:textColor="#8E9DC4"
+                android:textSize="12sp"
+                tools:text="4 options" />
+        </LinearLayout>
 
+        <!-- Bottom Action Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- Secondary Squircle Action (Edit or Delete) -->
+            <FrameLayout
+                android:id="@+id/btnCardAction"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/bg_squircle_settings_btn"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:id="@+id/ivCardAction"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_edit"
+                    app:tint="#8E9DC4" />
+            </FrameLayout>
+
+            <!-- Primary Action: Electric Blue Pill Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSpin"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:layout_marginStart="6dp"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:paddingHorizontal="10dp"
-                android:text="@string/roulette_action_spin"
+                android:text="@string/roulette_action_continue"
                 android:textColor="@color/white"
-                android:textSize="11sp"
+                android:textSize="12sp"
                 android:textStyle="bold"
-                app:backgroundTint="#101828"
-                app:cornerRadius="16dp" />
+                app:backgroundTint="#1872F6"
+                app:cornerRadius="18dp" />
         </LinearLayout>
 
     </LinearLayout>

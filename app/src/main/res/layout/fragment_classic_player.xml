@@ -12,7 +12,7 @@
         android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:action1Icon="@drawable/ic_crown"
+        app:action1Icon="@drawable/ic_queen"
         app:action2Icon="@drawable/ic_settings"
         app:showBackButton="true"
         app:topbarSubtitle="@string/many_players_subtitle"
@@ -195,7 +195,7 @@
                 android:id="@+id/framePlayer1"
                 android:layout_width="0dp"
                 android:layout_height="213.8dp"
-                android:layout_marginEnd="5dp"
+                android:layout_marginEnd="8dp"
                 android:layout_weight="1">
 
                 <include
@@ -207,7 +207,7 @@
                 android:id="@+id/framePlayer2"
                 android:layout_width="0dp"
                 android:layout_height="213.8dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
                 android:layout_weight="1">
 
                 <include
@@ -230,7 +230,7 @@
                 android:id="@+id/framePlayer3"
                 android:layout_width="0dp"
                 android:layout_height="213.8dp"
-                android:layout_marginEnd="5dp"
+                android:layout_marginEnd="8dp"
                 android:layout_weight="1">
 
                 <include
@@ -242,7 +242,7 @@
                 android:id="@+id/framePlayer4"
                 android:layout_width="0dp"
                 android:layout_height="213.8dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
                 android:layout_weight="1">
 
                 <include

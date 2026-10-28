@@ -288,7 +288,7 @@ class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(Fragmen
                 binding.framePlayer4.visibility = View.GONE
             }
             PlayerMode.THREE_PLAYERS -> {
-                val gap = dpToPx(6)
+                val gap = dpToPx(8)
                 p1Lp.marginEnd = gap
                 p3Lp.marginEnd = gap
                 binding.framePlayer1.layoutParams = p1Lp
@@ -303,7 +303,7 @@ class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(Fragmen
                 binding.framePlayer4.visibility = View.INVISIBLE
             }
             PlayerMode.FOUR_PLAYERS, PlayerMode.ONE_PLAYER -> {
-                val gap = dpToPx(6)
+                val gap = dpToPx(8)
                 p1Lp.marginEnd = gap
                 p3Lp.marginEnd = gap
                 binding.framePlayer1.layoutParams = p1Lp
@@ -324,6 +324,83 @@ class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(Fragmen
         return (dp * resources.displayMetrics.density).toInt()
     }
 
+    private data class PlayerCardTheme(
+        val gradientColors: IntArray,
+        val gradientPositions: FloatArray,
+        val shadowColor: Int,
+        val shadowDxDp: Float,
+        val shadowDyDp: Float,
+        val shadowBlurDp: Float,
+        val avatarBg: Int,
+        val scorePillBg: Int,
+        val scoreColor: Int
+    )
+
+    private fun getPlayerCardTheme(playerId: Int): PlayerCardTheme {
+        return when (playerId) {
+            1 -> PlayerCardTheme(
+                gradientColors = intArrayOf(
+                    Color.parseColor("#FFC4EC"),
+                    Color.parseColor("#69257E"),
+                    Color.parseColor("#F552B7")
+                ),
+                gradientPositions = floatArrayOf(0.0f, 0.4946f, 1.0f),
+                shadowColor = Color.argb(76, 152, 40, 120), // #4D982878 (30% alpha)
+                shadowDxDp = 2f,
+                shadowDyDp = 2f,
+                shadowBlurDp = 38f,
+                avatarBg = R.drawable.bg_avatar_player_p1,
+                scorePillBg = R.drawable.bg_score_pill_player_p1,
+                scoreColor = ContextCompat.getColor(requireContext(), R.color.player_p1_pink)
+            )
+            2 -> PlayerCardTheme(
+                gradientColors = intArrayOf(
+                    Color.parseColor("#3F46F2"),
+                    Color.parseColor("#2726A5"),
+                    Color.parseColor("#5DA7FD")
+                ),
+                gradientPositions = floatArrayOf(0.0f, 0.4636f, 1.0f),
+                shadowColor = Color.argb(76, 53, 69, 226), // #4D3545E2 (30% alpha)
+                shadowDxDp = 4f,
+                shadowDyDp = 4f,
+                shadowBlurDp = 38f,
+                avatarBg = R.drawable.bg_avatar_player_p2,
+                scorePillBg = R.drawable.bg_score_pill_player_p2,
+                scoreColor = ContextCompat.getColor(requireContext(), R.color.player_p2_score)
+            )
+            3 -> PlayerCardTheme(
+                gradientColors = intArrayOf(
+                    Color.parseColor("#FDFAE3"),
+                    Color.parseColor("#CD6F43"),
+                    Color.parseColor("#F9B243")
+                ),
+                gradientPositions = floatArrayOf(0.0f, 0.5213f, 1.0f),
+                shadowColor = Color.argb(76, 241, 166, 65), // #4DF1A641 (30% alpha)
+                shadowDxDp = 2f,
+                shadowDyDp = 2f,
+                shadowBlurDp = 38f,
+                avatarBg = R.drawable.bg_avatar_player_p3,
+                scorePillBg = R.drawable.bg_score_pill_player_p3,
+                scoreColor = ContextCompat.getColor(requireContext(), R.color.player_p3_orange)
+            )
+            else -> PlayerCardTheme(
+                gradientColors = intArrayOf(
+                    Color.parseColor("#DC73FD"),
+                    Color.parseColor("#4917B8"),
+                    Color.parseColor("#A542FC")
+                ),
+                gradientPositions = floatArrayOf(0.0f, 0.5f, 1.0f),
+                shadowColor = Color.argb(76, 167, 82, 229), // #4DA752E5 (30% alpha)
+                shadowDxDp = 2f,
+                shadowDyDp = 2f,
+                shadowBlurDp = 38f,
+                avatarBg = R.drawable.bg_avatar_player_p4,
+                scorePillBg = R.drawable.bg_score_pill_player_p4,
+                scoreColor = ContextCompat.getColor(requireContext(), R.color.player_p4_purple)
+            )
+        }
+    }
+
     private fun bindPlayerCard(
         slotBinding: ItemManyPlayersCardBinding,
         player: PlayerSlot?,
@@ -335,32 +412,7 @@ class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(Fragmen
         slotBinding.tvPlayerName.text = "P${player.id}"
 
         // 2. Compute Player Theme Assets (P1..P4)
-        val (cardBg, avatarBg, scorePillBg, scoreColor) = when (player.id) {
-            1 -> listOf(
-                R.drawable.bg_card_player_p1,
-                R.drawable.bg_avatar_player_p1,
-                R.drawable.bg_score_pill_player_p1,
-                ContextCompat.getColor(requireContext(), R.color.player_p1_pink)
-            )
-            2 -> listOf(
-                R.drawable.bg_card_player_p2,
-                R.drawable.bg_avatar_player_p2,
-                R.drawable.bg_score_pill_player_p2,
-                ContextCompat.getColor(requireContext(), R.color.player_p2_score)
-            )
-            3 -> listOf(
-                R.drawable.bg_card_player_p3,
-                R.drawable.bg_avatar_player_p3,
-                R.drawable.bg_score_pill_player_p3,
-                ContextCompat.getColor(requireContext(), R.color.player_p3_orange)
-            )
-            else -> listOf(
-                R.drawable.bg_card_player_p4,
-                R.drawable.bg_avatar_player_p4,
-                R.drawable.bg_score_pill_player_p4,
-                ContextCompat.getColor(requireContext(), R.color.player_p4_purple)
-            )
-        }
+        val theme = getPlayerCardTheme(player.id)
 
         // Winner trophy, Locked badge & Card background
         val isLockedThisRound = player.isLocked && !state.isRoundOver
@@ -369,23 +421,60 @@ class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(Fragmen
             player.isWinner -> {
                 slotBinding.ivWinnerTrophy.visibility = View.VISIBLE
                 slotBinding.layoutLockedBadge.visibility = View.GONE
-                slotBinding.cardPlayerRoot.setBackgroundResource(R.drawable.bg_player_card_winner)
+                slotBinding.cardPlayerRoot.setGradientBorder(
+                    colors = intArrayOf(
+                        Color.parseColor("#FFE76A"),
+                        Color.parseColor("#F59E0B"),
+                        Color.parseColor("#FBBF24")
+                    ),
+                    positions = floatArrayOf(0.0f, 0.5f, 1.0f),
+                    strokeWidthDp = 2.5f,
+                    cornerRadiusDp = 20f,
+                    fillColor = Color.parseColor("#33191655"),
+                    orientation = com.phuongthanh.diceroller.core.widget.GradientBorderDrawable.Orientation.TOP_LEFT_BOTTOM_RIGHT,
+                    shadowColor = Color.argb(76, 245, 158, 11),
+                    shadowDxDp = 2f,
+                    shadowDyDp = 2f,
+                    shadowBlurDp = 38f
+                )
             }
             isLockedThisRound -> {
                 slotBinding.ivWinnerTrophy.visibility = View.GONE
                 slotBinding.layoutLockedBadge.visibility = View.VISIBLE
-                slotBinding.cardPlayerRoot.setBackgroundResource(cardBg as Int)
+                slotBinding.cardPlayerRoot.setGradientBorder(
+                    colors = theme.gradientColors,
+                    positions = theme.gradientPositions,
+                    strokeWidthDp = 2f,
+                    cornerRadiusDp = 20f,
+                    fillColor = Color.parseColor("#33191655"),
+                    orientation = com.phuongthanh.diceroller.core.widget.GradientBorderDrawable.Orientation.TOP_LEFT_BOTTOM_RIGHT,
+                    shadowColor = theme.shadowColor,
+                    shadowDxDp = theme.shadowDxDp,
+                    shadowDyDp = theme.shadowDyDp,
+                    shadowBlurDp = theme.shadowBlurDp
+                )
             }
             else -> {
                 slotBinding.ivWinnerTrophy.visibility = View.GONE
                 slotBinding.layoutLockedBadge.visibility = View.GONE
-                slotBinding.cardPlayerRoot.setBackgroundResource(cardBg as Int)
+                slotBinding.cardPlayerRoot.setGradientBorder(
+                    colors = theme.gradientColors,
+                    positions = theme.gradientPositions,
+                    strokeWidthDp = 2f,
+                    cornerRadiusDp = 20f,
+                    fillColor = Color.parseColor("#33191655"),
+                    orientation = com.phuongthanh.diceroller.core.widget.GradientBorderDrawable.Orientation.TOP_LEFT_BOTTOM_RIGHT,
+                    shadowColor = theme.shadowColor,
+                    shadowDxDp = theme.shadowDxDp,
+                    shadowDyDp = theme.shadowDyDp,
+                    shadowBlurDp = theme.shadowBlurDp
+                )
             }
         }
 
-        slotBinding.layoutPlayerPill.setBackgroundResource(avatarBg as Int)
-        slotBinding.cardScorePill.setBackgroundResource(scorePillBg as Int)
-        slotBinding.tvPlayerScore.setTextColor(scoreColor as Int)
+        slotBinding.layoutPlayerPill.setBackgroundResource(theme.avatarBg)
+        slotBinding.cardScorePill.setBackgroundResource(theme.scorePillBg)
+        slotBinding.tvPlayerScore.setTextColor(theme.scoreColor)
 
         // 3. Score Pill
         slotBinding.tvPlayerScore.text = if (player.isRolling) "..." else player.score.toString()

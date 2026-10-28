@@ -23,19 +23,11 @@ class Dice3DRenderer(
 ) : GLSurfaceView.Renderer {
 
     companion object {
-        /**
-         * Kích thước scale của xúc xắc 3D theo số lượng xúc xắc hiển thị:
-         * - SCALE_1_DICE: Khi có 1 xúc xắc (mặc định 0.95f)
-         * - SCALE_2_DICE: Khi có 2 xúc xắc trên 1 hàng (mặc định 0.78f)
-         * - SCALE_3_DICE: Khi có 3 xúc xắc trên 1 hàng (mặc định 0.65f)
-         * - SCALE_4_DICE: Khi có 4 xúc xắc lưới 2x2 (mặc định 0.58f)
-         * - SCALE_MANY_DICE: Khi có từ 5 xúc xắc trở lên (mặc định 0.52f)
-         */
         const val SCALE_1_DICE = 0.85f
-        const val SCALE_2_DICE = 0.8f
-        const val SCALE_3_DICE = 0.72f
-        const val SCALE_4_DICE = 0.72f
-        const val SCALE_MANY_DICE = 0.72f
+        const val SCALE_2_DICE = 0.9f
+        const val SCALE_3_DICE = 0.8f
+        const val SCALE_4_DICE = 0.8f
+        const val SCALE_MANY_DICE = 0.8f
     }
 
     private val shader = DiceShader()

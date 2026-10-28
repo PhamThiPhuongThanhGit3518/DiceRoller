@@ -25,6 +25,10 @@ class GradientBorderLayout @JvmOverloads constructor(
         var startColor = Color.parseColor("#00CAFB")
         var endColor = Color.parseColor("#0075FB")
         var fillColor = Color.TRANSPARENT
+        var shadowColor = Color.TRANSPARENT
+        var shadowDxPx = 0f
+        var shadowDyPx = 0f
+        var shadowBlurPx = 0f
 
         attrs?.let { attributeSet ->
             context.withStyledAttributes(attributeSet, R.styleable.GradientBorderLayout, defStyleAttr, 0) {
@@ -33,6 +37,10 @@ class GradientBorderLayout @JvmOverloads constructor(
                 startColor = getColor(R.styleable.GradientBorderLayout_gbStartColor, startColor)
                 endColor = getColor(R.styleable.GradientBorderLayout_gbEndColor, endColor)
                 fillColor = getColor(R.styleable.GradientBorderLayout_gbFillColor, fillColor)
+                shadowColor = getColor(R.styleable.GradientBorderLayout_gbInnerShadowColor, shadowColor)
+                shadowDxPx = getDimension(R.styleable.GradientBorderLayout_gbInnerShadowDx, shadowDxPx)
+                shadowDyPx = getDimension(R.styleable.GradientBorderLayout_gbInnerShadowDy, shadowDyPx)
+                shadowBlurPx = getDimension(R.styleable.GradientBorderLayout_gbInnerShadowBlur, shadowBlurPx)
             }
         }
 
@@ -41,7 +49,11 @@ class GradientBorderLayout @JvmOverloads constructor(
             cornerRadiusPx = cornerRadiusPx,
             startColor = startColor,
             endColor = endColor,
-            fillColor = fillColor
+            fillColor = fillColor,
+            shadowColor = shadowColor,
+            shadowDxPx = shadowDxPx,
+            shadowDyPx = shadowDyPx,
+            shadowBlurPx = shadowBlurPx
         )
         background = gradientDrawable
     }
@@ -51,7 +63,12 @@ class GradientBorderLayout @JvmOverloads constructor(
         endColor: Int,
         strokeWidthDp: Float = 1.5f,
         cornerRadiusDp: Float = 12f,
-        fillColor: Int = Color.TRANSPARENT
+        fillColor: Int = Color.TRANSPARENT,
+        orientation: GradientBorderDrawable.Orientation = GradientBorderDrawable.Orientation.LEFT_RIGHT,
+        shadowColor: Int = Color.TRANSPARENT,
+        shadowDxDp: Float = 0f,
+        shadowDyDp: Float = 0f,
+        shadowBlurDp: Float = 0f
     ) {
         val density = context.resources.displayMetrics.density
         gradientDrawable.update(
@@ -59,7 +76,41 @@ class GradientBorderLayout @JvmOverloads constructor(
             cornerRadiusPx = cornerRadiusDp * density,
             startColor = startColor,
             endColor = endColor,
-            fillColor = fillColor
+            fillColor = fillColor,
+            orientation = orientation,
+            gradientColors = null,
+            gradientPositions = null,
+            shadowColor = shadowColor,
+            shadowDxPx = shadowDxDp * density,
+            shadowDyPx = shadowDyDp * density,
+            shadowBlurPx = shadowBlurDp * density
+        )
+    }
+
+    fun setGradientBorder(
+        colors: IntArray,
+        positions: FloatArray? = null,
+        strokeWidthDp: Float = 2f,
+        cornerRadiusDp: Float = 20f,
+        fillColor: Int = Color.TRANSPARENT,
+        orientation: GradientBorderDrawable.Orientation = GradientBorderDrawable.Orientation.TOP_LEFT_BOTTOM_RIGHT,
+        shadowColor: Int = Color.TRANSPARENT,
+        shadowDxDp: Float = 0f,
+        shadowDyDp: Float = 0f,
+        shadowBlurDp: Float = 0f
+    ) {
+        val density = context.resources.displayMetrics.density
+        gradientDrawable.update(
+            strokeWidthPx = strokeWidthDp * density,
+            cornerRadiusPx = cornerRadiusDp * density,
+            fillColor = fillColor,
+            orientation = orientation,
+            gradientColors = colors,
+            gradientPositions = positions,
+            shadowColor = shadowColor,
+            shadowDxPx = shadowDxDp * density,
+            shadowDyPx = shadowDyDp * density,
+            shadowBlurPx = shadowBlurDp * density
         )
     }
 }

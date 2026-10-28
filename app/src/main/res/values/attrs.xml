@@ -32,5 +32,9 @@
         <attr name="gbStartColor" format="color" />
         <attr name="gbEndColor" format="color" />
         <attr name="gbFillColor" format="color" />
+        <attr name="gbInnerShadowColor" format="color" />
+        <attr name="gbInnerShadowDx" format="dimension" />
+        <attr name="gbInnerShadowDy" format="dimension" />
+        <attr name="gbInnerShadowBlur" format="dimension" />
     </declare-styleable>
 </resources>

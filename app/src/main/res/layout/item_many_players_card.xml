@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.phuongthanh.diceroller.core.widget.GradientBorderLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardPlayerRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_card_player_p1"
     android:clickable="true"
     android:focusable="true"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="12dp">
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="18dp"
+    app:gbCornerRadius="20dp"
+    app:gbEndColor="#F552B7"
+    app:gbFillColor="#33191655"
+    app:gbInnerShadowBlur="38dp"
+    app:gbInnerShadowColor="#4D982878"
+    app:gbInnerShadowDx="2dp"
+    app:gbInnerShadowDy="2dp"
+    app:gbStartColor="#FFC4EC"
+    app:gbStrokeWidth="2dp">
 
     <!-- Header: Player Badge (P1) on Left, Winner Trophy / Locked on Right -->
     <RelativeLayout
@@ -107,6 +116,14 @@
         android:orientation="horizontal"
         android:paddingHorizontal="14dp">
 
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginEnd="5dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_dice_d6"
+            app:tint="#BCDDFF" />
+
         <TextView
             android:id="@+id/tvTotalLabel"
             android:layout_width="wrap_content"
@@ -127,4 +144,4 @@
             tools:text="6" />
     </LinearLayout>
 
-</LinearLayout>
+</com.phuongthanh.diceroller.core.widget.GradientBorderLayout>

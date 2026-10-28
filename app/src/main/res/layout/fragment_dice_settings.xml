@@ -13,7 +13,7 @@
         android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:action1Icon="@drawable/ic_crown"
+        app:action1Icon="@drawable/ic_queen"
         app:action2Icon="@drawable/ic_settings"
         app:showBackButton="true"
         app:topbarSubtitle="@string/game_settings_sub"

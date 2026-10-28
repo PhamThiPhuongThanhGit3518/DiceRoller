@@ -22,6 +22,7 @@ object DicePartitionHelper {
      * Mặc định là 8f để các xúc xắc không dính sát viền hay chạm vào nhau.
      */
     const val DEFAULT_DICE_GAP = 4f
+    const val COLUMN_CLUSTER_RATIO = 0.82f
 
     fun calculatePartitionRects(
         count: Int,
@@ -43,9 +44,10 @@ object DicePartitionHelper {
         // Số cột tối đa của layout (1 cột nếu 1 viên, 3 cột nếu >= 2 viên để căn giữa và thu hẹp khoảng cách)
         val maxCols = if (clampedCount == 1) 1 else 3
 
-        val cellW = totalW / maxCols.toFloat()
+        val clusterWidth = if (clampedCount == 1) totalW else totalW * COLUMN_CLUSTER_RATIO
+        val cellW = clusterWidth / maxCols.toFloat()
         // Chiều cao mỗi ô: vừa vặn với chiều dọc tổng chia cho số hàng, nhưng không quá dài
-        val cellH = minOf(totalH / numRows.toFloat(), cellW * 1.0f)
+        val cellH = minOf(totalH / numRows.toFloat(), cellW * 0.8f)
 
         // Căn giữa toàn bộ cụm hàng theo chiều dọc (Y)
         val totalClusterH = numRows * cellH

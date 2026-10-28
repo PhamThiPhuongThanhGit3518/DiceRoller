@@ -22,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:elevation="8dp"
-        app:action1Icon="@drawable/ic_crown"
+        app:action1Icon="@drawable/ic_queen"
         app:action2Icon="@drawable/ic_settings"
         app:showBackButton="true"
         app:topbarSubtitle="@string/single_player_subtitle"

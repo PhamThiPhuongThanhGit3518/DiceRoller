@@ -52,7 +52,7 @@ class CustomDiceStep2Fragment : BaseFragment<FragmentCustomDiceStep2Binding>(Fra
         initializeFaces()
         updateFaceControls()
 
-        binding.btnBack.setOnDebouncedClickListener {
+        binding.topBar.setOnBackClickListener {
             findNavController().navigateUp()
         }
 
@@ -102,8 +102,8 @@ class CustomDiceStep2Fragment : BaseFragment<FragmentCustomDiceStep2Binding>(Fra
             openFormatSelection()
         }
 
-        binding.btnBottomAux.setOnDebouncedClickListener {
-            openFormatSelection()
+        binding.btnBottomClose.setOnDebouncedClickListener {
+            findNavController().navigateUp()
         }
 
         binding.btnDone.setOnDebouncedClickListener {
@@ -222,7 +222,7 @@ class CustomDiceStep2Fragment : BaseFragment<FragmentCustomDiceStep2Binding>(Fra
 
     private fun updateFaceControls() {
         binding.tvFacesCount.text = facesCount.toString()
-        binding.tvCurrentFaceIndicator.text = (currentFaceIndex + 1).toString()
+        binding.tvCurrentFaceIndicator.text = "${currentFaceIndex + 1}/$facesCount"
 
         if (currentFaceIndex < faces.size) {
             val face = faces[currentFaceIndex]

@@ -46,7 +46,7 @@ class LuckyWheelView @JvmOverloads constructor(
     private val outerRimPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = Color.parseColor("#1D2939")
         style = Paint.Style.STROKE
-        strokeWidth = 10f
+        strokeWidth = 24f
     }
 
     private val centerHubBgPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -57,7 +57,7 @@ class LuckyWheelView @JvmOverloads constructor(
     private val centerHubBorderPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = Color.WHITE
         style = Paint.Style.STROKE
-        strokeWidth = 4f
+        strokeWidth = 5f
     }
 
     private val centerHubInnerPinPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -72,18 +72,18 @@ class LuckyWheelView @JvmOverloads constructor(
     }
 
     private val pointerPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#1D2939")
+        color = Color.WHITE
         style = Paint.Style.FILL
     }
 
     private val pointerBorderPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.WHITE
+        color = Color.parseColor("#1D2939")
         style = Paint.Style.STROKE
-        strokeWidth = 3f
+        strokeWidth = 2.5f
     }
 
     private val pointerPinPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.WHITE
+        color = Color.parseColor("#1D2939")
         style = Paint.Style.FILL
     }
 
@@ -203,7 +203,7 @@ class LuckyWheelView @JvmOverloads constructor(
         canvas.restore()
 
         // Draw Center Hub (Solid dark circle matching Figma)
-        val hubRadius = radius * 0.22f
+        val hubRadius = radius * 0.28f
         canvas.drawCircle(cx, cy, hubRadius, centerHubBgPaint)
         canvas.drawCircle(cx, cy, hubRadius, centerHubBorderPaint)
         canvas.drawCircle(cx, cy, hubRadius * 0.28f, centerHubInnerPinPaint)

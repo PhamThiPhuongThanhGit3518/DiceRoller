@@ -8,6 +8,7 @@ import android.opengl.GLUtils
 import android.opengl.Matrix
 import android.os.Handler
 import android.os.Looper
+import com.phuongthanh.diceroller.core.model.DiceFaceStyle
 import com.phuongthanh.diceroller.core.opengl.geometry.PolyhedralGeometryFactory
 import com.phuongthanh.diceroller.core.opengl.geometry.PolyhedralMesh
 import com.phuongthanh.diceroller.core.opengl.model.Dice3DState
@@ -63,6 +64,9 @@ class Dice3DRenderer(
 
     @Volatile
     var sameColorsAllDice: Boolean = true
+
+    @Volatile
+    var faceStyle: DiceFaceStyle = DiceFaceStyle.DOTS
 
     // Elegant deep contrasting tabletop / board background color (not matching the dice)
     @Volatile
@@ -135,14 +139,15 @@ class Dice3DRenderer(
         surfaceHeight = height
     }
 
-    private fun getOrCreateTexture(diceColor: Int, dotColor: Int): Int {
-        val key = (diceColor.toLong() shl 32) or (dotColor.toLong() and 0xFFFFFFFFL)
+    private fun getOrCreateTexture(diceColor: Int, dotColor: Int, style: DiceFaceStyle): Int {
+        val styleBit = (style.ordinal.toLong() and 0x3L) shl 60
+        val key = (diceColor.toLong() shl 32) or (dotColor.toLong() and 0xFFFFFFFFL) xor styleBit
         val cached = textureCache[key]
         if (cached != null && cached != 0) {
             return cached
         }
 
-        val bitmap = DiceTextureGenerator.getAtlasBitmap(diceColor, dotColor)
+        val bitmap = DiceTextureGenerator.getAtlasBitmap(diceColor, dotColor, style)
 
         val textures = IntArray(1)
         GLES20.glGenTextures(1, textures, 0)
@@ -264,7 +269,7 @@ class Dice3DRenderer(
             }
 
             // Texture
-            val textureId = getOrCreateTexture(dieColor, dotColor)
+            val textureId = getOrCreateTexture(dieColor, dotColor, faceStyle)
             GLES20.glActiveTexture(GLES20.GL_TEXTURE0)
             GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textureId)
             GLES20.glUniform1i(shader.uTextureLocation, 0)

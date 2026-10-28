@@ -30,11 +30,11 @@ class RouletteFragment : BaseFragment<FragmentRouletteBinding>(FragmentRouletteB
     private lateinit var adapter: RouletteGridAdapter
 
     override fun initViews() {
-        binding.btnCrown.setOnDebouncedClickListener {
+        binding.topBar.setRightAction1 {
             findNavController().safeNavigate(R.id.settingsFragment)
         }
 
-        binding.btnSettings.setOnDebouncedClickListener {
+        binding.topBar.setRightAction2 {
             findNavController().safeNavigate(R.id.settingsFragment)
         }
 

@@ -8,101 +8,16 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <!-- Top Bar -->
-    <LinearLayout
+    <!-- Common Top Bar -->
+    <com.phuongthanh.diceroller.core.widget.CommonTopBar
+        android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="16dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="16dp">
-
-        <!-- Back Button (Squircle) -->
-        <FrameLayout
-            android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_squircle_midnight_btn"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_arrow_back"
-                app:tint="#B8CCF2" />
-        </FrameLayout>
-
-        <!-- Title & Subtitle -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/game_settings_title"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvSubtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="@string/game_settings_sub"
-                android:textColor="#D9EBFF"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <!-- VIP Crown Button -->
-        <FrameLayout
-            android:id="@+id/btnVip"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/bg_top_crown_button"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_crown" />
-        </FrameLayout>
-
-        <!-- Settings Button -->
-        <FrameLayout
-            android:id="@+id/btnSettings"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_squircle_midnight_btn"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_settings"
-                app:tint="#B8CCF2" />
-        </FrameLayout>
-    </LinearLayout>
+        app:action1Icon="@drawable/ic_crown"
+        app:action2Icon="@drawable/ic_settings"
+        app:showBackButton="true"
+        app:topbarSubtitle="@string/game_settings_sub"
+        app:topbarTitle="@string/game_settings_title" />
 
     <!-- Scrollable Setting Cards -->
     <androidx.core.widget.NestedScrollView

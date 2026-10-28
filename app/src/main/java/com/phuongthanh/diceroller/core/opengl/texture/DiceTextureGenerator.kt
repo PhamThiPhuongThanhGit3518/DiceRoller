@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
 import android.graphics.Typeface
+import com.phuongthanh.diceroller.core.model.DiceFaceStyle
 import com.phuongthanh.diceroller.core.opengl.geometry.MeshBuilderUtils
 import kotlin.math.min
 
@@ -15,17 +16,22 @@ object DiceTextureGenerator {
     private const val COLS = MeshBuilderUtils.ATLAS_COLS // 6
     private const val ROWS = MeshBuilderUtils.ATLAS_ROWS // 4
 
-    // Cache generated atlas bitmaps so Canvas rendering happens only once per color combination
+    // Cache generated atlas bitmaps so Canvas rendering happens only once per color/style combination
     private val bitmapCache = mutableMapOf<Long, Bitmap>()
 
-    fun getAtlasBitmap(diceColor: Int, dotColor: Int): Bitmap {
-        val key = (diceColor.toLong() shl 32) or (dotColor.toLong() and 0xFFFFFFFFL)
+    fun getAtlasBitmap(
+        diceColor: Int,
+        dotColor: Int,
+        faceStyle: DiceFaceStyle = DiceFaceStyle.DOTS
+    ): Bitmap {
+        val styleBit = (faceStyle.ordinal.toLong() and 0x3L) shl 60
+        val key = (diceColor.toLong() shl 32) or (dotColor.toLong() and 0xFFFFFFFFL) xor styleBit
         synchronized(bitmapCache) {
             val existing = bitmapCache[key]
             if (existing != null && !existing.isRecycled) {
                 return existing
             }
-            val newBitmap = createAtlasBitmap(diceColor, dotColor)
+            val newBitmap = createAtlasBitmap(diceColor, dotColor, faceStyle)
             bitmapCache[key] = newBitmap
             return newBitmap
         }
@@ -42,7 +48,11 @@ object DiceTextureGenerator {
         }
     }
 
-    private fun createAtlasBitmap(diceColor: Int, dotColor: Int): Bitmap {
+    private fun createAtlasBitmap(
+        diceColor: Int,
+        dotColor: Int,
+        faceStyle: DiceFaceStyle
+    ): Bitmap {
         val bitmap = Bitmap.createBitmap(ATLAS_SIZE, ATLAS_SIZE, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
 
@@ -52,6 +62,16 @@ object DiceTextureGenerator {
         val bgPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             style = Paint.Style.FILL
             color = diceColor
+        }
+
+        val dotPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            style = Paint.Style.FILL
+            color = dotColor
+        }
+
+        val dotShadowPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            style = Paint.Style.FILL
+            color = 0x40000000 // Soft engraved drop shadow
         }
 
         val textShadowPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -92,28 +112,75 @@ object DiceTextureGenerator {
             val cy = rect.centerY()
             val minDim = min(cellW, cellH)
 
-            // Dynamic font sizing based on single or double digit
-            val text = faceNum.toString()
-            val scaleFactor = if (faceNum >= 10) 0.32f else 0.38f
-            val textSize = minDim * scaleFactor
+            if (faceStyle == DiceFaceStyle.DOTS && faceNum in 1..6) {
+                // Render Dots (Pips) with realistic engraved 3D appearance
+                val dotRadius = minDim * 0.082f
+                val offset = minDim * 0.23f
 
-            textPaint.textSize = textSize
-            textShadowPaint.textSize = textSize
+                fun drawDot(x: Float, y: Float) {
+                    canvas.drawCircle(x, y + 3f, dotRadius, dotShadowPaint)
+                    canvas.drawCircle(x, y, dotRadius, dotPaint)
+                }
 
-            val fontMetrics = textPaint.fontMetrics
-            val baseline = cy - (fontMetrics.ascent + fontMetrics.descent) / 2f
+                when (faceNum) {
+                    1 -> {
+                        drawDot(cx, cy)
+                    }
+                    2 -> {
+                        drawDot(cx - offset, cy - offset)
+                        drawDot(cx + offset, cy + offset)
+                    }
+                    3 -> {
+                        drawDot(cx - offset, cy - offset)
+                        drawDot(cx, cy)
+                        drawDot(cx + offset, cy + offset)
+                    }
+                    4 -> {
+                        drawDot(cx - offset, cy - offset)
+                        drawDot(cx + offset, cy - offset)
+                        drawDot(cx - offset, cy + offset)
+                        drawDot(cx + offset, cy + offset)
+                    }
+                    5 -> {
+                        drawDot(cx - offset, cy - offset)
+                        drawDot(cx + offset, cy - offset)
+                        drawDot(cx, cy)
+                        drawDot(cx - offset, cy + offset)
+                        drawDot(cx + offset, cy + offset)
+                    }
+                    6 -> {
+                        drawDot(cx - offset, cy - offset)
+                        drawDot(cx - offset, cy)
+                        drawDot(cx - offset, cy + offset)
+                        drawDot(cx + offset, cy - offset)
+                        drawDot(cx + offset, cy)
+                        drawDot(cx + offset, cy + offset)
+                    }
+                }
+            } else {
+                // Render Numbers (e.g. D6 numbers mode, or higher polyhedral faces D8..D100)
+                val text = faceNum.toString()
+                val scaleFactor = if (faceNum >= 10) 0.32f else 0.38f
+                val textSize = minDim * scaleFactor
 
-            // 1. Engraved subtle shadow slightly offset downward
-            canvas.drawText(text, cx, baseline + 3f, textShadowPaint)
+                textPaint.textSize = textSize
+                textShadowPaint.textSize = textSize
 
-            // 2. Crisp main number
-            canvas.drawText(text, cx, baseline, textPaint)
+                val fontMetrics = textPaint.fontMetrics
+                val baseline = cy - (fontMetrics.ascent + fontMetrics.descent) / 2f
 
-            // 3. Clear underline for 6 and 9 to eliminate ambiguity
-            if (faceNum == 6 || faceNum == 9) {
-                val underlineY = baseline + fontMetrics.descent + 3f
-                val underlineHalfW = textSize * 0.18f
-                canvas.drawLine(cx - underlineHalfW, underlineY, cx + underlineHalfW, underlineY, underlinePaint)
+                // 1. Engraved subtle shadow slightly offset downward
+                canvas.drawText(text, cx, baseline + 3f, textShadowPaint)
+
+                // 2. Crisp main number
+                canvas.drawText(text, cx, baseline, textPaint)
+
+                // 3. Clear underline for 6 and 9 to eliminate ambiguity
+                if (faceNum == 6 || faceNum == 9) {
+                    val underlineY = baseline + fontMetrics.descent + 3f
+                    val underlineHalfW = textSize * 0.18f
+                    canvas.drawLine(cx - underlineHalfW, underlineY, cx + underlineHalfW, underlineY, underlinePaint)
+                }
             }
         }
 

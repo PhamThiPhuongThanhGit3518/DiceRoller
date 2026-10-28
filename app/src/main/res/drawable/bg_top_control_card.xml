@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <solid android:color="@color/top_control_card_bg" />
-    <stroke
-        android:width="1dp"
-        android:color="@color/top_control_card_stroke" />
-    <corners android:radius="20dp" />
-</shape>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- LỚP 1: Gradient của viền (Làm nền ngoài cùng) -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="0"
+                android:startColor="#00CAFB"
+                android:endColor="#0075FB" />
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+
+    <!-- LỚP 2: Nền ruột trong suốt hoàn toàn (Thụt vào 1dp để lộ viền gradient) -->
+    <item
+        android:bottom="1dp"
+        android:left="1dp"
+        android:right="1dp"
+        android:top="1dp">
+        <shape android:shape="rectangle">
+            <!-- Màu nền tiệp màu màn hình để che ruột gradient lộ viền -->
+            <solid android:color="#0B1026"/>
+            <corners android:radius="11dp" />
+        </shape>
+    </item>
+
+</layer-list>

@@ -8,48 +8,14 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <!-- Top Bar: Back Button, Title, Subtitle -->
-    <LinearLayout
+    <!-- Common Top Bar -->
+    <com.phuongthanh.diceroller.core.widget.CommonTopBar
+        android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="20dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="8dp">
-
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/ic_back"
-            android:contentDescription="@string/btn_cancel"
-            android:scaleType="fitCenter" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
-                android:text="@string/custom_roll_customize_dice"
-                android:textColor="@color/ui_text_white"
-                android:textSize="20sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="@string/custom_roll_subtitle_placeholder"
-                android:textColor="@color/ui_text_subtitle"
-                android:textSize="13sp" />
-        </LinearLayout>
-    </LinearLayout>
+        app:showBackButton="true"
+        app:topbarSubtitle="@string/custom_roll_subtitle_placeholder"
+        app:topbarTitle="@string/custom_roll_customize_dice" />
 
     <!-- Step Progress Indicator -->
     <LinearLayout
@@ -135,48 +101,59 @@
         <!-- Stepper Container -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="54dp"
             android:layout_marginTop="12dp"
-            android:background="@drawable/bg_stepper_dark"
+            android:background="@drawable/bg_stepper_capsule_blue"
             android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingHorizontal="12dp">
+            android:orientation="horizontal">
 
             <FrameLayout
                 android:id="@+id/btnMinusDice"
-                android:layout_width="44dp"
-                android:layout_height="44dp"
+                android:layout_width="56dp"
+                android:layout_height="match_parent"
                 android:foreground="?attr/selectableItemBackgroundBorderless">
 
                 <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center"
                     android:contentDescription="Minus"
                     android:src="@drawable/ic_minus"
                     app:tint="@color/white" />
             </FrameLayout>
 
-            <TextView
-                android:id="@+id/tvDiceCount"
+            <FrameLayout
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="sans-serif-black"
-                android:gravity="center"
-                android:textColor="@color/ui_text_white"
-                android:textSize="20sp"
-                tools:text="3" />
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <FrameLayout
+                    android:layout_width="130dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_stepper_inner_box">
+
+                    <TextView
+                        android:id="@+id/tvDiceCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="sans-serif-black"
+                        android:textColor="@color/ui_text_white"
+                        android:textSize="18sp"
+                        tools:text="3" />
+                </FrameLayout>
+            </FrameLayout>
 
             <FrameLayout
                 android:id="@+id/btnPlusDice"
-                android:layout_width="44dp"
-                android:layout_height="44dp"
+                android:layout_width="56dp"
+                android:layout_height="match_parent"
                 android:foreground="?attr/selectableItemBackgroundBorderless">
 
                 <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center"
                     android:contentDescription="Plus"
                     android:src="@drawable/ic_plus"
@@ -190,17 +167,13 @@
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/bg_btn_upgrade_gradient"
+            android:background="@drawable/bg_btn_continue_blue"
             android:fontFamily="sans-serif-black"
-            android:text="@string/custom_roll_new"
+            android:text="@string/btn_continue_lower"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:backgroundTint="@null"
-            app:cornerRadius="26dp"
-            app:icon="@drawable/ic_game"
-            app:iconGravity="textStart"
-            app:iconPadding="10dp"
-            app:iconTint="@color/white" />
+            app:cornerRadius="16dp" />
     </LinearLayout>
 </LinearLayout>

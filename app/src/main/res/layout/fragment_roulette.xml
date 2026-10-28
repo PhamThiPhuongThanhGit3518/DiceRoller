@@ -7,75 +7,16 @@
     android:background="@drawable/bg_gradient_midnight"
     android:orientation="vertical">
 
-    <!-- Top Header -->
-    <RelativeLayout
+    <!-- Common Top Bar -->
+    <com.phuongthanh.diceroller.core.widget.CommonTopBar
+        android:id="@+id/topBar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/roulette_screen_title"
-                android:textColor="?attr/colorOnSurface"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/roulette_screen_subtitle"
-                android:textColor="#667085"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:orientation="horizontal">
-
-            <FrameLayout
-                android:id="@+id/btnCrown"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/bg_squircle_icon"
-                android:foreground="?attr/selectableItemBackgroundBorderless">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_crown"
-                    app:tint="?attr/colorOnSurface" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/btnSettings"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_squircle_icon"
-                android:foreground="?attr/selectableItemBackgroundBorderless">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_settings"
-                    app:tint="?attr/colorOnSurface" />
-            </FrameLayout>
-        </LinearLayout>
-    </RelativeLayout>
+        android:layout_height="wrap_content"
+        app:action1Icon="@drawable/ic_crown"
+        app:action2Icon="@drawable/ic_settings"
+        app:showBackButton="false"
+        app:topbarSubtitle="@string/roulette_screen_subtitle"
+        app:topbarTitle="@string/roulette_screen_title" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -146,7 +87,11 @@
                             android:textSize="12sp"
                             android:textStyle="bold"
                             app:backgroundTint="#101828"
-                            app:cornerRadius="19dp" />
+                            app:cornerRadius="19dp"
+                            app:icon="@drawable/ic_add"
+                            app:iconGravity="textStart"
+                            app:iconPadding="6dp"
+                            app:iconTint="@color/white" />
                     </LinearLayout>
 
                     <com.phuongthanh.diceroller.core.widget.MiniWheelView
@@ -164,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/roulette_recent_title"
-                android:textColor="#101828"
+                android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 

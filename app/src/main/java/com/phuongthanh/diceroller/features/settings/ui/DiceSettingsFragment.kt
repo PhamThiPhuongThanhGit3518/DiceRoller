@@ -33,15 +33,15 @@ class DiceSettingsFragment : BaseFragment<FragmentDiceSettingsBinding>(FragmentD
     }
 
     override fun initViews() {
-        binding.btnBack.setOnDebouncedClickListener {
+        binding.topBar.setOnBackClickListener {
             findNavController().navigateUp()
         }
 
-        binding.btnVip.setOnDebouncedClickListener {
+        binding.topBar.setRightAction1 {
             findNavController().safeNavigate(R.id.action_diceSettingsFragment_to_premiumFragment)
         }
 
-        binding.btnSettings.setOnDebouncedClickListener {
+        binding.topBar.setRightAction2 {
             findNavController().safeNavigate(R.id.action_diceSettingsFragment_to_settingsFragment)
         }
 

@@ -140,7 +140,7 @@
         tools:layout="@layout/fragment_party_detail">
         <argument
             android:name="packId"
-            android:defaultValue="classic_party"
+            android:defaultValue="funny_dare"
             app:argType="string" />
         <action
             android:id="@+id/action_partyDetailFragment_to_partyRollPlayFragment"
@@ -154,7 +154,7 @@
         tools:layout="@layout/fragment_party_roll_play">
         <argument
             android:name="packId"
-            android:defaultValue="classic_party"
+            android:defaultValue="funny_dare"
             app:argType="string" />
         <action
             android:id="@+id/action_partyRollPlayFragment_to_diceSettingsFragment"

@@ -1,12 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <gradient
-        android:angle="135"
-        android:startColor="#388BFF"
-        android:endColor="#1264F5" />
-    <stroke
-        android:width="1dp"
-        android:color="#00CAFB" />
-    <corners android:radius="12dp" />
-</shape>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- LỚP 1: Gradient của viền (Làm nền ngoài cùng) -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="0"
+                android:startColor="#00CAFB"
+                android:endColor="#0075FB" />
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+
+    <!-- LỚP 2: Gradient nền ruột (Thụt vào 1dp để lộ viền) -->
+    <item
+        android:bottom="1dp"
+        android:left="1dp"
+        android:right="1dp"
+        android:top="1dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="0"
+                android:startColor="#3189FF"
+                android:endColor="#1264F5" />
+            <!-- Bo góc lớp trong: radius_ngoài - độ dày viền = 12dp - 1dp = 11dp để góc bo khít tuyệt đối -->
+            <corners android:radius="11dp" />
+        </shape>
+    </item>
+
+</layer-list>

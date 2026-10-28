@@ -36,7 +36,7 @@ class EditWheelFragment : BaseFragment<FragmentEditWheelBinding>(FragmentEditWhe
     override fun initViews() {
         activePresetId = arguments?.getString("presetId").orEmpty()
 
-        binding.btnBack.setOnDebouncedClickListener {
+        binding.topBar.setOnBackClickListener {
             findNavController().navigateUp()
         }
 

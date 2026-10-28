@@ -8,6 +8,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.phuongthanh.diceroller.DiceRollerApplication
 import com.phuongthanh.diceroller.R
 import com.phuongthanh.diceroller.core.base.BaseFragment
+import com.phuongthanh.diceroller.core.model.DiceFaceStyle
+import com.phuongthanh.diceroller.core.utils.collectWithLifecycle
 import com.phuongthanh.diceroller.core.utils.safeNavigate
 import com.phuongthanh.diceroller.core.utils.setOnDebouncedClickListener
 import com.phuongthanh.diceroller.databinding.FragmentPartyRollPlayBinding
@@ -17,6 +19,7 @@ import com.phuongthanh.diceroller.features.party.model.PartyChallenge
 import com.phuongthanh.diceroller.features.party.model.PartyChallengePack
 import com.phuongthanh.diceroller.features.party.model.PartyPacksBank
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 
@@ -30,7 +33,7 @@ class PartyRollPlayFragment : BaseFragment<FragmentPartyRollPlayBinding>(Fragmen
     private var isRolling = false
 
     override fun initViews() {
-        val packId = arguments?.getString("packId") ?: "classic_party"
+        val packId = arguments?.getString("packId") ?: "funny_dare"
         currentPack = PartyPacksBank.getPackById(packId)
 
         // 1. Pack Title
@@ -84,6 +87,34 @@ class PartyRollPlayFragment : BaseFragment<FragmentPartyRollPlayBinding>(Fragmen
         val initialDie = DiceItem(1, DiceType.D6, 4, false)
         binding.diceCanvas.setDiceList(listOf(initialDie))
         binding.tvCenterNumber.text = "4"
+
+        // Observe Theme Preferences
+        combine(
+            appContainer.appPreferences.sameColorsAllDiceFlow,
+            appContainer.appPreferences.diceColorFlow,
+            appContainer.appPreferences.dotColorFlow,
+            appContainer.appPreferences.diceFaceStyleFlow
+        ) { sameColors, diceColorHex, dotColorHex, styleCode ->
+            val diceColor = try {
+                android.graphics.Color.parseColor(diceColorHex)
+            } catch (_: Exception) {
+                android.graphics.Color.parseColor("#C4EA7E")
+            }
+            val dotColor = try {
+                android.graphics.Color.parseColor(dotColorHex)
+            } catch (_: Exception) {
+                android.graphics.Color.parseColor("#F7D4D5")
+            }
+            val faceStyle = DiceFaceStyle.fromCode(styleCode)
+            PartyTheme(sameColors, diceColor, dotColor, faceStyle)
+        }.collectWithLifecycle(viewLifecycleOwner) { theme ->
+            binding.diceCanvas.setThemeColors(
+                sameColors = theme.sameColors,
+                diceColor = theme.diceColor,
+                dotColor = theme.dotColor,
+                faceStyle = theme.faceStyle
+            )
+        }
 
         // Auto roll once on entering from Detail
         viewLifecycleOwner.lifecycleScope.launch {
@@ -161,3 +192,10 @@ class PartyRollPlayFragment : BaseFragment<FragmentPartyRollPlayBinding>(Fragmen
         super.onPause()
     }
 }
+
+private data class PartyTheme(
+    val sameColors: Boolean,
+    val diceColor: Int,
+    val dotColor: Int,
+    val faceStyle: DiceFaceStyle
+)

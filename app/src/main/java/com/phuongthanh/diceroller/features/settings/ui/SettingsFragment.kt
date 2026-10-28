@@ -33,7 +33,7 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(FragmentSettingsB
     }
 
     private fun setupClickListeners() {
-        binding.btnBack.setOnDebouncedClickListener {
+        binding.topBar.setOnBackClickListener {
             findNavController().navigateUp()
         }
 

@@ -37,8 +37,9 @@ class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(Fragmen
 
     private var isShakeEnabled = true
     private var sameColorsAllDice = true
-    private var selectedDiceColor = Color.WHITE
-    private var selectedDotColor = Color.parseColor("#1E293B")
+    private var selectedDiceColor = Color.parseColor("#C4EA7E")
+    private var selectedDotColor = Color.parseColor("#F7D4D5")
+    private var selectedFaceStyle = DiceFaceStyle.DOTS
 
     private val dicePalette = listOf(
         Color.parseColor("#80EACE"), // Cyan / Turquoise
@@ -51,22 +52,20 @@ class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(Fragmen
 
     override fun initViews() {
         // 1. Top Bar
-        binding.btnBack.setOnDebouncedClickListener {
+        binding.topBar.setOnBackClickListener {
             findNavController().navigateUp()
         }
-        binding.tvHeaderTitle.text = getString(R.string.many_players_title)
-        binding.tvHeaderSubtitle.text = getString(R.string.many_players_subtitle)
 
-        binding.btnSettings.setOnDebouncedClickListener {
+        binding.topBar.setRightAction1 {
+            findNavController().safeNavigate(R.id.action_classicPlayerFragment_to_premiumFragment)
+        }
+
+        binding.topBar.setRightAction2 {
             val args = Bundle().apply { putBoolean("isClassic", false) }
             findNavController().safeNavigate(
                 R.id.action_classicPlayerFragment_to_diceSettingsFragment,
                 args
             )
-        }
-
-        binding.btnVip.setOnDebouncedClickListener {
-            findNavController().safeNavigate(R.id.action_classicPlayerFragment_to_premiumFragment)
         }
 
         // 2. Mode Toggle
@@ -225,23 +224,26 @@ class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(Fragmen
         combine(
             appContainer.appPreferences.sameColorsAllDiceFlow,
             appContainer.appPreferences.diceColorFlow,
-            appContainer.appPreferences.dotColorFlow
-        ) { sameColors, diceColorHex, dotColorHex ->
+            appContainer.appPreferences.dotColorFlow,
+            appContainer.appPreferences.diceFaceStyleFlow
+        ) { sameColors, diceColorHex, dotColorHex, styleCode ->
             val dColor = try {
                 Color.parseColor(diceColorHex)
             } catch (_: Exception) {
-                Color.WHITE
+                Color.parseColor("#C4EA7E")
             }
             val dtColor = try {
                 Color.parseColor(dotColorHex)
             } catch (_: Exception) {
-                Color.parseColor("#1E293B")
+                Color.parseColor("#F7D4D5")
             }
-            Triple(sameColors, dColor, dtColor)
-        }.collectWithLifecycle(viewLifecycleOwner) { (sameColors, dColor, dtColor) ->
-            sameColorsAllDice = sameColors
-            selectedDiceColor = dColor
-            selectedDotColor = dtColor
+            val style = DiceFaceStyle.fromCode(styleCode)
+            ClassicPlayerTheme(sameColors, dColor, dtColor, style)
+        }.collectWithLifecycle(viewLifecycleOwner) { theme ->
+            sameColorsAllDice = theme.sameColors
+            selectedDiceColor = theme.diceColor
+            selectedDotColor = theme.dotColor
+            selectedFaceStyle = theme.faceStyle
 
             updatePlayerCards(viewModel.uiState.value)
         }
@@ -403,9 +405,10 @@ class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(Fragmen
             separatorColor = Color.TRANSPARENT
         )
         slotBinding.diceCanvas.setThemeColors(
-            sameColors = false,
+            sameColors = true,
             diceColor = dieBgColor,
-            dotColor = Color.WHITE
+            dotColor = dieDotColor,
+            faceStyle = selectedFaceStyle
         )
 
         // 6. Map to DiceItem list and update 3D Canvas
@@ -417,7 +420,7 @@ class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(Fragmen
                 isLocked = false,
                 customMin = state.customMin,
                 customMax = state.customMax,
-                faceStyle = state.faceStyle
+                faceStyle = selectedFaceStyle
             )
         }
         slotBinding.diceCanvas.setDiceList(diceItems)
@@ -461,3 +464,10 @@ class ClassicPlayerFragment : BaseFragment<FragmentClassicPlayerBinding>(Fragmen
         }
     }
 }
+
+private data class ClassicPlayerTheme(
+    val sameColors: Boolean,
+    val diceColor: Int,
+    val dotColor: Int,
+    val faceStyle: DiceFaceStyle
+)

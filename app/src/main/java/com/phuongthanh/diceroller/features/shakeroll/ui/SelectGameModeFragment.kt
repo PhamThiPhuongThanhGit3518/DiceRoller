@@ -10,7 +10,7 @@ import com.phuongthanh.diceroller.databinding.FragmentSelectGameModeBinding
 class SelectGameModeFragment : BaseFragment<FragmentSelectGameModeBinding>(FragmentSelectGameModeBinding::inflate) {
 
     override fun initViews() {
-        binding.btnBack.setOnDebouncedClickListener {
+        binding.topBar.setOnBackClickListener {
             findNavController().navigateUp()
         }
 

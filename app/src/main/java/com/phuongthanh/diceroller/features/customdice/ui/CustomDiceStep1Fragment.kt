@@ -20,7 +20,7 @@ class CustomDiceStep1Fragment : BaseFragment<FragmentCustomDiceStep1Binding>(Fra
     override fun initViews() {
         updateDicePreview()
 
-        binding.btnBack.setOnDebouncedClickListener {
+        binding.topBar.setOnBackClickListener {
             findNavController().navigateUp()
         }
 

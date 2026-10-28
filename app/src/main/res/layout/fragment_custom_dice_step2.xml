@@ -8,48 +8,14 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <!-- Top Bar: Back Button, Title, Subtitle -->
-    <LinearLayout
+    <!-- Common Top Bar -->
+    <com.phuongthanh.diceroller.core.widget.CommonTopBar
+        android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="20dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="8dp">
-
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/ic_back"
-            android:contentDescription="@string/btn_cancel"
-            android:scaleType="fitCenter" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
-                android:text="@string/custom_roll_customize_dice"
-                android:textColor="@color/ui_text_white"
-                android:textSize="20sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="@string/custom_roll_subtitle_placeholder"
-                android:textColor="@color/ui_text_subtitle"
-                android:textSize="13sp" />
-        </LinearLayout>
-    </LinearLayout>
+        app:showBackButton="true"
+        app:topbarSubtitle="@string/custom_roll_subtitle_placeholder"
+        app:topbarTitle="@string/custom_roll_customize_dice" />
 
     <!-- Step Progress Indicator -->
     <LinearLayout
@@ -57,16 +23,16 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingTop="12dp"
+        android:paddingTop="8dp"
         android:paddingBottom="12dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
             android:text="@string/step_2_2"
-            android:textColor="@color/ui_text_subtitle"
-            android:textSize="12sp"
-            android:textStyle="bold" />
+            android:textColor="#A3B8D8"
+            android:textSize="13sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -116,17 +82,16 @@
             <!-- Stepper: Number of Dice face -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="54dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/bg_stepper_dark"
+                android:background="@drawable/bg_stepper_capsule_blue"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingHorizontal="12dp">
+                android:orientation="horizontal">
 
                 <FrameLayout
                     android:id="@+id/btnMinusFaces"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="56dp"
+                    android:layout_height="match_parent"
                     android:foreground="?attr/selectableItemBackgroundBorderless">
 
                     <ImageView
@@ -138,21 +103,33 @@
                         app:tint="@color/white" />
                 </FrameLayout>
 
-                <TextView
-                    android:id="@+id/tvFacesCount"
+                <FrameLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="sans-serif-black"
-                    android:gravity="center"
-                    android:textColor="@color/ui_text_white"
-                    android:textSize="18sp"
-                    tools:text="6" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <FrameLayout
+                        android:layout_width="130dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_stepper_inner_box">
+
+                        <TextView
+                            android:id="@+id/tvFacesCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="sans-serif-black"
+                            android:textColor="@color/ui_text_white"
+                            android:textSize="18sp"
+                            tools:text="3" />
+                    </FrameLayout>
+                </FrameLayout>
 
                 <FrameLayout
                     android:id="@+id/btnPlusFaces"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="56dp"
+                    android:layout_height="match_parent"
                     android:foreground="?attr/selectableItemBackgroundBorderless">
 
                     <ImageView
@@ -178,17 +155,16 @@
             <!-- Stepper: Dice face navigation -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="54dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/bg_stepper_dark"
+                android:background="@drawable/bg_stepper_capsule_blue"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingHorizontal="12dp">
+                android:orientation="horizontal">
 
                 <FrameLayout
                     android:id="@+id/btnPrevFace"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="56dp"
+                    android:layout_height="match_parent"
                     android:foreground="?attr/selectableItemBackgroundBorderless">
 
                     <ImageView
@@ -196,25 +172,37 @@
                         android:layout_height="20dp"
                         android:layout_gravity="center"
                         android:contentDescription="Previous"
-                        android:src="@drawable/ic_arrow_back"
+                        android:src="@drawable/ic_left"
                         app:tint="@color/white" />
                 </FrameLayout>
 
-                <TextView
-                    android:id="@+id/tvCurrentFaceIndicator"
+                <FrameLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="sans-serif-black"
-                    android:gravity="center"
-                    android:textColor="@color/ui_text_white"
-                    android:textSize="18sp"
-                    tools:text="1/6" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <FrameLayout
+                        android:layout_width="130dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_stepper_inner_box">
+
+                        <TextView
+                            android:id="@+id/tvCurrentFaceIndicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="sans-serif-black"
+                            android:textColor="@color/ui_text_white"
+                            android:textSize="18sp"
+                            tools:text="1/6" />
+                    </FrameLayout>
+                </FrameLayout>
 
                 <FrameLayout
                     android:id="@+id/btnNextFace"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="56dp"
+                    android:layout_height="match_parent"
                     android:foreground="?attr/selectableItemBackgroundBorderless">
 
                     <ImageView
@@ -222,26 +210,26 @@
                         android:layout_height="20dp"
                         android:layout_gravity="center"
                         android:contentDescription="Next"
-                        android:src="@drawable/ic_chevron_right"
+                        android:src="@drawable/ic_right"
                         app:tint="@color/white" />
                 </FrameLayout>
             </LinearLayout>
 
-            <!-- Face Customizer Card (Figma Screen 3 Design) -->
+            <!-- Face Customizer Card ("Add content") -->
             <LinearLayout
                 android:id="@+id/cardCustomizeCurrentFace"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="22dp"
                 android:background="@drawable/bg_dashed_card"
                 android:foreground="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:minHeight="210dp"
                 android:orientation="vertical"
-                android:paddingVertical="24dp"
+                android:paddingVertical="32dp"
                 android:paddingHorizontal="20dp">
 
-                <!-- Placeholder state matching Figma Loot Box -->
+                <!-- Placeholder state: Add Content matching Figma Design -->
                 <LinearLayout
                     android:id="@+id/layoutEmptyFace"
                     android:layout_width="match_parent"
@@ -250,30 +238,31 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="120dp"
-                        android:layout_height="90dp"
-                        android:contentDescription="@string/custom_roll_empty"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/img_empty_recent_games" />
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:contentDescription="@string/add_content"
+                        android:src="@drawable/ic_plus_circle"
+                        app:tint="@color/white" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="14dp"
                         android:fontFamily="sans-serif-black"
                         android:gravity="center"
-                        android:text="@string/custom_roll_empty"
+                        android:text="@string/add_content"
                         android:textColor="@color/ui_text_white"
-                        android:textSize="16sp" />
+                        android:textSize="18sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="6dp"
                         android:gravity="center"
-                        android:text="@string/custom_roll_empty_desc"
-                        android:textColor="@color/ui_text_subtitle"
-                        android:textSize="12sp" />
+                        android:lineSpacingExtra="3dp"
+                        android:text="@string/add_content_desc"
+                        android:textColor="#8E9BB5"
+                        android:textSize="13sp" />
                 </LinearLayout>
 
                 <!-- Customized content state -->
@@ -287,8 +276,8 @@
 
                     <ImageView
                         android:id="@+id/ivFaceIconOrAdd"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:contentDescription="Face Icon"
                         android:scaleType="fitCenter"
                         android:src="@drawable/ic_add"
@@ -298,12 +287,20 @@
                         android:id="@+id/tvFaceContentPreview"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="12dp"
                         android:fontFamily="sans-serif-black"
                         android:gravity="center"
                         android:textColor="@color/ui_text_white"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         tools:text="Custom Face" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/tap_to_customize_face"
+                        android:textColor="#3B82F6"
+                        android:textSize="13sp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -318,44 +315,40 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="20dp"
-        android:paddingTop="8dp"
+        android:paddingTop="12dp"
         android:paddingBottom="24dp">
 
-        <!-- Bottom Auxiliary Squircle Button -->
+        <!-- Bottom Close / Cancel Squircle Button -->
         <FrameLayout
-            android:id="@+id/btnBottomAux"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:id="@+id/btnBottomClose"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
             android:layout_marginEnd="12dp"
-            android:background="@drawable/ic_back"
+            android:background="@drawable/bg_btn_close_dark"
             android:foreground="?attr/selectableItemBackgroundBorderless">
 
             <ImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
-                android:contentDescription="Format"
-                android:src="@drawable/ic_edit"
-                app:tint="@color/ui_text_subtitle" />
+                android:contentDescription="Close"
+                android:src="@drawable/ic_close"
+                app:tint="@color/white" />
         </FrameLayout>
 
-        <!-- CTA Button: Create new game -->
+        <!-- CTA Button: continue -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnDone"
             android:layout_width="0dp"
             android:layout_height="52dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_btn_upgrade_gradient"
+            android:background="@drawable/bg_btn_continue_blue"
             android:fontFamily="sans-serif-black"
-            android:text="@string/custom_roll_new"
+            android:text="@string/btn_continue_lower"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:backgroundTint="@null"
-            app:cornerRadius="26dp"
-            app:icon="@drawable/ic_game"
-            app:iconGravity="textStart"
-            app:iconPadding="10dp"
-            app:iconTint="@color/white" />
+            app:cornerRadius="16dp" />
     </LinearLayout>
 </LinearLayout>

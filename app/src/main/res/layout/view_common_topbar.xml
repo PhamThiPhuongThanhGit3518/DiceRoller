@@ -5,93 +5,117 @@
     android:id="@+id/layoutTopBarRoot"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/colorPrimary">
+    android:background="@android:color/transparent"
+    android:minHeight="48dp"
+    android:paddingTop="37dp"
+    android:paddingHorizontal="20dp">
 
-    <!-- Back Button -->
+    <!-- Back Button (Figma Squircle 40x40dp) -->
     <ImageButton
         android:id="@+id/btnBack"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@null"
-        android:padding="12dp"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:background="@drawable/ic_back"
+        android:contentDescription="Back"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_arrow_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="?attr/colorOnPrimary" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Screen Title -->
-    <TextView
-        android:id="@+id/tvTitle"
+    <!-- Center/Left Title & Subtitle Container -->
+    <LinearLayout
+        android:id="@+id/layoutTitleGroup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="8dp"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:textAppearance="?attr/textAppearanceTitleLarge"
-        android:textColor="?attr/colorOnPrimary"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="12dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/layoutRightActions"
+        app:layout_goneMarginEnd="0dp"
+        app:layout_goneMarginStart="0dp"
         app:layout_constraintStart_toEndOf="@+id/btnBack"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Dice Roller" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <!-- Right Actions Container (Mode 1: Normal Actions) -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/be_vietnam_pro"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:textColor="@color/ui_text_white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="Customize the dice" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/be_vietnam_pro"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:textColor="@color/ui_text_subtitle"
+            android:textSize="13sp"
+            android:visibility="gone"
+            tools:text="Sub title"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <!-- Right Actions Container (Tối đa 2 actions) -->
     <LinearLayout
         android:id="@+id/layoutRightActions"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginEnd="8dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/btnAction1"
+        <!-- Action 1 (Bên trái) -->
+        <FrameLayout
+            android:id="@+id/containerAction1"
             android:layout_width="44dp"
             android:layout_height="44dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@null"
-            android:padding="10dp"
-            android:scaleType="fitCenter"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_segmented_active_item"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:visibility="gone"
-            app:tint="?attr/colorOnPrimary"
-            tools:src="@drawable/ic_settings"
-            tools:visibility="visible" />
+            tools:visibility="visible">
 
-        <ImageButton
-            android:id="@+id/btnAction2"
+            <ImageView
+                android:id="@+id/btnAction1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_queen" />
+        </FrameLayout>
+
+        <!-- Action 2 (Ngoài cùng bên phải) -->
+        <FrameLayout
+            android:id="@+id/containerAction2"
             android:layout_width="44dp"
             android:layout_height="44dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@null"
-            android:padding="10dp"
-            android:scaleType="fitCenter"
+            android:background="@drawable/bg_squircle_midnight_btn"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:visibility="gone"
-            app:tint="?attr/colorOnPrimary"
-            tools:src="@drawable/ic_trash"
-            tools:visibility="visible" />
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/btnAction2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                tools:src="@drawable/ic_setting" />
+        </FrameLayout>
     </LinearLayout>
-
-    <!-- Evenly Spaced Actions Container (Mode 2: Space Between) -->
-    <LinearLayout
-        android:id="@+id/layoutEvenlySpacedActions"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

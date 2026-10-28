@@ -16,4 +16,21 @@
     <declare-styleable name="FigmaCardView">
         <attr name="cardCornerRadius" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="CommonTopBar">
+        <attr name="topbarTitle" format="string" />
+        <attr name="topbarSubtitle" format="string" />
+        <attr name="showBackButton" format="boolean" />
+        <attr name="action1Icon" format="reference" />
+        <attr name="action2Icon" format="reference" />
+        <attr name="applyStatusBarInsets" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="GradientBorderLayout">
+        <attr name="gbStrokeWidth" format="dimension" />
+        <attr name="gbCornerRadius" format="dimension" />
+        <attr name="gbStartColor" format="color" />
+        <attr name="gbEndColor" format="color" />
+        <attr name="gbFillColor" format="color" />
+    </declare-styleable>
 </resources>

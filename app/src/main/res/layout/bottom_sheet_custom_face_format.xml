@@ -3,44 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_bottom_sheet_surface"
+    android:background="@drawable/bg_bottom_sheet_dark_navy"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:paddingHorizontal="20dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="36dp">
 
-    <!-- Handle drag bar -->
-    <View
-        android:layout_width="40dp"
-        android:layout_height="4dp"
-        android:layout_gravity="center"
-        android:background="#304875" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/dice_face_format"
-        android:textColor="@color/ui_text_white"
-        android:textSize="18sp" />
-
-    <!-- Option 1: Image (Hinh anh) -->
+    <!-- Option 1: Image -->
     <LinearLayout
         android:id="@+id/optImage"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bg_stepper_dark"
+        android:layout_height="68dp"
+        android:background="@drawable/bg_format_card"
         android:foreground="?attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="16dp">
 
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:contentDescription="@string/format_image"
-            android:src="@drawable/ic_image_placeholder"
-            app:tint="#3189FF" />
+        <FrameLayout
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_format_icon_orange">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/format_opt_image"
+                android:src="@drawable/ic_opt_image"
+                app:tint="@color/white" />
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -53,16 +45,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
-                android:text="@string/format_image"
+                android:text="@string/format_opt_image"
                 android:textColor="@color/ui_text_white"
-                android:textSize="15sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Choose from icons or gallery"
-                android:textColor="@color/ui_text_subtitle"
+                android:text="@string/format_opt_image_desc"
+                android:textColor="#8E9BB5"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -71,27 +63,34 @@
             android:layout_height="20dp"
             android:contentDescription="Next"
             android:src="@drawable/ic_chevron_right"
-            app:tint="@color/ui_chevron_tint" />
+            app:tint="#A3B8D8" />
     </LinearLayout>
 
-    <!-- Option 2: Text (Van ban) -->
+    <!-- Option 2: Text -->
     <LinearLayout
         android:id="@+id/optText"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bg_stepper_dark"
+        android:layout_height="68dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_format_card"
         android:foreground="?attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="16dp">
 
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:contentDescription="@string/format_text"
-            android:src="@drawable/ic_edit"
-            app:tint="#00CAFB" />
+        <FrameLayout
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_format_icon_purple">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/format_opt_text"
+                android:src="@drawable/ic_opt_text"
+                app:tint="@color/white" />
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -104,16 +103,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
-                android:text="@string/format_text"
+                android:text="@string/format_opt_text"
                 android:textColor="@color/ui_text_white"
-                android:textSize="15sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Custom title, penalties, dares"
-                android:textColor="@color/ui_text_subtitle"
+                android:text="@string/format_opt_text_desc"
+                android:textColor="#8E9BB5"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -122,79 +121,34 @@
             android:layout_height="20dp"
             android:contentDescription="Next"
             android:src="@drawable/ic_chevron_right"
-            app:tint="@color/ui_chevron_tint" />
+            app:tint="#A3B8D8" />
     </LinearLayout>
 
-    <!-- Option 3: Image and Text (Hinh anh va van ban) -->
-    <LinearLayout
-        android:id="@+id/optImageText"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bg_stepper_dark"
-        android:foreground="?attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="16dp">
-
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:contentDescription="@string/format_image_text"
-            android:src="@drawable/ic_game"
-            app:tint="#6742F8" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
-                android:text="@string/format_image_text"
-                android:textColor="@color/ui_text_white"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="Both icon and descriptive text"
-                android:textColor="@color/ui_text_subtitle"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:contentDescription="Next"
-            android:src="@drawable/ic_chevron_right"
-            app:tint="@color/ui_chevron_tint" />
-    </LinearLayout>
-
-    <!-- Option 4: Emoji -->
+    <!-- Option 3: Emoji -->
     <LinearLayout
         android:id="@+id/optEmoji"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/bg_stepper_dark"
+        android:layout_height="68dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_format_card"
         android:foreground="?attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="16dp">
 
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:contentDescription="@string/format_emoji"
-            android:src="@drawable/ic_dice_d6"
-            app:tint="#F59E0B" />
+        <FrameLayout
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_format_icon_teal">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/format_opt_emoji"
+                android:src="@drawable/ic_opt_emoji"
+                app:tint="@color/white" />
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -207,16 +161,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
-                android:text="@string/format_emoji"
+                android:text="@string/format_opt_emoji"
                 android:textColor="@color/ui_text_white"
-                android:textSize="15sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Fun expressive emoji faces"
-                android:textColor="@color/ui_text_subtitle"
+                android:text="@string/format_opt_emoji_desc"
+                android:textColor="#8E9BB5"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -225,7 +179,65 @@
             android:layout_height="20dp"
             android:contentDescription="Next"
             android:src="@drawable/ic_chevron_right"
-            app:tint="@color/ui_chevron_tint" />
+            app:tint="#A3B8D8" />
+    </LinearLayout>
+
+    <!-- Option 4: Image and Text -->
+    <LinearLayout
+        android:id="@+id/optImageText"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_format_card"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp">
+
+        <FrameLayout
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_format_icon_indigo">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/format_opt_image_text"
+                android:src="@drawable/ic_opt_image_text"
+                app:tint="@color/white" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/format_opt_image_text"
+                android:textColor="@color/ui_text_white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/format_opt_image_text_desc"
+                android:textColor="#8E9BB5"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="Next"
+            android:src="@drawable/ic_chevron_right"
+            app:tint="#A3B8D8" />
     </LinearLayout>
 
 </LinearLayout>

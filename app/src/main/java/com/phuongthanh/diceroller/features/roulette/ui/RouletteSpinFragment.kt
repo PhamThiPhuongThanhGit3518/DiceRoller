@@ -32,11 +32,11 @@ class RouletteSpinFragment : BaseFragment<FragmentRouletteSpinBinding>(FragmentR
             viewModel.processIntent(RouletteIntent.SelectPreset(activePresetId))
         }
 
-        binding.btnBack.setOnDebouncedClickListener {
+        binding.topBar.setOnBackClickListener {
             findNavController().navigateUp()
         }
 
-        binding.btnEdit.setOnDebouncedClickListener {
+        binding.topBar.setRightAction1 {
             val bundle = Bundle().apply { putString("presetId", activePresetId) }
             findNavController().safeNavigate(R.id.action_rouletteSpinFragment_to_editWheelFragment, bundle)
         }

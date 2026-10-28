@@ -8,126 +8,45 @@
     android:orientation="vertical">
 
     <!-- 1. Top Bar -->
-    <LinearLayout
-        android:id="@+id/layoutTopBar"
+    <com.phuongthanh.diceroller.core.widget.CommonTopBar
+        android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="16dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="8dp">
-
-        <!-- Back Button -->
-        <FrameLayout
-            android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_squircle_midnight_btn"
-            android:foreground="?attr/selectableItemBackgroundBorderless">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_arrow_back"
-                app:tint="@color/white" />
-        </FrameLayout>
-
-        <!-- Title & Subtitle -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvHeaderTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/many_players_title"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvHeaderSubtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="@string/many_players_subtitle"
-                android:textColor="@color/ui_text_subtitle"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <!-- VIP Crown Action -->
-        <FrameLayout
-            android:id="@+id/btnVip"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/bg_top_crown_button"
-            android:foreground="?attr/selectableItemBackgroundBorderless">
-
-            <ImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_gravity="center"
-                android:contentDescription="VIP"
-                android:src="@drawable/ic_crown"
-                app:tint="@color/white" />
-        </FrameLayout>
-
-        <!-- Settings Action -->
-        <FrameLayout
-            android:id="@+id/btnSettings"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_squircle_midnight_btn"
-            android:foreground="?attr/selectableItemBackgroundBorderless">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:contentDescription="Settings"
-                android:src="@drawable/ic_settings"
-                app:tint="@color/white" />
-        </FrameLayout>
-    </LinearLayout>
+        app:action1Icon="@drawable/ic_crown"
+        app:action2Icon="@drawable/ic_settings"
+        app:showBackButton="true"
+        app:topbarSubtitle="@string/many_players_subtitle"
+        app:topbarTitle="@string/many_players_title" />
 
     <!-- 2. Top Control Card (Players Selector & Dice Stepper) -->
-    <LinearLayout
+    <com.phuongthanh.diceroller.core.widget.GradientBorderLayout
         android:id="@+id/layoutControlsCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="6dp"
-        android:background="@drawable/bg_top_control_card"
+        android:layout_marginVertical="32dp"
         android:orientation="vertical"
-        android:padding="14dp">
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="20dp"
+        app:gbCornerRadius="12dp"
+        app:gbEndColor="#0075FB"
+        app:gbStartColor="#00CAFB"
+        app:gbStrokeWidth="1.5dp">
 
         <!-- Row 1: Players Selector -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="92dp"
                 android:layout_height="wrap_content"
                 android:text="@string/player_stepper_label"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
 
             <!-- Segmented Control Container -->
             <LinearLayout
@@ -136,12 +55,11 @@
                 android:layout_height="36dp"
                 android:background="@drawable/bg_segmented_container"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="2dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/btnMode2P"
-                    android:layout_width="46dp"
+                    android:layout_width="74.67dp"
                     android:layout_height="match_parent"
                     android:clickable="true"
                     android:focusable="true"
@@ -153,7 +71,7 @@
 
                 <TextView
                     android:id="@+id/btnMode3P"
-                    android:layout_width="46dp"
+                    android:layout_width="74.67dp"
                     android:layout_height="match_parent"
                     android:clickable="true"
                     android:focusable="true"
@@ -165,7 +83,7 @@
 
                 <TextView
                     android:id="@+id/btnMode4P"
-                    android:layout_width="46dp"
+                    android:layout_width="74.67dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_segmented_active_item"
                     android:clickable="true"
@@ -181,23 +99,18 @@
         <!-- Row 2: Dice Counter -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:layout_marginTop="12dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="92dp"
                 android:layout_height="wrap_content"
                 android:text="@string/dice_stepper_label"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
 
             <!-- Dice Stepper Pill -->
             <LinearLayout
@@ -210,22 +123,22 @@
 
                 <FrameLayout
                     android:id="@+id/btnMinusDice"
-                    android:layout_width="34dp"
+                    android:layout_width="36dp"
                     android:layout_height="match_parent"
                     android:clickable="true"
                     android:focusable="true">
 
                     <ImageView
-                        android:layout_width="14dp"
-                        android:layout_height="14dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:layout_gravity="center"
                         android:contentDescription="Minus"
-                        android:src="@drawable/ic_minus_white"
+                        android:src="@drawable/ic_minus"
                         app:tint="@color/white" />
                 </FrameLayout>
 
                 <FrameLayout
-                    android:layout_width="42dp"
+                    android:layout_width="52dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_dice_stepper_val">
 
@@ -242,22 +155,22 @@
 
                 <FrameLayout
                     android:id="@+id/btnPlusDice"
-                    android:layout_width="34dp"
+                    android:layout_width="36dp"
                     android:layout_height="match_parent"
                     android:clickable="true"
                     android:focusable="true">
 
                     <ImageView
-                        android:layout_width="14dp"
-                        android:layout_height="14dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:layout_gravity="center"
                         android:contentDescription="Plus"
-                        android:src="@drawable/ic_add"
+                        android:src="@drawable/ic_plus"
                         app:tint="@color/white" />
                 </FrameLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </com.phuongthanh.diceroller.core.widget.GradientBorderLayout>
 
     <!-- 3. Player Cards Grid (2x2 Grid) -->
     <LinearLayout
@@ -268,23 +181,20 @@
         android:clipToPadding="false"
         android:orientation="vertical"
         android:paddingHorizontal="16dp"
-        android:paddingTop="4dp"
-        android:paddingBottom="16dp"
         android:splitMotionEvents="true">
 
         <!-- Top Row (Player 1, Player 2) -->
         <LinearLayout
             android:id="@+id/rowTop"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:splitMotionEvents="true">
 
             <FrameLayout
                 android:id="@+id/framePlayer1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="213.8dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1">
 
@@ -296,8 +206,8 @@
             <FrameLayout
                 android:id="@+id/framePlayer2"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
+                android:layout_height="213.8dp"
+                android:layout_marginStart="16dp"
                 android:layout_weight="1">
 
                 <include
@@ -311,7 +221,7 @@
             android:id="@+id/rowBottom"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="24dp"
             android:layout_weight="1"
             android:orientation="horizontal"
             android:splitMotionEvents="true">
@@ -319,7 +229,7 @@
             <FrameLayout
                 android:id="@+id/framePlayer3"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="213.8dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1">
 
@@ -331,8 +241,8 @@
             <FrameLayout
                 android:id="@+id/framePlayer4"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
+                android:layout_height="213.8dp"
+                android:layout_marginStart="16dp"
                 android:layout_weight="1">
 
                 <include

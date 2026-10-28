@@ -7,61 +7,13 @@
     android:background="?attr/android:colorBackground"
     android:orientation="vertical">
 
-    <!-- Top Bar -->
-    <LinearLayout
-        android:id="@+id/layoutTopBar"
+    <!-- Common Top Bar -->
+    <com.phuongthanh.diceroller.core.widget.CommonTopBar
+        android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="16dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="8dp">
-
-        <!-- Back Button -->
-        <FrameLayout
-            android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_circle_dark_button"
-            android:foreground="?attr/selectableItemBackgroundBorderless">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_arrow_back"
-                app:tint="@color/white" />
-        </FrameLayout>
-
-        <!-- Title & Subtitle -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvHeaderTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/party_challenge_title"
-                android:textColor="#111827"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvHeaderSubtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:textColor="#6B7280"
-                android:textSize="12sp"
-                tools:text="Classic Party" />
-        </LinearLayout>
-    </LinearLayout>
+        app:showBackButton="true"
+        app:topbarTitle="@string/party_challenge_title" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

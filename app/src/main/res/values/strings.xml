@@ -43,7 +43,7 @@
     <!-- Select Game Mode & Shake Roll -->
     <string name="select_game_mode">Select game mode</string>
     <string name="select_game_mode_sub">Play solo or challenge your friends.</string>
-    <string name="who_are_you">Who are you </string>
+    <string name="who_are_you">Who are you\u0020</string>
     <string name="playing_with">playing with?</string>
     <string name="who_playing_with">Who are you playing with?</string>
     <string name="choose_mode_subtitle">Choose a mode to get the right challenges for your game.</string>
@@ -75,11 +75,22 @@
     <string name="how_many_dice">How many dice</string>
     <string name="number_of_dice_face">Number of Dice face</string>
     <string name="dice_face_format">Choose format</string>
+    <string name="add_content">Add content</string>
+    <string name="add_content_desc">Upload an image or add anote for this\ndice face</string>
+    <string name="format_opt_image">Image</string>
+    <string name="format_opt_image_desc">Use tour image</string>
+    <string name="format_opt_text">Text</string>
+    <string name="format_opt_text_desc">Add a word or name</string>
+    <string name="format_opt_emoji">Emoji</string>
+    <string name="format_opt_emoji_desc">choose an appropriate emoji</string>
+    <string name="format_opt_image_text">image &amp; text</string>
+    <string name="format_opt_image_text_desc">Combine imagine and text</string>
     <string name="format_image">Image</string>
     <string name="format_text">Text</string>
     <string name="format_image_text">Image and Text</string>
     <string name="format_emoji">Emoji</string>
-    <string name="dice_face_title">Dice Face</string>
+    <string name="dice_face_title">Dice face</string>
+    <string name="btn_continue_lower">continue</string>
     <string name="picker_emoji_title">Choose Emoji</string>
     <string name="picker_emoji_subtitle">Tap an emoji to apply to this dice face</string>
     <string name="picker_emoji_keyboard_hint">Type or select emoji from keyboard</string>
@@ -636,4 +647,71 @@
     <string name="party_q_20_dare">Do a 20-second freestyle dance!</string>
     <string name="party_q_21_dare">Drink half a glass with the person on your right!</string>
     <string name="party_q_22_dare">Speak in a robot voice for the next 2 turns.</string>
+
+    <!-- 6 Standard Party Challenge Packs -->
+    <string name="pack_funny_dare_name">Funny Dare</string>
+    <string name="pack_funny_dare_desc">Hilarious dares and funny questions to burst into laughter with friends.</string>
+    <string name="pack_drinking_dice_name">Drinking Dice</string>
+    <string name="pack_drinking_dice_desc">Perfect for parties and gatherings. Sip, toast, laugh, and celebrate together.</string>
+    <string name="pack_couple_dice_name">Couple Dice</string>
+    <string name="pack_couple_dice_desc">Romantic, sweet, and intimate questions for couples and close partners.</string>
+    <string name="pack_hot_challenge_name">Hot Challenge</string>
+    <string name="pack_hot_challenge_desc">Spicy, bold, and exciting dares to turn up the heat in the room.</string>
+    <string name="pack_workout_dice_name">Workout Dice</string>
+    <string name="pack_workout_dice_desc">Get moving! Active fitness challenges and energetic mini-workouts.</string>
+    <string name="tag_workout">Workout</string>
+
+    <!-- Hot Challenge items -->
+    <string name="party_challenge_hot_1">What is the weirdest ideal type trait you never admitted?</string>
+    <string name="party_challenge_hot_2">Have you ever secretly had a crush on someone in this room?</string>
+    <string name="party_challenge_hot_3">What is the boldest, craziest thing you ever did for love?</string>
+    <string name="party_challenge_hot_4">If you had to kiss someone here on the cheek right now, who would it be?</string>
+    <string name="party_challenge_hot_5">What was your most awkward or spicy moment on a date?</string>
+    <string name="party_challenge_hot_6">On a scale of 1 to 10, how attractive do you feel tonight?</string>
+    <string name="party_challenge_hot_7">What is the boldest flirting text you ever sent or received?</string>
+    <string name="party_challenge_hot_8">Look into the eyes of the person opposite and deliver your best pickup line!</string>
+    <string name="party_challenge_hot_9">Send \'Suddenly missing you\' to your most recent chat contact!</string>
+    <string name="party_challenge_hot_10">Let the person on your right whisper anything into your ear for 10s!</string>
+    <string name="party_challenge_hot_11">Perform a confident 15-second freestyle dance!</string>
+    <string name="party_challenge_hot_12">Take a cute wink selfie and keep it as a memory!</string>
+    <string name="party_challenge_hot_13">Sincerely compliment the most charming feature of the person on your left!</string>
+    <string name="party_challenge_hot_14">Vote for the person with the most charming smile tonight!</string>
+    <string name="party_challenge_hot_15">Two people opposite hold hands and maintain eye contact for 20s without laughing!</string>
+    <string name="party_challenge_hot_16">Everyone shares the #1 trait they find irresistible in a partner!</string>
+    <string name="party_challenge_hot_17">Everyone strike their most attractive pose for a group photo!</string>
+    <string name="party_challenge_hot_18">Roller nominates two players to link arms and toast together!</string>
+    <string name="party_challenge_hot_19">Read aloud your bio or latest status with extreme passion!</string>
+    <string name="party_challenge_hot_20">Let the person next to you see the last 3 photos in your gallery!</string>
+    <string name="party_challenge_hot_21">Confess a funny or quirky thing you do when you have a crush!</string>
+    <string name="party_challenge_hot_22">Dramatically reenact a movie confession scene with an object on the table!</string>
+    <string name="party_challenge_hot_23">Call or text a close friend and ask: \'Am I charming?\'</string>
+    <string name="party_challenge_hot_24">Swap seats to sit next to the most mysterious person tonight!</string>
+    <string name="party_challenge_hot_25">Hot Shield: You are immune to one spicy dare for the rest of the game!</string>
+
+    <!-- Workout Dice items -->
+    <string name="party_challenge_wo_1">What was your most abandoned fitness or workout resolution?</string>
+    <string name="party_challenge_wo_2">What is the most calorie-heavy meal you ever ate late at night?</string>
+    <string name="party_challenge_wo_3">Who looks the fittest and who is the biggest couch potato here?</string>
+    <string name="party_challenge_wo_4">Your funniest memory of being extremely sore after a workout?</string>
+    <string name="party_challenge_wo_5">If you had to try one extreme sport, what would it be?</string>
+    <string name="party_challenge_wo_6">Ever bought expensive workout gear and barely used it?</string>
+    <string name="party_challenge_wo_7">Drop down and do 10 clean push-ups right now!</string>
+    <string name="party_challenge_wo_8">Do 15 solid squats without stopping!</string>
+    <string name="party_challenge_wo_9">Hold a solid plank for 30 seconds!</string>
+    <string name="party_challenge_wo_10">Do 20 energetic jumping jacks!</string>
+    <string name="party_challenge_wo_11">Do 10 high-knees energetically right where you are!</string>
+    <string name="party_challenge_wo_12">Hold an invisible wall sit for 20 seconds!</string>
+    <string name="party_challenge_wo_13">Stand and touch your toes for 15 seconds to stretch!</string>
+    <string name="party_challenge_wo_14">Everyone stand up and do 10 joint-rotation stretches together!</string>
+    <string name="party_challenge_wo_15">Plank battle: Roller vs opposite player, first to drop loses!</string>
+    <string name="party_challenge_wo_16">Group balance contest: Everyone balance on 1 foot for 20s!</string>
+    <string name="party_challenge_wo_17">Everyone clap hands together for 30 beats at increasing speed!</string>
+    <string name="party_challenge_wo_18">Each player leads 1 quick 5-second exercise for the group!</string>
+    <string name="party_challenge_wo_19">Roller nominates two players for a quick push-up showdown!</string>
+    <string name="party_challenge_wo_20">Stand up and sit down 10 times with a bright smile!</string>
+    <string name="party_challenge_wo_21">Act like a personal trainer and guide everyone in deep breathing for 20s!</string>
+    <string name="party_challenge_wo_22">Walk around the table on your heels swiftly!</string>
+    <string name="party_challenge_wo_23">Chug a full glass of water for healthy hydration!</string>
+    <string name="party_challenge_wo_24">Throw 30 energetic shadow-boxing punches like a pro boxer!</string>
+    <string name="party_challenge_wo_25">Rest Day Card: Free pass from physical exercise for the next round!</string>
 </resources>

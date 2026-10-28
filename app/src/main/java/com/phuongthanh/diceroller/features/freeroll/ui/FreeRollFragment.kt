@@ -32,17 +32,17 @@ class FreeRollFragment : BaseFragment<FragmentFreeRollBinding>(FragmentFreeRollB
 
     override fun initViews() {
         // Back Navigation
-        binding.btnBack.setOnDebouncedClickListener {
+        binding.topBar.setOnBackClickListener {
             findNavController().navigateUp()
         }
 
         // Top Bar: VIP Crown Navigation
-        binding.btnVip.setOnDebouncedClickListener {
+        binding.topBar.setRightAction1 {
             findNavController().safeNavigate(R.id.action_freeRollFragment_to_premiumFragment)
         }
 
         // Dice Settings Navigation
-        binding.btnSettings.setOnDebouncedClickListener {
+        binding.topBar.setRightAction2 {
             val args = Bundle().apply { putBoolean("isClassic", false) }
             findNavController().safeNavigate(
                 R.id.action_freeRollFragment_to_diceSettingsFragment,
@@ -162,12 +162,13 @@ class FreeRollFragment : BaseFragment<FragmentFreeRollBinding>(FragmentFreeRollB
             viewModel.processIntent(FreeRollIntent.SyncConfiguration(type, style, min, max))
         }.collectWithLifecycle(viewLifecycleOwner) {}
 
-        // Theme colors (Same Colors on All Dice, Dice Color, Dot Color)
+        // Theme colors (Same Colors on All Dice, Dice Color, Dot Color, Face Style)
         combine(
             appContainer.appPreferences.sameColorsAllDiceFlow,
             appContainer.appPreferences.diceColorFlow,
-            appContainer.appPreferences.dotColorFlow
-        ) { sameColors, diceColorHex, dotColorHex ->
+            appContainer.appPreferences.dotColorFlow,
+            appContainer.appPreferences.diceFaceStyleFlow
+        ) { sameColors, diceColorHex, dotColorHex, styleCode ->
             val diceColor = try {
                 android.graphics.Color.parseColor(diceColorHex)
             } catch (_: Exception) {
@@ -178,9 +179,15 @@ class FreeRollFragment : BaseFragment<FragmentFreeRollBinding>(FragmentFreeRollB
             } catch (_: Exception) {
                 android.graphics.Color.parseColor("#F7D4D5")
             }
-            Triple(sameColors, diceColor, dotColor)
-        }.collectWithLifecycle(viewLifecycleOwner) { (sameColors, diceColor, dotColor) ->
-            binding.diceCanvas.setThemeColors(sameColors, diceColor, dotColor)
+            val faceStyle = DiceFaceStyle.fromCode(styleCode)
+            FreeRollTheme(sameColors, diceColor, dotColor, faceStyle)
+        }.collectWithLifecycle(viewLifecycleOwner) { theme ->
+            binding.diceCanvas.setThemeColors(
+                sameColors = theme.sameColors,
+                diceColor = theme.diceColor,
+                dotColor = theme.dotColor,
+                faceStyle = theme.faceStyle
+            )
         }
 
         appContainer.appPreferences.shakeEnabledFlow.collectWithLifecycle(viewLifecycleOwner) { enabled ->
@@ -220,3 +227,10 @@ class FreeRollFragment : BaseFragment<FragmentFreeRollBinding>(FragmentFreeRollB
         }
     }
 }
+
+private data class FreeRollTheme(
+    val sameColors: Boolean,
+    val diceColor: Int,
+    val dotColor: Int,
+    val faceStyle: DiceFaceStyle
+)

@@ -632,4 +632,71 @@
     <string name="party_q_20_dare">Nhảy một điệu freestyle trong 20 giây!</string>
     <string name="party_q_21_dare">Uống cạn nửa ly cùng người ngồi bên tay phải!</string>
     <string name="party_q_22_dare">Nói giọng người máy trong 2 lượt tiếp theo.</string>
+
+    <!-- 6 Standard Party Challenge Packs -->
+    <string name="pack_funny_dare_name">Thử Thách Hài Hước</string>
+    <string name="pack_funny_dare_desc">Những thử thách hài hước và câu hỏi vui nhộn cười vỡ bụng cùng bạn bè.</string>
+    <string name="pack_drinking_dice_name">Xúc Xắc Bàn Nhậu</string>
+    <string name="pack_drinking_dice_desc">Hoàn hảo cho tiệc tùng và tụ tập. Cùng nâng ly, cười vui và quẩy hết mình.</string>
+    <string name="pack_couple_dice_name">Xúc Xắc Cặp Đôi</string>
+    <string name="pack_couple_dice_desc">Những câu hỏi lãng mạn, ngọt ngào và hài hước cho các cặp đôi và bạn thân.</string>
+    <string name="pack_hot_challenge_name">Thử Thách Cay Cấn</string>
+    <string name="pack_hot_challenge_desc">Những câu hỏi và thử thách táo bạo, kịch tính làm nóng bừng mọi bầu không khí.</string>
+    <string name="pack_workout_dice_name">Xúc Xắc Thể Lực</string>
+    <string name="pack_workout_dice_desc">Vận động thôi nào! Thử thách thể lực và đốt calo vui nhộn cùng nhóm.</string>
+    <string name="tag_workout">Thể lực</string>
+
+    <!-- Hot Challenge items -->
+    <string name="party_challenge_hot_1">Gu người yêu lý tưởng kỳ lạ nhất mà bạn chưa bao giờ thừa nhận là gì?</string>
+    <string name="party_challenge_hot_2">Bạn đã từng thích thầm ai trong căn phòng này hoặc bạn thân của họ chưa?</string>
+    <string name="party_challenge_hot_3">Điều điên rồ và táo bạo nhất bạn từng làm vì tình yêu là gì?</string>
+    <string name="party_challenge_hot_4">Nếu phải hôn lên má một người trong bàn ngay bây giờ, bạn sẽ chọn ai?</string>
+    <string name="party_challenge_hot_5">Kỷ niệm ngượng chín mặt nhất trong một buổi hẹn hò lãng mạn của bạn?</string>
+    <string name="party_challenge_hot_6">Bạn tự chấm điểm độ quyến rũ của mình tối nay là bao nhiêu trên thang điểm 10?</string>
+    <string name="party_challenge_hot_7">Tin nhắn thả thính táo bạo nhất bạn từng gửi hoặc nhận được là gì?</string>
+    <string name="party_challenge_hot_8">Nhìn thẳng vào mắt người đối diện và nói một câu thả thính ngọt ngào nhất mà bạn biết!</string>
+    <string name="party_challenge_hot_9">Gửi tin nhắn \'Tự dưng nhớ bạn quá\' cho người gần nhất trong danh sách chat mạng xã hội!</string>
+    <string name="party_challenge_hot_10">Để người ngồi bên phải thì thầm một điều bất kỳ vào tai bạn trong 10 giây!</string>
+    <string name="party_challenge_hot_11">Nhảy một điệu nhảy quyến rũ ngẫu hứng trong vòng 15 giây!</string>
+    <string name="party_challenge_hot_12">Chụp một bức ảnh selfie nháy mắt đáng yêu và giữ trong máy làm kỷ niệm!</string>
+    <string name="party_challenge_hot_13">Khen ngợi điểm quyến rũ nhất của người ngồi bên trái một cách chân thành!</string>
+    <string name="party_challenge_hot_14">Cả bàn cùng bình chọn người có nụ cười quyến rũ nhất tối nay!</string>
+    <string name="party_challenge_hot_15">Hai người ngồi đối diện nhau cùng chạm tay và nhìn nhau trong 20 giây không được cười!</string>
+    <string name="party_challenge_hot_16">Mỗi người lần lượt chia sẻ điều đầu tiên làm mình bị thu hút bởi một người khác giới!</string>
+    <string name="party_challenge_hot_17">Cả nhóm cùng diễn lại biểu cảm ngầu và quyến rũ nhất để chụp ảnh chung!</string>
+    <string name="party_challenge_hot_18">Người vừa gieo chỉ định 2 người bất kỳ uống giao bôi hoặc cụng ly chúc mừng!</string>
+    <string name="party_challenge_hot_19">Đọc to bio hoặc dòng trạng thái mạng xã hội gần nhất của bạn bằng giọng cực kỳ truyền cảm!</string>
+    <string name="party_challenge_hot_20">Cho phép người bên cạnh xem 3 bức ảnh chụp gần nhất trong album điện thoại của bạn!</string>
+    <string name="party_challenge_hot_21">Tự thú nhận một thói quen lạ đời khi bạn đang để ý hoặc thích một ai đó!</string>
+    <string name="party_challenge_hot_22">Diễn lại một cảnh tỏ tình lãng mạn trong phim với một đồ vật bất kỳ trên bàn!</string>
+    <string name="party_challenge_hot_23">Gọi điện hoặc nhắn tin cho một người bạn thân và hỏi: \'Tôi có phải là người quyến rũ không?\'</string>
+    <string name="party_challenge_hot_24">Đổi chỗ ngồi sang cạnh người bạn cảm thấy bí ẩn nhất tối nay!</string>
+    <string name="party_challenge_hot_25">Đặc quyền Khiên nóng: Bạn được miễn 1 thử thách cay cấn tiếp theo trong ván chơi!</string>
+
+    <!-- Workout Dice items -->
+    <string name="party_challenge_wo_1">Mục tiêu tập luyện hoặc giảm cân dang dở nhất bạn từng bỏ cuộc là gì?</string>
+    <string name="party_challenge_wo_2">Món ăn nhiều calo nhất bạn từng ăn ngấu nghiến trong một đêm khuya?</string>
+    <string name="party_challenge_wo_3">Ai trong bàn này có vẻ ngoài thể thao nhất và ai lười vận động nhất?</string>
+    <string name="party_challenge_wo_4">Kỷ niệm đau cơ ê ẩm đáng nhớ nhất sau một ngày hăng hái tập thể thao?</string>
+    <string name="party_challenge_wo_5">Nếu phải chọn một môn thể thao mạo hiểm để thử thách, bạn chọn môn nào?</string>
+    <string name="party_challenge_wo_6">Bạn từng mua đồ tập thể thao đắt tiền về rồi để xó bao giờ chưa?</string>
+    <string name="party_challenge_wo_7">Hít đất (push-ups) 10 cái chuẩn form ngay tại chỗ!</string>
+    <string name="party_challenge_wo_8">Thực hiện 15 cái Squat liên tục thật dứt khoát!</string>
+    <string name="party_challenge_wo_9">Giữ tư thế Plank chuẩn chỉnh trong vòng 30 giây!</string>
+    <string name="party_challenge_wo_10">Nhảy Jumping Jacks 20 cái liên tục tràn đầy năng lượng!</string>
+    <string name="party_challenge_wo_11">Thực hiện 10 lần nâng đùi cao tại chỗ thật nhiệt huyết!</string>
+    <string name="party_challenge_wo_12">Giữ tư thế ngồi dựa tường vô hình (Wall sit) trong 20 giây!</string>
+    <string name="party_challenge_wo_13">Kéo giãn cơ gân kheo: Đứng thẳng cúi người chạm ngón tay vào mũi chân trong 15 giây!</string>
+    <string name="party_challenge_wo_14">Cả bàn cùng đứng dậy và thực hiện 10 cái vươn vai xoay khớp cổ tay, cổ chân!</string>
+    <string name="party_challenge_wo_15">Thử thách thi Plank đôi: Người gieo và người đối diện cùng plank, ai buông trước bị phạt!</string>
+    <string name="party_challenge_wo_16">Cả nhóm cùng đứng thăng bằng trên 1 chân trong 20 giây, ai hạ chân trước bị phạt!</string>
+    <string name="party_challenge_wo_17">Cả bàn cùng vỗ tay tập thể 30 nhịp liên tục theo tốc độ tăng dần!</string>
+    <string name="party_challenge_wo_18">Mỗi người lần lượt chọn 1 động tác thể dục cho cả bàn cùng làm theo 5 giây!</string>
+    <string name="party_challenge_wo_19">Người vừa gieo chỉ định 2 người thi hít đất xem ai làm được nhiều cái hơn!</string>
+    <string name="party_challenge_wo_20">Đứng lên ngồi xuống liên tục 10 lần trong khi vẫn giữ nụ cười thật tươi!</string>
+    <string name="party_challenge_wo_21">Đóng vai huấn luyện viên thể hình và hướng dẫn cả bàn tập thở sâu trong 20 giây!</string>
+    <string name="party_challenge_wo_22">Đi bằng gót chân một vòng quanh bàn thật nhanh nhẹn!</string>
+    <string name="party_challenge_wo_23">Uống hết 1 ly nước lọc đầy để bổ sung nước và trao đổi chất!</string>
+    <string name="party_challenge_wo_24">Đấm gió 30 cú thật mạnh mẽ và dứt khoát như một võ sĩ quyền Anh!</string>
+    <string name="party_challenge_wo_25">Thẻ giải lao thể thao: Bạn được nghỉ ngơi phục hồi thể lực trong vòng tiếp theo!</string>
 </resources>

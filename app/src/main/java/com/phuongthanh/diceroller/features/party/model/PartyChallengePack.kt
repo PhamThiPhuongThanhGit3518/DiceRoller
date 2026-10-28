@@ -237,58 +237,76 @@ object PartyPacksBank {
         PartyChallenge("ib_20", ChallengeType.RANDOM_TASKS, R.string.party_challenge_ib_20)
     )
 
+
+    private val hotChallenges = listOf(
+        PartyChallenge("hot_1", ChallengeType.FUNNY_QUESTIONS, R.string.party_challenge_hot_1),
+        PartyChallenge("hot_2", ChallengeType.FUNNY_QUESTIONS, R.string.party_challenge_hot_2),
+        PartyChallenge("hot_3", ChallengeType.FUNNY_QUESTIONS, R.string.party_challenge_hot_3),
+        PartyChallenge("hot_4", ChallengeType.FUNNY_QUESTIONS, R.string.party_challenge_hot_4),
+        PartyChallenge("hot_5", ChallengeType.FUNNY_QUESTIONS, R.string.party_challenge_hot_5),
+        PartyChallenge("hot_6", ChallengeType.FUNNY_QUESTIONS, R.string.party_challenge_hot_6),
+        PartyChallenge("hot_7", ChallengeType.FUNNY_QUESTIONS, R.string.party_challenge_hot_7),
+        PartyChallenge("hot_8", ChallengeType.QUICK_DARES, R.string.party_challenge_hot_8),
+        PartyChallenge("hot_9", ChallengeType.QUICK_DARES, R.string.party_challenge_hot_9),
+        PartyChallenge("hot_10", ChallengeType.QUICK_DARES, R.string.party_challenge_hot_10),
+        PartyChallenge("hot_11", ChallengeType.QUICK_DARES, R.string.party_challenge_hot_11),
+        PartyChallenge("hot_12", ChallengeType.QUICK_DARES, R.string.party_challenge_hot_12),
+        PartyChallenge("hot_13", ChallengeType.QUICK_DARES, R.string.party_challenge_hot_13),
+        PartyChallenge("hot_14", ChallengeType.GROUP_ACTIONS, R.string.party_challenge_hot_14),
+        PartyChallenge("hot_15", ChallengeType.GROUP_ACTIONS, R.string.party_challenge_hot_15),
+        PartyChallenge("hot_16", ChallengeType.GROUP_ACTIONS, R.string.party_challenge_hot_16),
+        PartyChallenge("hot_17", ChallengeType.GROUP_ACTIONS, R.string.party_challenge_hot_17),
+        PartyChallenge("hot_18", ChallengeType.GROUP_ACTIONS, R.string.party_challenge_hot_18),
+        PartyChallenge("hot_19", ChallengeType.RANDOM_TASKS, R.string.party_challenge_hot_19),
+        PartyChallenge("hot_20", ChallengeType.RANDOM_TASKS, R.string.party_challenge_hot_20),
+        PartyChallenge("hot_21", ChallengeType.RANDOM_TASKS, R.string.party_challenge_hot_21),
+        PartyChallenge("hot_22", ChallengeType.RANDOM_TASKS, R.string.party_challenge_hot_22),
+        PartyChallenge("hot_23", ChallengeType.RANDOM_TASKS, R.string.party_challenge_hot_23),
+        PartyChallenge("hot_24", ChallengeType.RANDOM_TASKS, R.string.party_challenge_hot_24),
+        PartyChallenge("hot_25", ChallengeType.RANDOM_TASKS, R.string.party_challenge_hot_25),
+    )
+
+    private val workoutChallenges = listOf(
+        PartyChallenge("wo_1", ChallengeType.FUNNY_QUESTIONS, R.string.party_challenge_wo_1),
+        PartyChallenge("wo_2", ChallengeType.FUNNY_QUESTIONS, R.string.party_challenge_wo_2),
+        PartyChallenge("wo_3", ChallengeType.FUNNY_QUESTIONS, R.string.party_challenge_wo_3),
+        PartyChallenge("wo_4", ChallengeType.FUNNY_QUESTIONS, R.string.party_challenge_wo_4),
+        PartyChallenge("wo_5", ChallengeType.FUNNY_QUESTIONS, R.string.party_challenge_wo_5),
+        PartyChallenge("wo_6", ChallengeType.FUNNY_QUESTIONS, R.string.party_challenge_wo_6),
+        PartyChallenge("wo_7", ChallengeType.QUICK_DARES, R.string.party_challenge_wo_7),
+        PartyChallenge("wo_8", ChallengeType.QUICK_DARES, R.string.party_challenge_wo_8),
+        PartyChallenge("wo_9", ChallengeType.QUICK_DARES, R.string.party_challenge_wo_9),
+        PartyChallenge("wo_10", ChallengeType.QUICK_DARES, R.string.party_challenge_wo_10),
+        PartyChallenge("wo_11", ChallengeType.QUICK_DARES, R.string.party_challenge_wo_11),
+        PartyChallenge("wo_12", ChallengeType.QUICK_DARES, R.string.party_challenge_wo_12),
+        PartyChallenge("wo_13", ChallengeType.QUICK_DARES, R.string.party_challenge_wo_13),
+        PartyChallenge("wo_14", ChallengeType.GROUP_ACTIONS, R.string.party_challenge_wo_14),
+        PartyChallenge("wo_15", ChallengeType.GROUP_ACTIONS, R.string.party_challenge_wo_15),
+        PartyChallenge("wo_16", ChallengeType.GROUP_ACTIONS, R.string.party_challenge_wo_16),
+        PartyChallenge("wo_17", ChallengeType.GROUP_ACTIONS, R.string.party_challenge_wo_17),
+        PartyChallenge("wo_18", ChallengeType.GROUP_ACTIONS, R.string.party_challenge_wo_18),
+        PartyChallenge("wo_19", ChallengeType.GROUP_ACTIONS, R.string.party_challenge_wo_19),
+        PartyChallenge("wo_20", ChallengeType.RANDOM_TASKS, R.string.party_challenge_wo_20),
+        PartyChallenge("wo_21", ChallengeType.RANDOM_TASKS, R.string.party_challenge_wo_21),
+        PartyChallenge("wo_22", ChallengeType.RANDOM_TASKS, R.string.party_challenge_wo_22),
+        PartyChallenge("wo_23", ChallengeType.RANDOM_TASKS, R.string.party_challenge_wo_23),
+        PartyChallenge("wo_24", ChallengeType.RANDOM_TASKS, R.string.party_challenge_wo_24),
+        PartyChallenge("wo_25", ChallengeType.RANDOM_TASKS, R.string.party_challenge_wo_25),
+    )
+
     private val packs = listOf(
         PartyChallengePack(
-            id = "classic_party",
-            nameRes = R.string.pack_classic_party_name,
-            descRes = R.string.pack_classic_party_desc,
+            id = "funny_dare",
+            nameRes = R.string.pack_funny_dare_name,
+            descRes = R.string.pack_funny_dare_desc,
             challengesCount = 30,
             playersRange = "2–8",
             difficulty = "Easy",
             isFeatured = true,
             tags = listOf("Party", "2–8", "Easy"),
             tagResList = listOf(R.string.tag_party, R.string.difficulty_easy),
-            iconRes = R.drawable.ic_dice_d6,
-            challenges = classicPartyChallenges
-        ),
-        PartyChallengePack(
-            id = "drinking_night",
-            nameRes = R.string.pack_drinking_night_name,
-            descRes = R.string.pack_drinking_night_desc,
-            challengesCount = 30,
-            playersRange = "2–4",
-            difficulty = "Easy",
-            isFeatured = false,
-            tags = listOf("Party", "2–4", "Easy"),
-            tagResList = listOf(R.string.tag_party, R.string.difficulty_easy),
-            iconRes = R.drawable.ic_trophy,
-            challenges = drinkingNightChallenges
-        ),
-        PartyChallengePack(
-            id = "couple_fun",
-            nameRes = R.string.pack_couple_night_name,
-            descRes = R.string.pack_couple_night_desc,
-            challengesCount = 24,
-            playersRange = "2",
-            difficulty = "Medium",
-            isFeatured = false,
-            tags = listOf("Couple", "2", "Medium"),
-            tagResList = listOf(R.string.tag_couple, R.string.difficulty_medium),
-            iconRes = R.drawable.ic_star_rate,
-            challenges = coupleFunChallenges
-        ),
-        PartyChallengePack(
-            id = "crazy_dares",
-            nameRes = R.string.pack_crazy_dares_name,
-            descRes = R.string.pack_crazy_dares_desc,
-            challengesCount = 25,
-            playersRange = "3–6",
-            difficulty = "Hard",
-            isFeatured = false,
-            tags = listOf("Dares", "3–6", "Hard"),
-            tagResList = listOf(R.string.tag_dares, R.string.difficulty_hard),
             iconRes = R.drawable.ic_type_dare,
-            challenges = crazyDaresChallenges
+            challenges = classicPartyChallenges
         ),
         PartyChallengePack(
             id = "icebreaker",
@@ -302,6 +320,58 @@ object PartyPacksBank {
             tagResList = listOf(R.string.tag_icebreaker, R.string.difficulty_easy),
             iconRes = R.drawable.ic_type_funny,
             challenges = icebreakerChallenges
+        ),
+        PartyChallengePack(
+            id = "drinking_dice",
+            nameRes = R.string.pack_drinking_dice_name,
+            descRes = R.string.pack_drinking_dice_desc,
+            challengesCount = 30,
+            playersRange = "2–4",
+            difficulty = "Easy",
+            isFeatured = false,
+            tags = listOf("Party", "2–4", "Easy"),
+            tagResList = listOf(R.string.tag_party, R.string.difficulty_easy),
+            iconRes = R.drawable.ic_trophy,
+            challenges = drinkingNightChallenges
+        ),
+        PartyChallengePack(
+            id = "couple_dice",
+            nameRes = R.string.pack_couple_dice_name,
+            descRes = R.string.pack_couple_dice_desc,
+            challengesCount = 24,
+            playersRange = "2",
+            difficulty = "Medium",
+            isFeatured = false,
+            tags = listOf("Couple", "2", "Medium"),
+            tagResList = listOf(R.string.tag_couple, R.string.difficulty_medium),
+            iconRes = R.drawable.ic_star_rate,
+            challenges = coupleFunChallenges
+        ),
+        PartyChallengePack(
+            id = "hot_challenge",
+            nameRes = R.string.pack_hot_challenge_name,
+            descRes = R.string.pack_hot_challenge_desc,
+            challengesCount = 25,
+            playersRange = "2–6",
+            difficulty = "Hard",
+            isFeatured = false,
+            tags = listOf("Hot", "2–6", "Hard"),
+            tagResList = listOf(R.string.tag_dares, R.string.difficulty_hard),
+            iconRes = R.drawable.ic_challenge_flame,
+            challenges = hotChallenges
+        ),
+        PartyChallengePack(
+            id = "workout_dice",
+            nameRes = R.string.pack_workout_dice_name,
+            descRes = R.string.pack_workout_dice_desc,
+            challengesCount = 25,
+            playersRange = "1–8",
+            difficulty = "Medium",
+            isFeatured = false,
+            tags = listOf("Workout", "1–8", "Medium"),
+            tagResList = listOf(R.string.tag_workout, R.string.difficulty_medium),
+            iconRes = R.drawable.ic_workout,
+            challenges = workoutChallenges
         )
     )
 
@@ -314,7 +384,13 @@ object PartyPacksBank {
     fun getRecommendedPacks(): List<PartyChallengePack> = packs.filter { !it.isFeatured }
 
     fun getPackById(id: String): PartyChallengePack {
-        return packs.find { it.id == id } ?: getFeaturedPack()
+        return packs.find {
+            it.id == id ||
+            (id == "classic_party" && it.id == "funny_dare") ||
+            (id == "drinking_night" && it.id == "drinking_dice") ||
+            (id == "couple_fun" && it.id == "couple_dice") ||
+            (id == "crazy_dares" && it.id == "hot_challenge")
+        } ?: getFeaturedPack()
     }
 
     fun getRandomChallenge(packId: String): PartyChallenge {

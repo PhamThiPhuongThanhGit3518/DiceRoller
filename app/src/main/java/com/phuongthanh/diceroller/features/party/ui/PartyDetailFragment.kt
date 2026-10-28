@@ -20,7 +20,7 @@ class PartyDetailFragment : BaseFragment<FragmentPartyDetailBinding>(FragmentPar
     private lateinit var recAdapter: PartyRecentAdapter
 
     override fun initViews() {
-        val packId = arguments?.getString("packId") ?: "classic_party"
+        val packId = arguments?.getString("packId") ?: "funny_dare"
         currentPack = PartyPacksBank.getPackById(packId)
 
         setupTopBar()
@@ -33,7 +33,7 @@ class PartyDetailFragment : BaseFragment<FragmentPartyDetailBinding>(FragmentPar
     }
 
     private fun setupTopBar() {
-        binding.btnBack.setOnDebouncedClickListener {
+        binding.topBar.setOnBackClickListener {
             findNavController().navigateUp()
         }
     }
@@ -54,7 +54,7 @@ class PartyDetailFragment : BaseFragment<FragmentPartyDetailBinding>(FragmentPar
     }
 
     private fun bindPackDetails(pack: PartyChallengePack) {
-        binding.tvHeaderSubtitle.setText(pack.nameRes)
+        binding.topBar.setSubtitle(getString(pack.nameRes))
         binding.tvPackTitle.setText(pack.nameRes)
         binding.tvPackDesc.setText(pack.descRes)
 

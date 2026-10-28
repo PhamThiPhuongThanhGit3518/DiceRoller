@@ -24,10 +24,9 @@ class MiniWheelView @JvmOverloads constructor(
     private var customSectors: List<WheelSector> = emptyList()
 
     private val defaultPalette = listOf(
-        "#22B07D", "#E8F8EE",
-        "#10B981", "#E8F8EE",
-        "#059669", "#E8F8EE",
-        "#22B07D", "#E8F8EE"
+        "#FFFFFF", "#E5E7EB",
+        "#FFFFFF", "#E5E7EB",
+        "#FFFFFF", "#E5E7EB"
     )
 
     private val sectorPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {

@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="24dp"
+    android:layout_margin="28dp"
     app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="24dp"
-    app:cardElevation="8dp"
+    app:cardCornerRadius="28dp"
+    app:cardElevation="10dp"
     app:strokeColor="#EAECF0"
     app:strokeWidth="1.5dp">
 
@@ -16,21 +16,16 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="28dp">
+        android:paddingHorizontal="24dp"
+        android:paddingTop="32dp"
+        android:paddingBottom="28dp">
 
         <!-- Trophy Icon -->
-        <FrameLayout
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:background="@drawable/bg_squircle_icon">
-
-            <ImageView
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_trophy"
-                app:tint="#101828" />
-        </FrameLayout>
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_trophy"
+            app:tint="#101828" />
 
         <!-- Congratulation Header -->
         <TextView
@@ -38,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/roulette_congratulation"
-            android:textColor="#667085"
+            android:textColor="#475467"
             android:textSize="15sp"
             android:textStyle="bold" />
 

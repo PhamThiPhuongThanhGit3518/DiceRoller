@@ -7,52 +7,15 @@
     android:background="@drawable/bg_gradient_midnight"
     android:fitsSystemWindows="true">
 
-    <!-- Header Bar: Back Button, Title, Subtitle -->
-    <LinearLayout
-        android:id="@+id/layoutHeader"
+    <!-- Common Top Bar -->
+    <com.phuongthanh.diceroller.core.widget.CommonTopBar
+        android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="20dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="8dp"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/ic_back"
-            android:contentDescription="@string/btn_cancel"
-            android:scaleType="fitCenter" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvSettingsTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
-                android:text="@string/settings_screen_title"
-                android:textColor="@color/ui_text_white"
-                android:textSize="22sp" />
-
-            <TextView
-                android:id="@+id/tvSettingsSubtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="@string/settings_screen_subtitle"
-                android:textColor="@color/ui_text_subtitle"
-                android:textSize="13sp" />
-        </LinearLayout>
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:showBackButton="true"
+        app:topbarSubtitle="@string/settings_screen_subtitle"
+        app:topbarTitle="@string/settings_screen_title" />
 
     <!-- Scrollable Content -->
     <ScrollView
@@ -66,7 +29,7 @@
         android:paddingTop="8dp"
         android:paddingBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/btnNext"
-        app:layout_constraintTop_toBottomOf="@+id/layoutHeader">
+        app:layout_constraintTop_toBottomOf="@+id/topBar">
 
         <LinearLayout
             android:layout_width="match_parent"

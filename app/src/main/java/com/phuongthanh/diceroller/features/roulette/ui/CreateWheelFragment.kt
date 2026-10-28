@@ -33,7 +33,7 @@ class CreateWheelFragment : BaseFragment<FragmentCreateWheelBinding>(FragmentCre
     private lateinit var adapter: OptionsAdapter
 
     override fun initViews() {
-        binding.btnBack.setOnDebouncedClickListener {
+        binding.topBar.setOnBackClickListener {
             findNavController().navigateUp()
         }
 

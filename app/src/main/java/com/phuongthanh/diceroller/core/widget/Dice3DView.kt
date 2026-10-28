@@ -18,6 +18,7 @@ import android.view.animation.LinearInterpolator
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
 import com.phuongthanh.diceroller.R
+import com.phuongthanh.diceroller.core.model.DiceFaceStyle
 import com.phuongthanh.diceroller.core.opengl.model.Dice3DState
 import com.phuongthanh.diceroller.core.opengl.view.Dice3DRenderer
 import com.phuongthanh.diceroller.core.opengl.view.DicePartitionHelper
@@ -63,12 +64,23 @@ class Dice3DView @JvmOverloads constructor(
         addView(overlayView, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT))
     }
 
-    fun setThemeColors(sameColors: Boolean, diceColor: Int, dotColor: Int) {
+    fun setThemeColors(
+        sameColors: Boolean,
+        diceColor: Int,
+        dotColor: Int,
+        faceStyle: DiceFaceStyle = DiceFaceStyle.DOTS
+    ) {
         renderer.sameColorsAllDice = sameColors
         renderer.diceColor = diceColor
         renderer.dotColor = dotColor
-        overlayView.setDotColor(dotColor)
-        overlayView.invalidate()
+        renderer.faceStyle = faceStyle
+        overlayView.setThemeColors(sameColors, diceColor, dotColor)
+        glTextureView.requestRender()
+    }
+
+    fun setFaceStyle(faceStyle: DiceFaceStyle) {
+        renderer.faceStyle = faceStyle
+        glTextureView.requestRender()
     }
 
     fun setTableColors(bgColor: Int, separatorColor: Int) {
@@ -278,15 +290,25 @@ class Dice3DView @JvmOverloads constructor(
             Color.parseColor("#FFAB91")  // Soft Peach
         )
 
-        private var showDividers: Boolean = false
+        private var isShowDividers: Boolean = false
+        private var sameColorsAllDice: Boolean = true
+        private var tileDiceColor: Int = Color.parseColor("#C4EA7E")
+
+        fun setThemeColors(sameColors: Boolean, diceColor: Int, dotColor: Int) {
+            this.sameColorsAllDice = sameColors
+            this.tileDiceColor = diceColor
+            this.numberPaint.color = dotColor
+            invalidate()
+        }
 
         fun setShowDividers(show: Boolean) {
-            this.showDividers = show
+            this.isShowDividers = show
             invalidate()
         }
 
         fun setDotColor(color: Int) {
             numberPaint.color = color
+            invalidate()
         }
 
         private var isLongPressed = false
@@ -348,13 +370,17 @@ class Dice3DView @JvmOverloads constructor(
                     val die = diceItems[i]
                     val rect = diceBoundsMap[die.id] ?: continue
 
-                    // 1. Draw Tile Background Color ("mỗi ô sẽ là mỗi màu khác nhau")
-                    val tileColor = tilePalette[i % tilePalette.size]
+                    // 1. Draw Tile Background Color ("mỗi ô sẽ là mỗi màu khác nhau" unless sameColorsAllDice)
+                    val tileColor = if (sameColorsAllDice) {
+                        tileDiceColor
+                    } else {
+                        tilePalette[i % tilePalette.size]
+                    }
                     tilePaint.color = tileColor
                     canvas.drawRect(rect, tilePaint)
 
                     // 2. Draw Subtle Tile Separator Line
-                    if (showDividers) {
+                    if (isShowDividers) {
                         canvas.drawRect(rect, separatorPaint)
                     }
 

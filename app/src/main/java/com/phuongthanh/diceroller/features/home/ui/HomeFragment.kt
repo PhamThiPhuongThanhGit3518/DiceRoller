@@ -11,11 +11,11 @@ import com.phuongthanh.diceroller.features.customdice.ui.CustomDicePickerBottomS
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
     override fun initViews() {
-        binding.btnCrown.setOnDebouncedClickListener {
+        binding.topBar.setRightAction1 {
             findNavController().safeNavigate(R.id.action_homeFragment_to_premiumFragment)
         }
 
-        binding.btnSettings.setOnDebouncedClickListener {
+        binding.topBar.setRightAction2 {
             findNavController().safeNavigate(R.id.action_homeFragment_to_settingsFragment)
         }
 
@@ -36,12 +36,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         }
 
         binding.cardRecDrinkingNight.setOnDebouncedClickListener {
-            val bundle = android.os.Bundle().apply { putString("packId", "drinking_night") }
+            val bundle = android.os.Bundle().apply { putString("packId", "drinking_dice") }
             findNavController().safeNavigate(R.id.action_homeFragment_to_partyDetailFragment, bundle)
         }
 
         binding.cardRecClassicParty.setOnDebouncedClickListener {
-            val bundle = android.os.Bundle().apply { putString("packId", "classic_party") }
+            val bundle = android.os.Bundle().apply { putString("packId", "funny_dare") }
             findNavController().safeNavigate(R.id.action_homeFragment_to_partyDetailFragment, bundle)
         }
     }

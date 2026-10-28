@@ -52,6 +52,13 @@ class CustomFaceFormatBottomSheet : BottomSheetDialogFragment() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)?.let { sheet ->
+            sheet.setBackgroundResource(android.R.color.transparent)
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

@@ -28,16 +28,16 @@ class PartyFragment : BaseFragment<FragmentPartyBinding>(FragmentPartyBinding::i
     }
 
     private fun setupTopBar() {
-        binding.btnBack.setOnDebouncedClickListener {
+        binding.topBar.setOnBackClickListener {
             findNavController().navigateUp()
         }
 
-        binding.btnSettings.setOnDebouncedClickListener {
-            findNavController().safeNavigate(R.id.action_partyFragment_to_diceSettingsFragment)
+        binding.topBar.setRightAction1 {
+            // Future VIP upgrade or perks
         }
 
-        binding.btnVip.setOnDebouncedClickListener {
-            // Future VIP upgrade or perks
+        binding.topBar.setRightAction2 {
+            findNavController().safeNavigate(R.id.action_partyFragment_to_diceSettingsFragment)
         }
     }
 
